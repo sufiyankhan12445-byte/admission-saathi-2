@@ -1,0 +1,703 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"on-primary":"#ffffff","primary-fixed":"#E4DFD2","secondary-container":"#3F8570","surface-container-high":"#E4DFD2","outline":"#8A867B","on-secondary-fixed":"#1B1B18","on-primary-container":"#B9B4A6","surface-canvas":"#F8FAFC","inverse-on-surface":"#eaf1ff","surface-subtle":"#F6F3EC","primary-fixed-dim":"#DDD8CB","on-secondary":"#ffffff","secondary-fixed-dim":"#cbbeff","secondary":"#2B6B5A","on-tertiary-container":"#51a3c1","tertiary":"#001f2a","inverse-primary":"#DDD8CB","surface-variant":"#DDD8CB","secondary-fixed":"#E4DFD2","on-surface-variant":"#55534C","on-background":"#1B1B18","surface":"#F6F3EC","surface-container-lowest":"#ffffff","on-tertiary":"#ffffff","on-error":"#ffffff","outline-variant":"#DDD8CB","tertiary-fixed-dim":"#81d1f0","surface-dim":"#DDD8CB","surface-bright":"#F6F3EC","tertiary-container":"#003645","on-tertiary-fixed":"#001f29","surface-tint":"#2B6B5A","inverse-surface":"#213145","on-error-container":"#93000a","success-teal":"#0D9488","text-primary":"#111827","surface-container":"#EFEBE0","on-tertiary-fixed-variant":"#004d62","on-primary-fixed-variant":"#1B1B18","background":"#F6F3EC","surface-container-low":"#EFEBE0","on-secondary-fixed-variant":"#2B6B5A","on-surface":"#1B1B18","error-container":"#ffdad6","primary":"#1B1B18","tertiary-fixed":"#b9eaff","on-secondary-container":"#fffbff","on-primary-fixed":"#1B1B18","error":"#ba1a1a","accent-amber":"#D97706","surface-container-highest":"#DDD8CB","primary-container":"#1B1B18"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"gutter-mobile":"1rem","space-xs":"0.25rem","gutter":"1.5rem","space-md":"1rem","space-lg":"1.5rem","space-sm":"0.5rem","margin-mobile":"1rem","space-xl":"2.5rem","margin":"2rem"},"fontFamily":{"headline-sm":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"]},"fontSize":{"headline-sm":["20px",{"lineHeight":"28px","fontWeight":"600"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-lg":["18px",{"lineHeight":"28px","fontWeight":"400"}],"body-sm":["13px",{"lineHeight":"20px","fontWeight":"400"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.015em","fontWeight":"700"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"body-md":["15px",{"lineHeight":"24px","fontWeight":"400"}],"display-lg":["48px",{"lineHeight":"56px","letterSpacing":"-0.02em","fontWeight":"700"}],"display-lg-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.03em","fontWeight":"500"}]}}}}</script><!-- felt-style: visual overrides only -->
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style id="felt-style">
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap');
+:root{
+  --ink:#171C2B; --body:#3B4052; --muted:#5B6073; --line:rgba(120,90,100,.16); --btn:#0B0B0F;
+  --cream:#FCF7F2; --tint:#FFF5EE;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --sh-1:0 1px 2px rgba(60,30,50,.06),0 6px 18px -8px rgba(60,30,50,.14);
+  --sh-2:0 22px 44px -20px rgba(80,40,70,.38);
+}
+html{scroll-behavior:smooth;background:#F3D8D6}
+html body{background:linear-gradient(180deg,#F6D6CF 0%,#F4D9D7 34%,#EDD6E2 68%,#E7DBF0 100%) fixed!important;color:var(--body);font-family:'Inter',system-ui,sans-serif!important;-webkit-font-smoothing:antialiased;min-height:100vh}
+::selection{background:#171C2B;color:#fff}
+
+/* ---------- type ---------- */
+button,input,textarea,select,[class*="font-body"],[class*="font-label"],[class*="font-headline-sm"]{font-family:'Inter',system-ui,sans-serif!important}
+html body h1,html body h2,.font-display-lg,.font-display-lg-mobile,.font-headline-lg,.font-headline-md{
+  font-family:'Newsreader','Georgia',serif!important;font-weight:500!important;color:var(--ink)!important;letter-spacing:-.022em!important;line-height:1.06;font-optical-sizing:auto}
+html body h3{font-family:'Inter',system-ui,sans-serif!important;font-weight:650!important;color:var(--ink)!important;letter-spacing:-.015em!important}
+.uppercase{font-weight:500!important;letter-spacing:.08em!important;color:var(--muted)}
+
+/* ---------- page + boxes: nothing is flat white, everything is a soft tint ---------- */
+main>section[class]{background:transparent!important}
+main>section[class]:nth-of-type(even){background:rgba(255,255,255,.30)!important}
+.bg-background,.bg-surface,.bg-surface-bright,.bg-surface-canvas{background-color:transparent!important}
+.bg-surface-subtle,.bg-surface-container,.bg-surface-container-low,.bg-slate-50,.bg-gray-50,.bg-gray-100,[class*="bg-purple-50"],[class*="bg-[#F6F3EC]"]{background-color:rgba(255,255,255,.58)!important}
+.bg-surface-container-high,.bg-surface-container-highest,.bg-surface-variant,.bg-slate-100,[class*="bg-purple-100"],[class*="bg-purple-200"],[class*="bg-[#EFEBE0]"]{background-color:rgba(255,255,255,.78)!important}
+.bg-surface-container-lowest:not(section):not(footer):not(header),.bg-white:not(section):not(footer):not(header){background:linear-gradient(180deg,rgba(255,255,255,.96) 0%,var(--tint) 135%)!important}
+.grid>*:nth-child(3n+2){--tint:#E4F5FB}
+.grid>*:nth-child(3n){--tint:#F2E8F8}
+[class*="rounded"].bg-white,[class*="rounded"].bg-surface-container-lowest{border:1px solid rgba(255,255,255,.9);box-shadow:var(--sh-1)!important}
+.rounded-3xl,.rounded-2xl{border-radius:22px!important}
+.rounded-xl{border-radius:16px!important}
+.rounded-lg,.rounded-md{border-radius:12px!important}
+.shadow,.shadow-xs,.shadow-sm,.shadow-md,.shadow-lg,.shadow-xl,.shadow-2xl,[class*="shadow-["]{box-shadow:var(--sh-1)!important}
+.blur-3xl,.blur-2xl{display:none!important}
+
+header.fixed,header{background:rgba(252,247,242,.88)!important;backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px);box-shadow:none!important;border-bottom:1px solid rgba(120,90,100,.10)!important}
+footer{background:rgba(252,247,242,.80)!important;border-top:1px solid rgba(120,90,100,.12)!important;box-shadow:none!important}
+
+/* ---------- colour mapping ---------- */
+.bg-primary,.bg-primary-container,.bg-inverse-surface,.bg-secondary,.bg-secondary-container,[class*="bg-[#1B1B18]"]{background-color:var(--btn)!important;color:#fff}
+.hover\:bg-secondary:hover,.hover\:bg-primary-container:hover,[class*="hover:bg-[#2B6B5A]"]:hover{background-color:#2A2D3A!important}
+.text-primary,.text-on-surface,.text-on-background,.text-text-primary,.text-gray-900,.text-slate-900{color:var(--ink)!important}
+.text-on-surface-variant,.text-gray-700,.text-gray-600,.text-gray-500,.text-slate-600,.text-slate-500{color:var(--body)!important}
+.text-secondary{color:var(--ink)!important}
+.text-success-teal,.text-teal-600{color:#16A34A!important}
+.bg-primary *,.bg-primary-container *,.bg-secondary *,[class*="bg-[#1B1B18]"] *{color:inherit}
+.border-outline-variant,[class*="border-outline-variant"],[class*="border-purple"],[class*="border-slate-"],[class*="border-gray-"]{border-color:var(--line)!important}
+
+/* ---------- icon tiles: soft pink gradient like the reference ---------- */
+[class*="rounded"][class*="bg-"]:has(>.material-symbols-outlined){background:linear-gradient(135deg,#FBE3DD,#F1E4F1)!important;border:1px solid rgba(255,255,255,.9)}
+[class*="rounded"]:has(>.material-symbols-outlined) .material-symbols-outlined,[class*="rounded"]>.material-symbols-outlined{color:var(--ink)}
+
+/* ---------- buttons ---------- */
+button:not(.prompt-starter-btn):not([class*="rounded-full"]){border-radius:10px!important}
+button[class*="bg-primary"],button[class*="bg-[#1B1B18]"],button[class*="bg-secondary"],a[class*="bg-primary"]{background-color:var(--btn)!important;color:#fff!important;border:1px solid var(--btn);font-weight:600}
+button[class*="bg-primary"]:hover,button[class*="bg-[#1B1B18]"]:hover,a[class*="bg-primary"]:hover{background-color:#2A2D3A!important}
+button[class*="bg-surface-subtle"],button[class*="bg-[#F6F3EC]"],button[class*="bg-white"],button[class*="bg-surface-container-lowest"]{background:rgba(255,255,255,.9)!important;border:1px solid rgba(120,90,100,.16)!important;color:var(--ink);box-shadow:var(--sh-1)}
+button[class*="bg-surface-subtle"]:hover,button[class*="bg-[#F6F3EC]"]:hover,button[class*="bg-white"]:hover{border-color:var(--ink)!important;background:#fff!important}
+.prompt-starter-btn,.portal-link{border-radius:14px!important;background:linear-gradient(180deg,rgba(255,255,255,.95),#FFF3EC)!important;border:1px solid rgba(255,255,255,.9);color:var(--ink)!important;box-shadow:var(--sh-1)}
+.prompt-starter-btn:hover,.portal-link:hover{transform:translateX(4px);box-shadow:var(--sh-2)}
+span.rounded-full{background-color:rgba(255,255,255,.85)!important;box-shadow:var(--sh-1)}
+
+/* ---------- inputs ---------- */
+input,textarea,select{border-radius:12px!important;border:1px solid rgba(120,90,100,.18)!important;background-color:rgba(255,255,255,.95)!important;box-shadow:0 1px 2px rgba(60,30,50,.06);color:#2B2F3E}
+input:focus,textarea:focus,select:focus{border-color:var(--ink)!important;box-shadow:0 0 0 4px rgba(23,28,43,.10)!important;outline:none!important}
+:focus-visible{outline:2px solid var(--ink)!important;outline-offset:2px}
+input:focus-visible,textarea:focus-visible,select:focus-visible{outline:none!important}
+table{border-collapse:separate;border-spacing:0}
+thead th{background:rgba(255,255,255,.6)!important;color:var(--muted)!important;font-weight:600}
+td,th{border-color:var(--line)!important}
+</style>
+<!-- felt-motion: animation only -->
+<script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('fa');</script>
+<style id="felt-motion">
+@keyframes fa-up{from{opacity:0;transform:translateY(26px);filter:blur(5px)}to{opacity:1;transform:none;filter:blur(0)}}
+@keyframes fa-pop{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes fa-aurora{0%{transform:translate3d(-3%,-2%,0) scale(1)}50%{transform:translate3d(3%,2%,0) scale(1.08)}100%{transform:translate3d(-2%,4%,0) scale(1.03)}}
+@keyframes fa-shine{from{transform:translateX(-120%) skewX(-20deg)}to{transform:translateX(240%) skewX(-20deg)}}
+@keyframes fa-ping{0%{box-shadow:0 0 0 0 rgba(22,163,74,.4)}70%,100%{box-shadow:0 0 0 9px rgba(22,163,74,0)}}
+@keyframes fa-progress{to{transform:scaleX(1)}}
+@keyframes fa-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+
+/* drifting peach / lilac / sky colour glow over the page gradient */
+body::before{content:"";position:fixed;inset:-12%;z-index:-1;pointer-events:none;
+  background:radial-gradient(34% 38% at 14% 14%,rgba(255,190,170,.55),transparent 70%),radial-gradient(34% 40% at 88% 22%,rgba(205,190,245,.55),transparent 70%),radial-gradient(40% 40% at 55% 92%,rgba(170,225,245,.50),transparent 70%);
+  animation:fa-aurora 16s ease-in-out infinite alternate}
+
+/* scroll progress bar */
+@supports (animation-timeline:scroll()){
+  html::before{content:"";position:fixed;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#F2A38F,#B79BE8,#171C2B);transform:scaleX(0);transform-origin:0 50%;z-index:100;pointer-events:none;animation:fa-progress linear both;animation-timeline:scroll(root)}
+}
+
+/* hero entrance */
+html.fa main>section:first-of-type h1,
+html.fa main>section:first-of-type h1~*{animation:fa-up 1s var(--ease) both}
+html.fa main>section:first-of-type h1~*:nth-child(2){animation-delay:.1s}
+html.fa main>section:first-of-type h1~*:nth-child(3){animation-delay:.2s}
+html.fa main>section:first-of-type h1~*:nth-child(n+4){animation-delay:.3s}
+html.fa main>section:first-of-type span.rounded-full{animation:fa-float 5s ease-in-out infinite}
+
+/* scroll reveal (existing felt-motion-js classes) */
+html.fa .fa-r{opacity:0;transform:translateY(30px);filter:blur(3px)}
+html.fa .fa-r.fa-in{opacity:1;transform:none;filter:blur(0);transition:opacity .75s var(--ease),transform .75s var(--ease),filter .75s var(--ease);transition-delay:var(--d,0ms)}
+
+/* cards */
+@media (hover:hover){.grid>[class*="rounded"]:not(input):not(textarea):not(button):hover{transform:translateY(-4px);box-shadow:var(--sh-2)!important}}
+.grid>[class*="rounded"]:not(input):not(textarea):not(button){transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.group:hover .material-symbols-outlined{transform:scale(1.12) rotate(-5deg)}
+.material-symbols-outlined{transition:transform .45s var(--ease),color .3s var(--ease)}
+.group:hover [class*="rounded"][class*="bg-"]:has(>.material-symbols-outlined){background:var(--btn)!important}
+.group:hover [class*="rounded"]>.material-symbols-outlined{color:#fff!important}
+
+/* buttons */
+a,button{transition:background-color .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease),transform .3s var(--ease),box-shadow .3s var(--ease),opacity .3s var(--ease)}
+button:not(:disabled):hover{transform:translateY(-1px)}
+a:active,button:active{transform:scale(.97)}
+button[class*="bg-primary"],button[class*="bg-[#1B1B18]"],a[class*="bg-primary"]{position:relative;overflow:hidden}
+button[class*="bg-primary"]::after,button[class*="bg-[#1B1B18]"]::after,a[class*="bg-primary"]::after{content:"";position:absolute;top:0;bottom:0;left:0;width:36%;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);transform:translateX(-120%) skewX(-20deg)}
+button[class*="bg-primary"]:hover::after,button[class*="bg-[#1B1B18]"]:hover::after,a[class*="bg-primary"]:hover::after{animation:fa-shine .85s var(--ease)}
+button[class*="bg-primary"]:not(:disabled):hover,button[class*="bg-[#1B1B18]"]:not(:disabled):hover{box-shadow:0 12px 24px -10px rgba(11,11,15,.6)}
+
+/* footer links, header, tables, chat */
+footer a{background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .4s var(--ease),color .3s var(--ease)}
+footer a:hover{background-size:100% 1px;color:var(--ink)}
+header.fixed{transition:background-color .35s var(--ease),border-color .35s var(--ease)}
+header.fixed.fa-scrolled{background:rgba(252,247,242,.97)!important;border-bottom-color:rgba(120,90,100,.22)!important}
+.text-success-teal{border-radius:9999px;animation:fa-ping 2.6s ease-out infinite}
+tbody tr{transition:background-color .2s var(--ease)}
+tbody tr:hover{background:rgba(255,255,255,.6)}
+#chatFeed>*{animation:fa-pop .4s var(--ease) both}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}html.fa .fa-r{opacity:1;transform:none;filter:none}}
+</style>
+</head><body class="bg-[#F6F3EC] font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_1px_8px_rgba(50,32,120,0.04)]"><div class="h-20 max-w-[1280px] mx-auto px-margin flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-md"><img alt="Admission Saathi Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx9dB2c1F6wqj27hKX12zkn_rugIPkQtQhtEIEGjDw0SQxu4AKPcScbVgdhdFWzVtCjbvSP59y3ow7mv4WpVjXQ0sPo3-Igx-Yylsfk0cqW5Mz5hyzTm0L8Bx_zxaI2kxvuHB-o4UdIDAro7OPd1TsjzVujgGC4q56VMVSK-TtBf2Zmbr-IqwV69-LJoeKzlOUxB1fv6lZZ74dZcA4-pWlmQlsJXrrUFxRpjlVgsg"><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight leading-none">Admission Saathi</span><span class="font-label-sm text-label-sm text-on-surface-variant font-medium mt-0.5 tracking-wide">Student Counselling Platform</span></div></div><nav class="hidden md:flex items-center gap-2" data-active-classes="bg-primary-container text-on-primary font-label-lg rounded-lg"><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-subtle px-3 py-2 rounded-lg transition-colors" data-path="home" href="/">Home</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-subtle px-3 py-2 rounded-lg transition-colors" data-path="admission-assistant" href="/admission-assistant/">Admission Assistant</a><a aria-current="page" class="px-3 py-2 transition-colors bg-primary-container text-on-primary font-label-lg rounded-lg" data-path="college-predictor" href="/college-predictor/">College Predictor</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-subtle px-3 py-2 rounded-lg transition-colors" data-path="placements" href="/iit-placements/">IIT Placements</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-subtle px-3 py-2 rounded-lg transition-colors" data-path="admission-calendar" href="/admission-calendar/">Admission Calendar</a></nav></div></header><main class="w-full pt-20 bg-[#F6F3EC]"><div class="flex flex-col w-full">
+<!-- Subtle Ambient Glow -->
+<div class="relative w-full max-w-[1280px] mx-auto px-margin-mobile md:px-margin py-space-lg md:py-space-xl">
+<div class="absolute -top-10 left-1/3 w-96 h-96 bg-primary-fixed/40 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<div class="absolute top-48 right-10 w-80 h-80 bg-secondary-fixed/30 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<!-- 1. Header & Guidance Banner -->
+<section class="flex flex-col gap-space-sm mb-space-xl max-w-4xl">
+<div class="inline-flex items-center gap-space-xs self-start px-3 py-1.5 rounded-full bg-surface-subtle shadow-sm border border-outline-variant/30">
+<span class="material-symbols-outlined text-secondary text-[16px]">verified</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">Predictions across IITs, NITs, IIITs &amp; GFTIs</span>
+</div>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary tracking-tight">
+        College Predictor
+      </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl leading-relaxed">
+        Input your examination score or rank, reservation category, and state domicile to discover institutional opening and closing cutoffs across all premier national engineering institutions based on historical counselling data.
+      </p>
+<!-- Metric micro-strip -->
+<div class="flex flex-wrap items-center gap-space-md pt-space-xs">
+<div class="flex items-center gap-space-xs bg-surface-container-lowest px-3 py-1.5 rounded-lg shadow-sm border border-outline-variant/20">
+<span class="material-symbols-outlined text-success-teal text-[18px]">account_balance</span>
+<span class="font-label-sm text-label-sm text-on-surface">IITs, NITs, IIITs &amp; GFTIs</span>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container-lowest px-3 py-1.5 rounded-lg shadow-sm border border-outline-variant/20">
+<span class="material-symbols-outlined text-secondary text-[18px]">analytics</span>
+<span class="font-label-sm text-label-sm text-on-surface">Official JoSAA &amp; CSAB Archive</span>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container-lowest px-3 py-1.5 rounded-lg shadow-sm border border-outline-variant/20">
+<span class="material-symbols-outlined text-accent-amber text-[18px]">verified_user</span>
+<span class="font-label-sm text-label-sm text-on-surface">Previous Year Cutoffs</span>
+</div>
+</div>
+</section>
+<!-- 2. Predictor Input Form Section (Card Layout) -->
+<section class="bg-surface-container-lowest rounded-xl p-space-md md:p-space-xl shadow-md mb-space-xl border border-outline-variant/20">
+<div class="flex flex-col md:flex-row md:items-center justify-between pb-space-md mb-space-lg gap-space-sm border-b border-surface-subtle">
+<div>
+<span class="font-label-md text-label-md uppercase tracking-wider text-secondary">Candidate Profile</span>
+<h2 class="font-headline-md text-headline-md text-primary">Input Your Exam Rank, Category &amp; Preferences</h2>
+</div>
+<span class="inline-flex items-center gap-1 font-body-sm text-body-sm text-on-surface-variant bg-surface-subtle px-3 py-1 rounded-full">
+<span class="material-symbols-outlined text-[16px] text-success-teal">shield</span>
+          No signup required • Data remains local
+        </span>
+</div>
+<form class="flex flex-col gap-space-lg" id="predictor-form" onsubmit="event.preventDefault();">
+<!-- Row 1: Entrance Exam Selector -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-lg text-label-lg text-primary">Target Entrance Examination</label>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Select exam to adjust rank/percentile input</span>
+</div>
+<div class="flex flex-wrap items-center gap-2" id="exam-pills">
+<button class="exam-btn px-4 py-2 rounded-lg font-label-md text-label-md bg-primary text-on-primary shadow-sm transition-all" data-exam="jee-main" type="button">JEE Main</button>
+<button class="exam-btn px-4 py-2 rounded-lg font-label-md text-label-md bg-surface-subtle text-on-surface hover:bg-surface-container-high transition-all" data-exam="jee-adv" type="button">JEE Advanced</button>
+</div>
+</div>
+<!-- Row 2: Score & Category Input -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-lg text-label-lg text-primary" for="rank-score" id="rank-label">All India Rank (CRL / Category Rank)</label>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Mandatory</span>
+</div>
+<div class="relative flex items-center">
+<span class="absolute left-3 material-symbols-outlined text-outline text-[20px]" id="rank-icon">pin</span>
+<input class="w-full h-11 pl-10 pr-4 rounded-lg bg-surface-container-lowest border border-outline-variant/50 text-on-surface font-body-md text-body-md shadow-sm focus:outline-none focus:border-secondary focus:bg-surface-container-low transition-colors" id="rank-score" placeholder="e.g. 14500" type="text" value="14500">
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant" id="rank-helptext">Enter CRL / Category Rank for JoSAA/CSAB counselling analysis</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-lg text-label-lg text-primary" for="category-select">Reservation Category</label>
+<div class="relative flex items-center">
+<span class="absolute left-3 material-symbols-outlined text-outline text-[20px]">badge</span>
+<select class="w-full h-11 pl-10 pr-8 rounded-lg bg-surface-container-lowest border border-outline-variant/50 text-on-surface font-body-md text-body-md shadow-sm focus:outline-none focus:border-secondary focus:bg-surface-container-low transition-colors appearance-none" id="category-select">
+<option value="GEN">Open / General</option>
+<option selected="" value="OBC-NCL">OBC-NCL (Non-Creamy Layer)</option>
+<option value="GEN-EWS">EWS (Economically Weaker Section)</option>
+<option value="SC">SC (Scheduled Caste)</option>
+<option value="ST">ST (Scheduled Tribe)</option>
+<option value="PwD">PwD (Person with Benchmark Disability)</option>
+</select>
+<span class="absolute right-3 material-symbols-outlined text-outline pointer-events-none text-[20px]">expand_more</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Matches specific category opening and closing cutoffs</span>
+</div>
+</div>
+<!-- Row 3: Domicile & Gender Quota -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-lg text-label-lg text-primary" for="domicile-select">Home State / Domicile</label>
+<div class="relative flex items-center">
+<span class="absolute left-3 material-symbols-outlined text-outline text-[20px]">location_on</span>
+<select class="w-full h-11 pl-10 pr-8 rounded-lg bg-surface-container-lowest border border-outline-variant/50 text-on-surface font-body-md text-body-md shadow-sm focus:outline-none focus:border-secondary focus:bg-surface-container-low transition-colors appearance-none" id="domicile-select">
+<option value="AP">Andhra Pradesh</option>
+<option value="AR">Arunachal Pradesh</option>
+<option value="AS">Assam</option>
+<option value="BR">Bihar</option>
+<option value="CH">Chandigarh</option>
+<option value="CT">Chhattisgarh</option>
+<option value="DL">Delhi (NCT)</option>
+<option value="GA">Goa</option>
+<option value="GJ">Gujarat</option>
+<option value="HR">Haryana</option>
+<option value="HP">Himachal Pradesh</option>
+<option value="JK">Jammu and Kashmir</option>
+<option value="JH">Jharkhand</option>
+<option value="KA">Karnataka</option>
+<option value="KL">Kerala</option>
+<option value="MP">Madhya Pradesh</option>
+<option selected="" value="MH">Maharashtra</option>
+<option value="MN">Manipur</option>
+<option value="ML">Meghalaya</option>
+<option value="MZ">Mizoram</option>
+<option value="NL">Nagaland</option>
+<option value="OD">Odisha</option>
+<option value="PB">Punjab</option>
+<option value="RJ">Rajasthan</option>
+<option value="SK">Sikkim</option>
+<option value="TN">Tamil Nadu</option>
+<option value="TG">Telangana</option>
+<option value="TR">Tripura</option>
+<option value="UP">Uttar Pradesh</option>
+<option value="UT">Uttarakhand</option>
+<option value="WB">West Bengal</option>
+<option value="OTHER">Other State / Union Territory</option>
+</select>
+<span class="absolute right-3 material-symbols-outlined text-outline pointer-events-none text-[20px]">expand_more</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Applies Home State (HS) vs Other State (OS) quota rules</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-lg text-label-lg text-primary">Gender Quota Pool</label>
+<div class="grid grid-cols-2 gap-space-sm h-11">
+<label class="flex items-center gap-space-xs px-3 rounded-lg bg-surface-subtle border border-outline-variant/30 cursor-pointer hover:bg-surface-container-high transition-colors">
+<input checked="" class="accent-primary w-4 h-4" name="gender" type="radio" value="neutral">
+<span class="font-label-md text-label-md text-on-surface">Gender-Neutral</span>
+</label>
+<label class="flex items-center gap-space-xs px-3 rounded-lg bg-surface-subtle border border-outline-variant/30 cursor-pointer hover:bg-surface-container-high transition-colors">
+<input class="accent-primary w-4 h-4" name="gender" type="radio" value="female">
+<span class="font-label-md text-label-md text-on-surface">Female-Only Pool</span>
+</label>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Evaluates general pool or 20% supernumerary female pool</span>
+</div>
+</div>
+<!-- Row 4: Academic Preferences -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-lg text-label-lg text-primary" for="branch-select">Preferred Branch / Specialization</label>
+<div class="relative flex items-center">
+<span class="absolute left-3 material-symbols-outlined text-outline text-[20px]">computer</span>
+<select class="w-full h-11 pl-10 pr-8 rounded-lg bg-surface-container-lowest border border-outline-variant/50 text-on-surface font-body-md text-body-md shadow-sm focus:outline-none focus:border-secondary focus:bg-surface-container-low transition-colors appearance-none" id="branch-select">
+<option value="ALL">All Branches</option>
+<option selected="" value="CSE">Computer Science &amp; Engg (CSE)</option>
+<option value="ECE">Electronics &amp; Comm. (ECE)</option>
+<option value="EE">Electrical Engineering (EE)</option>
+<option value="MECH">Mechanical Engineering</option>
+<option value="CIVIL">Civil Engineering</option>
+<option value="CHEM">Chemical Engineering</option>
+<option value="BIO">Biotechnology / Biochemical</option>
+</select>
+<span class="absolute right-3 material-symbols-outlined text-outline pointer-events-none text-[20px]">expand_more</span>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-lg text-label-lg text-primary" for="inst-select">Preferred Location / Institute Type</label>
+<div class="relative flex items-center">
+<span class="absolute left-3 material-symbols-outlined text-outline text-[20px]">account_balance</span>
+<select class="w-full h-11 pl-10 pr-8 rounded-lg bg-surface-container-lowest border border-outline-variant/50 text-on-surface font-body-md text-body-md shadow-sm focus:outline-none focus:border-secondary focus:bg-surface-container-low transition-colors appearance-none" id="inst-select">
+<option selected="" value="ALL">All Institutions (IITs, NITs, IIITs &amp; GFTIs)</option>
+<option value="IIT">IITs (Indian Institutes of Technology)</option>
+<option value="NIT">NITs (National Institutes of Technology)</option>
+<option value="IIIT">IIITs (Indian Institutes of Information Technology)</option>
+<option value="GFTI">Central Govt GFTIs</option>
+</select>
+<span class="absolute right-3 material-symbols-outlined text-outline pointer-events-none text-[20px]">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Action Row -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-space-md pt-space-sm border-t border-surface-subtle">
+<button class="order-2 sm:order-1 font-label-md text-label-md text-primary hover:text-secondary flex items-center gap-1 transition-colors" type="reset">
+<span class="material-symbols-outlined text-[16px]">restart_alt</span>
+            Reset All Preferences
+          </button>
+<button class="order-1 sm:order-2 w-full sm:w-auto h-12 px-8 rounded-lg bg-primary text-on-primary font-label-lg text-label-lg hover:bg-primary-container flex items-center justify-center gap-space-sm shadow-md transition-colors" id="predict-btn" type="submit">
+<span class="material-symbols-outlined text-[20px]">search</span>
+<span class="">Find Suitable Colleges</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</form>
+</section>
+<!-- 3. Results Section -->
+<section class="flex flex-col gap-space-lg mb-space-xl">
+<!-- Data Integrity & Official Disclosure Badge -->
+<div class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/40 shadow-sm flex items-start sm:items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-secondary-fixed/50 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[20px]">policy</span>
+</div>
+<div class="flex flex-col text-left">
+<span class="font-label-md text-label-md text-primary font-bold">Official Counselling Cutoff Benchmark</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+Based on Official Previous Year JoSAA &amp; CSAB Opening-Closing Ranks. Does not guarantee seat allotment.
+</p>
+</div>
+</div>
+<!-- Section Header & Filter Toolbar -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-primary">Predicted Allotment Matches</span>
+<span class="px-2.5 py-0.5 rounded-full font-label-sm text-label-sm bg-primary-fixed text-primary font-bold">4 Verified Matches</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Analysis based on Rank #14,500 | OBC-NCL | Maharashtra Domicile</span>
+</div>
+<!-- Filter / Tabs Strip -->
+<div class="flex flex-wrap items-center gap-2">
+<!-- Realistic Chance Tabs -->
+<div class="flex items-center p-1 rounded-lg bg-surface-container-low shadow-sm border border-outline-variant/30">
+<button class="prob-filter-btn px-3 py-1.5 rounded-md font-label-sm text-label-sm bg-surface-container-lowest text-primary font-bold shadow-sm" data-filter="all">All</button>
+<button class="prob-filter-btn px-3 py-1.5 rounded-md font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface" data-filter="high">
+<span class="inline-block w-2 h-2 rounded-full bg-success-teal mr-1"></span>High Chance
+</button>
+<button class="prob-filter-btn px-3 py-1.5 rounded-md font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface" data-filter="moderate">
+<span class="inline-block w-2 h-2 rounded-full bg-accent-amber mr-1"></span>Borderline / Moderate
+</button>
+<button class="prob-filter-btn px-3 py-1.5 rounded-md font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface" data-filter="ambitious">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary mr-1"></span>Ambitious
+</button>
+</div>
+<!-- Sort Dropdown -->
+<div class="relative flex items-center">
+<select class="h-9 pl-3 pr-8 rounded-lg bg-surface-container-lowest border border-outline-variant/40 text-on-surface font-label-sm text-label-sm shadow-sm focus:outline-none appearance-none cursor-pointer">
+<option>Sort: Closing Rank (Closest)</option>
+<option>Sort: Opening Rank</option>
+<option>Sort: Institute Classification</option>
+</select>
+<span class="absolute right-2 material-symbols-outlined text-outline pointer-events-none text-[16px]">sort</span>
+</div>
+</div>
+</div>
+<!-- Result Cards Mosaic Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-space-lg" id="results-grid">
+<!-- Card 1: NIT Rourkela -->
+<article class="college-card flex flex-col bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md border border-outline-variant/30 transition-shadow relative overflow-hidden" data-possibility="high">
+<div class="absolute top-0 left-0 right-0 h-1.5 bg-success-teal"></div>
+<div class="flex items-start justify-between gap-space-sm mb-space-sm pt-1">
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-surface-subtle flex items-center justify-center text-primary font-bold font-headline-sm border border-outline-variant/20">
+  NIT
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5 flex-wrap">
+<h3 class="font-headline-sm text-headline-sm text-primary leading-tight">National Institute of Technology (NIT) Rourkela</h3>
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-surface-container-high text-on-surface">NIT • Central</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span> Rourkela, Odisha
+</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full font-label-sm text-label-sm bg-success-teal/10 text-success-teal font-bold">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+  High Chance
+</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5 text-right text-[11px] max-w-[130px]">Rank safely within last year's closing margin</span>
+</div>
+</div>
+<!-- Academic & Cutoff Summary Strip -->
+<div class="bg-surface-subtle rounded-lg p-space-sm my-space-sm flex flex-col gap-2.5 border border-outline-variant/20">
+<div class="flex items-center justify-between flex-wrap gap-1">
+<span class="font-label-lg text-label-lg text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary text-[18px]">bolt</span>
+  B.Tech in Electrical Engineering
+</span>
+<span class="font-label-sm text-label-sm bg-surface-container-lowest px-2 py-0.5 rounded text-on-surface border border-outline-variant/30">
+  Official Cutoff
+</span>
+</div>
+<!-- Authority & Quota Matrix -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2 py-1 text-[12px] border-y border-outline-variant/20">
+<div>
+<span class="text-on-surface-variant block font-label-sm">Counselling Round:</span>
+<span class="font-semibold text-primary">JoSAA Round 6</span>
+</div>
+<div>
+<span class="text-on-surface-variant block font-label-sm">Quota:</span>
+<span class="font-semibold text-on-surface">OS (Other State)</span>
+</div>
+<div>
+<span class="text-on-surface-variant block font-label-sm">Category:</span>
+<span class="font-semibold text-on-surface">OBC-NCL</span>
+</div>
+<div>
+<span class="text-on-surface-variant block font-label-sm">Seat Allocation:</span>
+<span class="font-semibold text-on-surface">Gender-Neutral</span>
+</div>
+</div>
+<!-- Opening vs Closing Cutoff -->
+<div class="grid grid-cols-3 gap-2 pt-1">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Opening Rank (OR)</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">12,450</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Closing Rank (CR)</span>
+<span class="font-label-md text-label-md text-primary font-bold">16,840</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Rank Gap to CR</span>
+<span class="font-label-md text-label-md text-success-teal font-bold">+2,340 ranks within cutoff</span>
+</div>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-auto pt-2">
+<span class="font-semibold text-on-surface">Data Source:</span> Official JoSAA Closing Ranks archive. Metric denotes clearance beyond the Round 6 threshold. Seat allocation remains contingent upon the current cohort's distribution.
+</p>
+</article>
+<!-- Card 2: IIIT Allahabad -->
+<article class="college-card flex flex-col bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md border border-outline-variant/30 transition-shadow relative overflow-hidden" data-possibility="moderate">
+<div class="absolute top-0 left-0 right-0 h-1.5 bg-accent-amber"></div>
+<div class="flex items-start justify-between gap-space-sm mb-space-sm pt-1">
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-surface-subtle flex items-center justify-center text-primary font-bold font-headline-sm border border-outline-variant/20">
+  IIIT
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5 flex-wrap">
+<h3 class="font-headline-sm text-headline-sm text-primary leading-tight">Indian Institute of Information Technology (IIIT) Allahabad</h3>
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-surface-container-high text-on-surface">IIIT • Central</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span> Prayagraj, Uttar Pradesh
+</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full font-label-sm text-label-sm bg-accent-amber/15 text-accent-amber font-bold">
+<span class="material-symbols-outlined text-[16px]">timelapse</span>
+  Borderline / Moderate
+</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5 text-right text-[11px] max-w-[130px]">Close to previous year cutoff threshold</span>
+</div>
+</div>
+<!-- Academic & Cutoff Summary Strip -->
+<div class="bg-surface-subtle rounded-lg p-space-sm my-space-sm flex flex-col gap-2.5 border border-outline-variant/20">
+<div class="flex items-center justify-between flex-wrap gap-1">
+<span class="font-label-lg text-label-lg text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary text-[18px]">memory</span>
+  B.Tech in Electronics &amp; Communication (ECE)
+</span>
+<span class="font-label-sm text-label-sm bg-surface-container-lowest px-2 py-0.5 rounded text-on-surface border border-outline-variant/30">
+  Official Cutoff
+</span>
+</div>
+<!-- Authority & Quota Matrix -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2 py-1 text-[12px] border-y border-outline-variant/20">
+<div>
+<span class="text-on-surface-variant block font-label-sm">Counselling Round:</span>
+<span class="font-semibold text-primary">JoSAA Round 6</span>
+</div>
+<div>
+<span class="text-on-surface-variant block font-label-sm">Quota:</span>
+<span class="font-semibold text-on-surface">AI (All India)</span>
+</div>
+<div>
+<span class="text-on-surface-variant block font-label-sm">Category:</span>
+<span class="font-semibold text-on-surface">OBC-NCL</span>
+</div>
+<div>
+<span class="text-on-surface-variant block font-label-sm">Seat Allocation:</span>
+<span class="font-semibold text-on-surface">Gender-Neutral</span>
+</div>
+</div>
+<!-- Opening vs Closing Cutoff -->
+<div class="grid grid-cols-3 gap-2 pt-1">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Opening Rank (OR)</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">11,200</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Closing Rank (CR)</span>
+<span class="font-label-md text-label-md text-primary font-bold">14,100</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Rank Gap to CR</span>
+<span class="font-label-md text-label-md text-accent-amber font-bold">-400 ranks from threshold</span>
+</div>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-auto pt-2">
+<span class="font-semibold text-on-surface">Data Source:</span> Official JoSAA &amp; CSAB Special Round data. Borderline categorization indicates rank falls within historical cutoff fluctuation margins.
+</p>
+</article>
+<!-- Card 4: IIT Kharagpur / NIT Calicut (Ambitious) -->
+<article class="college-card flex flex-col bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md border border-outline-variant/30 transition-shadow relative overflow-hidden" data-possibility="ambitious">
+<div class="absolute top-0 left-0 right-0 h-1.5 bg-secondary"></div>
+<div class="flex items-start justify-between gap-space-sm mb-space-sm pt-1">
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-surface-subtle flex items-center justify-center text-primary font-bold font-headline-sm border border-outline-variant/20">
+  NIT
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5 flex-wrap">
+<h3 class="font-headline-sm text-headline-sm text-primary leading-tight">National Institute of Technology (NIT) Calicut</h3>
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-surface-container-high text-on-surface">NIT • Central</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span> Kozhikode, Kerala
+</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full font-label-sm text-label-sm bg-secondary/10 text-secondary font-bold">
+<span class="material-symbols-outlined text-[16px]">stars</span>
+  Ambitious
+</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5 text-right text-[11px] max-w-[130px]">Exceeds past round closing cutoff</span>
+</div>
+</div>
+<!-- Academic & Cutoff Summary Strip -->
+<div class="bg-surface-subtle rounded-lg p-space-sm my-space-sm flex flex-col gap-2.5 border border-outline-variant/20">
+<div class="flex items-center justify-between flex-wrap gap-1">
+<span class="font-label-lg text-label-lg text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary text-[18px]">code</span>
+  B.Tech in Computer Science &amp; Engg (CSE)
+</span>
+<span class="font-label-sm text-label-sm bg-surface-container-lowest px-2 py-0.5 rounded text-on-surface border border-outline-variant/30">
+  Official Cutoff
+</span>
+</div>
+<!-- Authority & Quota Matrix -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2 py-1 text-[12px] border-y border-outline-variant/20">
+<div>
+<span class="text-on-surface-variant block font-label-sm">Counselling Round:</span>
+<span class="font-semibold text-primary">JoSAA Round 6</span>
+</div>
+<div>
+<span class="text-on-surface-variant block font-label-sm">Quota:</span>
+<span class="font-semibold text-on-surface">OS (Other State)</span>
+</div>
+<div>
+<span class="text-on-surface-variant block font-label-sm">Category:</span>
+<span class="font-semibold text-on-surface">OBC-NCL</span>
+</div>
+<div>
+<span class="text-on-surface-variant block font-label-sm">Seat Allocation:</span>
+<span class="font-semibold text-on-surface">Gender-Neutral</span>
+</div>
+</div>
+<!-- Opening vs Closing Cutoff -->
+<div class="grid grid-cols-3 gap-2 pt-1">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Opening Rank (OR)</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">8,900</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Closing Rank (CR)</span>
+<span class="font-label-md text-label-md text-primary font-bold">11,200</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Distance from CR</span>
+<span class="font-label-md text-label-md text-error font-bold">-3,300 ranks outside CR</span>
+</div>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-auto pt-2">
+<span class="font-semibold text-on-surface">Data Source:</span> Official JoSAA Round 6 Closing Table. Ambitious rating signifies the input rank is beyond the preceding year's closing threshold and relies on potential CSAB vacant-seat movements.
+</p>
+</article>
+</div>
+<!-- Explanatory Guide Box on Indicators -->
+<div class="p-space-md bg-surface-container-lowest rounded-xl border border-outline-variant/30 text-on-surface-variant flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[22px]">info</span>
+<span class="font-body-sm text-body-sm"><strong class="text-primary">Understanding Indicator Labels:</strong> Indicators represent numeric distance to previous year closing ranks and are not guarantees of admission.</span>
+</div>
+<div class="flex items-center gap-4 text-xs font-semibold shrink-0">
+<span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-success-teal"></span> High Chance: Within previous CR</span>
+<span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-accent-amber"></span> Borderline: ±500 ranks to CR</span>
+<span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-secondary"></span> Ambitious: Outside past CR</span>
+</div>
+</div>
+</section>
+<!-- Visual Informational Cards -->
+
+</div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const examButtons = document.querySelectorAll('.exam-btn');
+    const rankLabel = document.getElementById('rank-label');
+    const rankInput = document.getElementById('rank-score');
+    const rankHelptext = document.getElementById('rank-helptext');
+    const rankIcon = document.getElementById('rank-icon');
+
+    examButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        examButtons.forEach(b => {
+          b.classList.remove('bg-primary', 'text-on-primary');
+          b.classList.add('bg-surface-subtle', 'text-on-surface');
+        });
+        btn.classList.add('bg-primary', 'text-on-primary');
+        btn.classList.remove('bg-surface-subtle', 'text-on-surface');
+
+        const exam = btn.dataset.exam;
+        if (exam === 'jee-adv') {
+          rankLabel.textContent = 'JEE Advanced CRL / Category Rank';
+          rankInput.placeholder = 'e.g. 3400';
+          rankHelptext.textContent = 'Enter rank for IIT admission opening & closing ranks';
+          rankIcon.textContent = 'pin';
+        } else {
+          rankLabel.textContent = 'All India Rank (CRL / Category Rank)';
+          rankInput.placeholder = 'e.g. 14500';
+          rankHelptext.textContent = 'Enter CRL / Category Rank for JoSAA/CSAB counselling analysis';
+          rankIcon.textContent = 'pin';
+        }
+      });
+    });
+
+    const filterButtons = document.querySelectorAll('.prob-filter-btn');
+    const cards = document.querySelectorAll('.college-card');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => {
+          b.classList.remove('bg-surface-container-lowest', 'text-primary', 'font-bold', 'shadow-sm');
+          b.classList.add('text-on-surface-variant');
+        });
+        btn.classList.add('bg-surface-container-lowest', 'text-primary', 'font-bold', 'shadow-sm');
+        btn.classList.remove('text-on-surface-variant');
+
+        const filterValue = btn.dataset.filter;
+        cards.forEach(card => {
+          if (filterValue === 'all' || card.dataset.possibility === filterValue) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+</script></main><footer class="w-full bg-surface-container-lowest border-t border-outline-variant/30 shadow-[0_-1px_12px_rgba(50,32,120,0.03)]"><div class="max-w-[1280px] mx-auto px-margin pt-space-xl pb-space-lg"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-xl mb-space-xl"><div class="lg:col-span-2 flex flex-col items-start gap-space-md"><div class="flex items-center gap-space-sm"><img alt="Admission Saathi Logo" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx9dB2c1F6wqj27hKX12zkn_rugIPkQtQhtEIEGjDw0SQxu4AKPcScbVgdhdFWzVtCjbvSP59y3ow7mv4WpVjXQ0sPo3-Igx-Yylsfk0cqW5Mz5hyzTm0L8Bx_zxaI2kxvuHB-o4UdIDAro7OPd1TsjzVujgGC4q56VMVSK-TtBf2Zmbr-IqwV69-LJoeKzlOUxB1fv6lZZ74dZcA4-pWlmQlsJXrrUFxRpjlVgsg"><span class="font-headline-sm text-headline-sm text-primary">Admission Saathi</span></div><p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm leading-relaxed">Empowering students and parents with official counselling opening and closing cutoffs, verified institutional archives, and choice filling guidance.</p><div class="inline-flex items-center gap-space-xs px-3 py-1.5 rounded-full bg-surface-subtle shadow-[0_1px_4px_rgba(50,32,120,0.04)] border border-outline-variant/30"><span class="material-symbols-outlined text-success-teal text-[16px]">verified</span><span class="font-label-sm text-label-sm text-on-surface font-semibold">100% Official Previous Year Data</span></div></div><div class="flex flex-col gap-space-sm"><span class="font-label-lg text-label-lg text-primary font-bold">Quick Navigation</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="home" href="/">Home</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="admission-assistant" href="/admission-assistant/">Admission Assistant</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="college-predictor" href="/college-predictor/">College Predictor</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="placements" href="/iit-placements/">IIT Placements</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="admission-calendar" href="/admission-calendar/">Admission Calendar</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-lg text-label-lg text-primary font-bold">Institutions Covered</span><span class="font-body-sm text-body-sm text-on-surface-variant">Indian Institutes of Technology (IITs)</span><span class="font-body-sm text-body-sm text-on-surface-variant">National Institutes of Technology (NITs)</span><span class="font-body-sm text-body-sm text-on-surface-variant">Indian Institutes of Info Tech (IIITs)</span><span class="font-body-sm text-body-sm text-on-surface-variant">Central Govt Funded Technical Inst (GFTIs)</span></div><div class="flex flex-col gap-space-sm"><span class="font-label-lg text-label-lg text-primary font-bold">Supported Examinations</span><span class="font-body-sm text-body-sm text-on-surface-variant">JEE Main &amp; JEE Advanced</span></div></div><div class="pt-space-lg bg-surface-subtle/50 rounded-xl p-space-md mb-space-lg border border-outline-variant/30"><p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed text-center"><strong class="text-on-surface font-semibold">Official Disclaimer:</strong> Admission Saathi is an educational consultative platform. All cutoff analytics, opening-closing ranks, and probability indications are derived from official previous year counselling publications (JoSAA and CSAB). These metrics represent comparative distance to prior cutoffs and do not guarantee allotment. Candidates must verify all final seat allotment announcements on official conducting authority portals.</p></div><div class="flex flex-col sm:flex-row items-center justify-between gap-space-sm text-center pt-space-sm"><span class="font-label-sm text-label-sm text-on-surface-variant">© 2025 Admission Saathi. All rights reserved. Data verified against official government counselling boards.</span><span class="font-label-sm text-label-sm text-on-surface-variant">Educational Intelligence &amp; Cutoff Analytics</span></div></div></footer>
+
+
+<script id="felt-motion-js">
+(function(){
+  var h=document.querySelector('header.fixed');
+  if(h){var t=false;addEventListener('scroll',function(){if(t)return;t=true;requestAnimationFrame(function(){h.classList.toggle('fa-scrolled',scrollY>8);t=false;});},{passive:true});}
+  if(!document.documentElement.classList.contains('fa')||!('IntersectionObserver' in window))return;
+  var els=[].slice.call(document.querySelectorAll('main>section:not(:first-of-type)'));
+  document.querySelectorAll('main>section:not(:first-of-type) .grid').forEach(function(g){
+    [].slice.call(g.children).forEach(function(c,i){c.style.setProperty('--d',Math.min(i*80,320)+'ms');els.push(c);});
+  });
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(!e.isIntersecting)return;var el=e.target;el.classList.add('fa-in');io.unobserve(el);
+    setTimeout(function(){el.classList.remove('fa-r','fa-in');el.style.removeProperty('--d');},1200);
+  });},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(el){el.classList.add('fa-r');io.observe(el);});
+})();
+</script>
+</body></html>

@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"on-primary":"#ffffff","primary-fixed":"#E4DFD2","secondary-container":"#3F8570","surface-container-high":"#E4DFD2","outline":"#8A867B","on-secondary-fixed":"#1B1B18","on-primary-container":"#B9B4A6","surface-canvas":"#F8FAFC","inverse-on-surface":"#eaf1ff","surface-subtle":"#F6F3EC","primary-fixed-dim":"#DDD8CB","on-secondary":"#ffffff","secondary-fixed-dim":"#cbbeff","secondary":"#2B6B5A","on-tertiary-container":"#51a3c1","tertiary":"#001f2a","inverse-primary":"#DDD8CB","surface-variant":"#DDD8CB","secondary-fixed":"#E4DFD2","on-surface-variant":"#55534C","on-background":"#1B1B18","surface":"#F6F3EC","surface-container-lowest":"#ffffff","on-tertiary":"#ffffff","on-error":"#ffffff","outline-variant":"#DDD8CB","tertiary-fixed-dim":"#81d1f0","surface-dim":"#DDD8CB","surface-bright":"#F6F3EC","tertiary-container":"#003645","on-tertiary-fixed":"#001f29","surface-tint":"#2B6B5A","inverse-surface":"#213145","on-error-container":"#93000a","success-teal":"#0D9488","text-primary":"#111827","surface-container":"#EFEBE0","on-tertiary-fixed-variant":"#004d62","on-primary-fixed-variant":"#1B1B18","background":"#F6F3EC","surface-container-low":"#EFEBE0","on-secondary-fixed-variant":"#2B6B5A","on-surface":"#1B1B18","error-container":"#ffdad6","primary":"#1B1B18","tertiary-fixed":"#b9eaff","on-secondary-container":"#fffbff","on-primary-fixed":"#1B1B18","error":"#ba1a1a","accent-amber":"#D97706","surface-container-highest":"#DDD8CB","primary-container":"#1B1B18"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"gutter-mobile":"1rem","space-xs":"0.25rem","gutter":"1.5rem","space-md":"1rem","space-lg":"1.5rem","space-sm":"0.5rem","margin-mobile":"1rem","space-xl":"2.5rem","margin":"2rem"},"fontFamily":{"headline-sm":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"]},"fontSize":{"headline-sm":["20px",{"lineHeight":"28px","fontWeight":"600"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-lg":["18px",{"lineHeight":"28px","fontWeight":"400"}],"body-sm":["13px",{"lineHeight":"20px","fontWeight":"400"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.015em","fontWeight":"700"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"body-md":["15px",{"lineHeight":"24px","fontWeight":"400"}],"display-lg":["48px",{"lineHeight":"56px","letterSpacing":"-0.02em","fontWeight":"700"}],"display-lg-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.03em","fontWeight":"500"}]}}}}</script><!-- felt-style: visual overrides only -->
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style id="felt-style">
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap');
+:root{
+  --ink:#171C2B; --body:#3B4052; --muted:#5B6073; --line:rgba(120,90,100,.16); --btn:#0B0B0F;
+  --cream:#FCF7F2; --tint:#FFF5EE;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --sh-1:0 1px 2px rgba(60,30,50,.06),0 6px 18px -8px rgba(60,30,50,.14);
+  --sh-2:0 22px 44px -20px rgba(80,40,70,.38);
+}
+html{scroll-behavior:smooth;background:#F3D8D6}
+html body{background:linear-gradient(180deg,#F6D6CF 0%,#F4D9D7 34%,#EDD6E2 68%,#E7DBF0 100%) fixed!important;color:var(--body);font-family:'Inter',system-ui,sans-serif!important;-webkit-font-smoothing:antialiased;min-height:100vh}
+::selection{background:#171C2B;color:#fff}
+
+/* ---------- type ---------- */
+button,input,textarea,select,[class*="font-body"],[class*="font-label"],[class*="font-headline-sm"]{font-family:'Inter',system-ui,sans-serif!important}
+html body h1,html body h2,.font-display-lg,.font-display-lg-mobile,.font-headline-lg,.font-headline-md{
+  font-family:'Newsreader','Georgia',serif!important;font-weight:500!important;color:var(--ink)!important;letter-spacing:-.022em!important;line-height:1.06;font-optical-sizing:auto}
+html body h3{font-family:'Inter',system-ui,sans-serif!important;font-weight:650!important;color:var(--ink)!important;letter-spacing:-.015em!important}
+.uppercase{font-weight:500!important;letter-spacing:.08em!important;color:var(--muted)}
+
+/* ---------- page + boxes: nothing is flat white, everything is a soft tint ---------- */
+main>section[class]{background:transparent!important}
+main>section[class]:nth-of-type(even){background:rgba(255,255,255,.30)!important}
+.bg-background,.bg-surface,.bg-surface-bright,.bg-surface-canvas{background-color:transparent!important}
+.bg-surface-subtle,.bg-surface-container,.bg-surface-container-low,.bg-slate-50,.bg-gray-50,.bg-gray-100,[class*="bg-purple-50"],[class*="bg-[#F6F3EC]"]{background-color:rgba(255,255,255,.58)!important}
+.bg-surface-container-high,.bg-surface-container-highest,.bg-surface-variant,.bg-slate-100,[class*="bg-purple-100"],[class*="bg-purple-200"],[class*="bg-[#EFEBE0]"]{background-color:rgba(255,255,255,.78)!important}
+.bg-surface-container-lowest:not(section):not(footer):not(header),.bg-white:not(section):not(footer):not(header){background:linear-gradient(180deg,rgba(255,255,255,.96) 0%,var(--tint) 135%)!important}
+.grid>*:nth-child(3n+2){--tint:#E4F5FB}
+.grid>*:nth-child(3n){--tint:#F2E8F8}
+[class*="rounded"].bg-white,[class*="rounded"].bg-surface-container-lowest{border:1px solid rgba(255,255,255,.9);box-shadow:var(--sh-1)!important}
+.rounded-3xl,.rounded-2xl{border-radius:22px!important}
+.rounded-xl{border-radius:16px!important}
+.rounded-lg,.rounded-md{border-radius:12px!important}
+.shadow,.shadow-xs,.shadow-sm,.shadow-md,.shadow-lg,.shadow-xl,.shadow-2xl,[class*="shadow-["]{box-shadow:var(--sh-1)!important}
+.blur-3xl,.blur-2xl{display:none!important}
+
+header.fixed,header{background:rgba(252,247,242,.88)!important;backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px);box-shadow:none!important;border-bottom:1px solid rgba(120,90,100,.10)!important}
+footer{background:rgba(252,247,242,.80)!important;border-top:1px solid rgba(120,90,100,.12)!important;box-shadow:none!important}
+
+/* ---------- colour mapping ---------- */
+.bg-primary,.bg-primary-container,.bg-inverse-surface,.bg-secondary,.bg-secondary-container,[class*="bg-[#1B1B18]"]{background-color:var(--btn)!important;color:#fff}
+.hover\:bg-secondary:hover,.hover\:bg-primary-container:hover,[class*="hover:bg-[#2B6B5A]"]:hover{background-color:#2A2D3A!important}
+.text-primary,.text-on-surface,.text-on-background,.text-text-primary,.text-gray-900,.text-slate-900{color:var(--ink)!important}
+.text-on-surface-variant,.text-gray-700,.text-gray-600,.text-gray-500,.text-slate-600,.text-slate-500{color:var(--body)!important}
+.text-secondary{color:var(--ink)!important}
+.text-success-teal,.text-teal-600{color:#16A34A!important}
+.bg-primary *,.bg-primary-container *,.bg-secondary *,[class*="bg-[#1B1B18]"] *{color:inherit}
+.border-outline-variant,[class*="border-outline-variant"],[class*="border-purple"],[class*="border-slate-"],[class*="border-gray-"]{border-color:var(--line)!important}
+
+/* ---------- icon tiles: soft pink gradient like the reference ---------- */
+[class*="rounded"][class*="bg-"]:has(>.material-symbols-outlined){background:linear-gradient(135deg,#FBE3DD,#F1E4F1)!important;border:1px solid rgba(255,255,255,.9)}
+[class*="rounded"]:has(>.material-symbols-outlined) .material-symbols-outlined,[class*="rounded"]>.material-symbols-outlined{color:var(--ink)}
+
+/* ---------- buttons ---------- */
+button:not(.prompt-starter-btn):not([class*="rounded-full"]){border-radius:10px!important}
+button[class*="bg-primary"],button[class*="bg-[#1B1B18]"],button[class*="bg-secondary"],a[class*="bg-primary"]{background-color:var(--btn)!important;color:#fff!important;border:1px solid var(--btn);font-weight:600}
+button[class*="bg-primary"]:hover,button[class*="bg-[#1B1B18]"]:hover,a[class*="bg-primary"]:hover{background-color:#2A2D3A!important}
+button[class*="bg-surface-subtle"],button[class*="bg-[#F6F3EC]"],button[class*="bg-white"],button[class*="bg-surface-container-lowest"]{background:rgba(255,255,255,.9)!important;border:1px solid rgba(120,90,100,.16)!important;color:var(--ink);box-shadow:var(--sh-1)}
+button[class*="bg-surface-subtle"]:hover,button[class*="bg-[#F6F3EC]"]:hover,button[class*="bg-white"]:hover{border-color:var(--ink)!important;background:#fff!important}
+.prompt-starter-btn,.portal-link{border-radius:14px!important;background:linear-gradient(180deg,rgba(255,255,255,.95),#FFF3EC)!important;border:1px solid rgba(255,255,255,.9);color:var(--ink)!important;box-shadow:var(--sh-1)}
+.prompt-starter-btn:hover,.portal-link:hover{transform:translateX(4px);box-shadow:var(--sh-2)}
+span.rounded-full{background-color:rgba(255,255,255,.85)!important;box-shadow:var(--sh-1)}
+
+/* ---------- inputs ---------- */
+input,textarea,select{border-radius:12px!important;border:1px solid rgba(120,90,100,.18)!important;background-color:rgba(255,255,255,.95)!important;box-shadow:0 1px 2px rgba(60,30,50,.06);color:#2B2F3E}
+input:focus,textarea:focus,select:focus{border-color:var(--ink)!important;box-shadow:0 0 0 4px rgba(23,28,43,.10)!important;outline:none!important}
+:focus-visible{outline:2px solid var(--ink)!important;outline-offset:2px}
+input:focus-visible,textarea:focus-visible,select:focus-visible{outline:none!important}
+table{border-collapse:separate;border-spacing:0}
+thead th{background:rgba(255,255,255,.6)!important;color:var(--muted)!important;font-weight:600}
+td,th{border-color:var(--line)!important}
+</style>
+<!-- felt-motion: animation only -->
+<script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('fa');</script>
+<style id="felt-motion">
+@keyframes fa-up{from{opacity:0;transform:translateY(26px);filter:blur(5px)}to{opacity:1;transform:none;filter:blur(0)}}
+@keyframes fa-pop{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes fa-aurora{0%{transform:translate3d(-3%,-2%,0) scale(1)}50%{transform:translate3d(3%,2%,0) scale(1.08)}100%{transform:translate3d(-2%,4%,0) scale(1.03)}}
+@keyframes fa-shine{from{transform:translateX(-120%) skewX(-20deg)}to{transform:translateX(240%) skewX(-20deg)}}
+@keyframes fa-ping{0%{box-shadow:0 0 0 0 rgba(22,163,74,.4)}70%,100%{box-shadow:0 0 0 9px rgba(22,163,74,0)}}
+@keyframes fa-progress{to{transform:scaleX(1)}}
+@keyframes fa-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+
+/* drifting peach / lilac / sky colour glow over the page gradient */
+body::before{content:"";position:fixed;inset:-12%;z-index:-1;pointer-events:none;
+  background:radial-gradient(34% 38% at 14% 14%,rgba(255,190,170,.55),transparent 70%),radial-gradient(34% 40% at 88% 22%,rgba(205,190,245,.55),transparent 70%),radial-gradient(40% 40% at 55% 92%,rgba(170,225,245,.50),transparent 70%);
+  animation:fa-aurora 16s ease-in-out infinite alternate}
+
+/* scroll progress bar */
+@supports (animation-timeline:scroll()){
+  html::before{content:"";position:fixed;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#F2A38F,#B79BE8,#171C2B);transform:scaleX(0);transform-origin:0 50%;z-index:100;pointer-events:none;animation:fa-progress linear both;animation-timeline:scroll(root)}
+}
+
+/* hero entrance */
+html.fa main>section:first-of-type h1,
+html.fa main>section:first-of-type h1~*{animation:fa-up 1s var(--ease) both}
+html.fa main>section:first-of-type h1~*:nth-child(2){animation-delay:.1s}
+html.fa main>section:first-of-type h1~*:nth-child(3){animation-delay:.2s}
+html.fa main>section:first-of-type h1~*:nth-child(n+4){animation-delay:.3s}
+html.fa main>section:first-of-type span.rounded-full{animation:fa-float 5s ease-in-out infinite}
+
+/* scroll reveal (existing felt-motion-js classes) */
+html.fa .fa-r{opacity:0;transform:translateY(30px);filter:blur(3px)}
+html.fa .fa-r.fa-in{opacity:1;transform:none;filter:blur(0);transition:opacity .75s var(--ease),transform .75s var(--ease),filter .75s var(--ease);transition-delay:var(--d,0ms)}
+
+/* cards */
+@media (hover:hover){.grid>[class*="rounded"]:not(input):not(textarea):not(button):hover{transform:translateY(-4px);box-shadow:var(--sh-2)!important}}
+.grid>[class*="rounded"]:not(input):not(textarea):not(button){transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.group:hover .material-symbols-outlined{transform:scale(1.12) rotate(-5deg)}
+.material-symbols-outlined{transition:transform .45s var(--ease),color .3s var(--ease)}
+.group:hover [class*="rounded"][class*="bg-"]:has(>.material-symbols-outlined){background:var(--btn)!important}
+.group:hover [class*="rounded"]>.material-symbols-outlined{color:#fff!important}
+
+/* buttons */
+a,button{transition:background-color .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease),transform .3s var(--ease),box-shadow .3s var(--ease),opacity .3s var(--ease)}
+button:not(:disabled):hover{transform:translateY(-1px)}
+a:active,button:active{transform:scale(.97)}
+button[class*="bg-primary"],button[class*="bg-[#1B1B18]"],a[class*="bg-primary"]{position:relative;overflow:hidden}
+button[class*="bg-primary"]::after,button[class*="bg-[#1B1B18]"]::after,a[class*="bg-primary"]::after{content:"";position:absolute;top:0;bottom:0;left:0;width:36%;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);transform:translateX(-120%) skewX(-20deg)}
+button[class*="bg-primary"]:hover::after,button[class*="bg-[#1B1B18]"]:hover::after,a[class*="bg-primary"]:hover::after{animation:fa-shine .85s var(--ease)}
+button[class*="bg-primary"]:not(:disabled):hover,button[class*="bg-[#1B1B18]"]:not(:disabled):hover{box-shadow:0 12px 24px -10px rgba(11,11,15,.6)}
+
+/* footer links, header, tables, chat */
+footer a{background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .4s var(--ease),color .3s var(--ease)}
+footer a:hover{background-size:100% 1px;color:var(--ink)}
+header.fixed{transition:background-color .35s var(--ease),border-color .35s var(--ease)}
+header.fixed.fa-scrolled{background:rgba(252,247,242,.97)!important;border-bottom-color:rgba(120,90,100,.22)!important}
+.text-success-teal{border-radius:9999px;animation:fa-ping 2.6s ease-out infinite}
+tbody tr{transition:background-color .2s var(--ease)}
+tbody tr:hover{background:rgba(255,255,255,.6)}
+#chatFeed>*{animation:fa-pop .4s var(--ease) both}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}html.fa .fa-r{opacity:1;transform:none;filter:none}}
+</style>
+</head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_1px_8px_rgba(50,32,120,0.04)]"><div class="h-20 max-w-[1280px] mx-auto px-margin flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-md"><img alt="Admission Saathi Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx9dB2c1F6wqj27hKX12zkn_rugIPkQtQhtEIEGjDw0SQxu4AKPcScbVgdhdFWzVtCjbvSP59y3ow7mv4WpVjXQ0sPo3-Igx-Yylsfk0cqW5Mz5hyzTm0L8Bx_zxaI2kxvuHB-o4UdIDAro7OPd1TsjzVujgGC4q56VMVSK-TtBf2Zmbr-IqwV69-LJoeKzlOUxB1fv6lZZ74dZcA4-pWlmQlsJXrrUFxRpjlVgsg"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight leading-none">Admission Saathi</span><span class="font-label-sm text-label-sm text-on-surface-variant font-medium mt-0.5 tracking-wide">Student Counselling Platform</span></div></div><nav class="hidden md:flex items-center gap-2" data-active-classes="bg-primary-container text-on-primary font-label-lg rounded-lg"><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-subtle px-3 py-2 rounded-lg transition-colors" data-path="home" href="/">Home</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-subtle px-3 py-2 rounded-lg transition-colors" data-path="admission-assistant" href="/admission-assistant/">Admission Assistant</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-subtle px-3 py-2 rounded-lg transition-colors" data-path="college-predictor" href="/college-predictor/">College Predictor</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-subtle px-3 py-2 rounded-lg transition-colors" data-path="placements" href="/iit-placements/">IIT Placements</a><a aria-current="page" class="px-3 py-2 transition-colors bg-primary-container text-on-primary font-label-lg rounded-lg" data-path="admission-calendar" href="/admission-calendar/">Admission Calendar</a></nav></div></header><main class="w-full pt-20 bg-surface"><div class="flex flex-col w-full">
+<!-- Header & Context Banner -->
+<section class="w-full bg-surface-container-low/70 py-space-xl border-b border-outline-variant/30">
+<div class="max-w-[1280px] mx-auto px-margin flex flex-col gap-space-md">
+<div class="inline-flex items-center gap-space-xs px-3 py-1 rounded-full bg-primary-fixed text-primary font-label-md text-label-md w-fit">
+<span class="material-symbols-outlined text-[16px]">school</span>
+<span>JEE &amp; JoSAA / CSAB Counselling Track</span>
+</div>
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg">
+<div class="max-w-3xl flex flex-col gap-space-xs">
+<h1 class="font-display-lg text-display-lg text-primary tracking-tight">
+Admission Calendar &amp; Counselling Roadmap
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
+Track official JEE, JoSAA, and CSAB Special Rounds counselling milestones. Follow the chronological stages from initial registration and choice filling to online scrutiny, seat allotment, and reporting.
+</p>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm border border-outline-variant/30 max-w-md">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[22px] shrink-0 mt-0.5">event_upcoming</span>
+<div class="flex flex-col gap-1">
+<span class="font-label-md text-label-md font-semibold text-primary">Schedule Status Notice</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Dates for the upcoming academic cycle are currently marked as <strong>Dates Not Yet Announced</strong>. Check back for official updates.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Direct Official Authority Portals Directory -->
+<section class="max-w-[1280px] mx-auto px-margin pt-space-xl w-full">
+<div class="bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm border border-outline-variant/40 flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-surface-subtle pb-space-sm">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[22px]">account_balance</span>
+Official Government &amp; Authority Portals Directory
+</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Authoritative portals for live candidate login, seat matrix circulars, and official gazette notifications.</p>
+</div>
+<span class="text-success-teal font-label-sm text-label-sm font-semibold flex items-center gap-1 self-start sm:self-auto bg-success-teal/10 px-2.5 py-1 rounded-full">
+<span class="material-symbols-outlined text-[15px]">verified</span> Primary Sources
+</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Authority 1: JoSAA -->
+<a class="p-space-lg rounded-xl bg-surface-subtle hover:bg-surface-container transition-all flex flex-col justify-between group border border-outline-variant/20 hover:border-secondary/40 shadow-sm" href="https://josaa.nic.in/" rel="noopener noreferrer" target="_blank">
+<div class="flex items-start justify-between">
+<div>
+<span class="px-2.5 py-1 rounded bg-primary-fixed text-primary font-label-sm text-label-sm font-semibold inline-block mb-2">National / JEE Main &amp; Advanced</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary group-hover:text-secondary">JoSAA (Joint Seat Allocation Authority)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2 leading-relaxed">Authoritative centralized seat allocation body across all 23 IITs, 32 NITs, 26 IIITs, and 40+ GFTIs.</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-secondary text-[24px] shrink-0 ml-3">open_in_new</span>
+</div>
+<span class="font-label-md text-label-md text-secondary font-semibold mt-4 inline-flex items-center gap-1.5">Visit josaa.nic.in <span class="material-symbols-outlined text-[18px]">arrow_forward</span></span>
+</a>
+<!-- Authority 2: CSAB -->
+<a class="p-space-lg rounded-xl bg-surface-subtle hover:bg-surface-container transition-all flex flex-col justify-between group border border-outline-variant/20 hover:border-secondary/40 shadow-sm" href="https://csab.nic.in/" rel="noopener noreferrer" target="_blank">
+<div class="flex items-start justify-between">
+<div>
+<span class="px-2.5 py-1 rounded bg-primary-fixed text-primary font-label-sm text-label-sm font-semibold inline-block mb-2">National / Special Rounds</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary group-hover:text-secondary">CSAB (Central Seat Allocation Board)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2 leading-relaxed">Organizes CSAB Special Rounds to fill vacant engineering seats in NITs, IIITs, and GFTIs following the conclusion of JoSAA.</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-secondary text-[24px] shrink-0 ml-3">open_in_new</span>
+</div>
+<span class="font-label-md text-label-md text-secondary font-semibold mt-4 inline-flex items-center gap-1.5">Visit csab.nic.in <span class="material-symbols-outlined text-[18px]">arrow_forward</span></span>
+</a>
+</div>
+</div>
+</section>
+<!-- Filter Controls Section -->
+<section class="max-w-[1280px] mx-auto px-margin w-full pt-space-xl pb-space-sm">
+<div class="bg-surface-container-lowest p-space-lg rounded-2xl shadow-sm border border-outline-variant/30 flex flex-col gap-space-md">
+<!-- Search & Header -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-space-md">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary">Counselling Roadmap &amp; Milestone Stages</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Filter by admission authority or specific milestone step in the admission cycle.</p>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="relative w-full sm:w-80">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">search</span>
+<input class="w-full h-10 pl-9 pr-3 rounded-lg bg-surface font-body-sm text-body-sm text-on-surface border border-outline-variant/40 focus:outline-none focus:border-secondary" id="eventSearch" onkeyup="filterEvents()" placeholder="Search milestones: Registration, Mock Allotment, Freeze/Float, CSAB..." type="text"/>
+</div>
+<button class="p-2 rounded-lg bg-surface-subtle text-on-surface-variant hover:text-on-surface border border-outline-variant/30" onclick="resetFilters()" title="Reset Filters">
+<span class="material-symbols-outlined text-[20px]">restart_alt</span>
+</button>
+</div>
+</div>
+<!-- Authority Filter -->
+<div class="flex flex-col gap-1.5">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Filter by Authority</span>
+<div class="flex flex-wrap gap-2" id="authorityFilterContainer">
+<button class="authority-pill px-3 py-1.5 rounded-lg font-label-sm text-label-sm bg-primary text-on-primary font-medium" onclick="setAuthorityFilter('all', this)">All Authorities</button>
+<button class="authority-pill px-3 py-1.5 rounded-lg font-label-sm text-label-sm bg-surface-subtle text-on-surface-variant hover:bg-surface-container font-medium" onclick="setAuthorityFilter('josaa', this)">JoSAA (IITs, NITs, IIITs)</button>
+<button class="authority-pill px-3 py-1.5 rounded-lg font-label-sm text-label-sm bg-surface-subtle text-on-surface-variant hover:bg-surface-container font-medium" onclick="setAuthorityFilter('csab', this)">CSAB (Special Rounds)</button>
+</div>
+</div>
+<!-- Stage Filter -->
+<div class="flex flex-col gap-1.5">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Filter by Counselling Stage</span>
+<div class="flex flex-wrap gap-2" id="stageFilterContainer">
+<button class="stage-pill px-3 py-1.5 rounded-lg font-label-sm text-label-sm bg-secondary text-on-secondary font-medium" onclick="setStageFilter('all', this)">All Stages</button>
+<button class="stage-pill px-3 py-1.5 rounded-lg font-label-sm text-label-sm bg-surface-subtle text-on-surface-variant hover:bg-surface-container font-medium" onclick="setStageFilter('registration', this)">Registration</button>
+<button class="stage-pill px-3 py-1.5 rounded-lg font-label-sm text-label-sm bg-surface-subtle text-on-surface-variant hover:bg-surface-container font-medium" onclick="setStageFilter('choice', this)">Choice Filling &amp; Locking</button>
+<button class="stage-pill px-3 py-1.5 rounded-lg font-label-sm text-label-sm bg-surface-subtle text-on-surface-variant hover:bg-surface-container font-medium" onclick="setStageFilter('allotment', this)">Seat Allotment (Rounds 1–5)</button>
+<button class="stage-pill px-3 py-1.5 rounded-lg font-label-sm text-label-sm bg-surface-subtle text-on-surface-variant hover:bg-surface-container font-medium" onclick="setStageFilter('verification', this)">Document Verification &amp; Fee</button>
+<button class="stage-pill px-3 py-1.5 rounded-lg font-label-sm text-label-sm bg-surface-subtle text-on-surface-variant hover:bg-surface-container font-medium" onclick="setStageFilter('csab-special', this)">CSAB Special Rounds</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Chronological Sequence Milestone Cards -->
+<section class="max-w-[1280px] mx-auto px-margin w-full py-space-md mb-space-xl">
+<div class="flex flex-col gap-space-md" id="cardsContainer">
+<!-- Stage 01: JoSAA Registration & Choice Filling -->
+<div class="milestone-card bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm border border-outline-variant/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-space-lg" data-authority="josaa" data-stage="registration choice" data-title="josaa registration choice filling jee advanced main scorecard certificates">
+<div class="flex items-start gap-space-md min-w-0">
+<div class="w-14 h-14 rounded-xl bg-primary-fixed text-primary flex flex-col items-center justify-center shrink-0 font-bold">
+<span class="text-xs uppercase tracking-wider font-semibold opacity-80">Stage</span>
+<span class="text-xl leading-none">01</span>
+</div>
+<div class="flex flex-col gap-1.5 min-w-0">
+<div class="flex flex-wrap items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-full bg-primary-fixed text-primary font-label-sm text-label-sm font-semibold">JoSAA / JEE Advanced &amp; Main</span>
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-fixed text-secondary font-label-sm text-label-sm font-medium">Registration</span>
+<span class="inline-flex items-center gap-1 text-accent-amber font-label-sm text-label-sm font-semibold bg-accent-amber/10 px-2.5 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[14px]">schedule</span> Schedule: Dates Not Yet Announced
+</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary">Stage 01: JoSAA Registration &amp; Choice Filling</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-2xl leading-relaxed">
+Eligible candidates log in with JEE Main / JEE Advanced credentials. Enter and arrange branch/institute preferences in descending order of priority.
+</p>
+<div class="flex flex-wrap items-center gap-3 mt-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1 bg-surface-subtle px-2.5 py-1 rounded-md"><span class="material-symbols-outlined text-success-teal text-[16px]">check_circle</span> Rank Scorecard</span>
+<span class="flex items-center gap-1 bg-surface-subtle px-2.5 py-1 rounded-md"><span class="material-symbols-outlined text-success-teal text-[16px]">check_circle</span> Category Certificates (if applicable)</span>
+<span class="flex items-center gap-1 bg-surface-subtle px-2.5 py-1 rounded-md"><span class="material-symbols-outlined text-success-teal text-[16px]">check_circle</span> Class 10/12 Marksheets</span>
+</div>
+</div>
+</div>
+<div class="flex md:flex-col items-center md:items-end justify-between w-full md:w-auto gap-space-sm shrink-0 pt-3 md:pt-0">
+<a class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-primary-container text-on-primary font-label-sm text-label-sm hover:bg-secondary transition-colors" href="https://josaa.nic.in/" rel="noopener noreferrer" target="_blank">
+<span>Official JoSAA Gazette</span>
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Verify on josaa.nic.in</span>
+</div>
+</div>
+<!-- Stage 02: Mock Seat Allotments (Mock 1 & Mock 2) -->
+<div class="milestone-card bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm border border-outline-variant/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-space-lg" data-authority="josaa" data-stage="choice" data-title="mock seat allotments mock 1 mock 2 josaa simulated allocation trial rounds">
+<div class="flex items-start gap-space-md min-w-0">
+<div class="w-14 h-14 rounded-xl bg-surface-container-high text-primary flex flex-col items-center justify-center shrink-0 font-bold">
+<span class="text-xs uppercase tracking-wider font-semibold opacity-80">Stage</span>
+<span class="text-xl leading-none">02</span>
+</div>
+<div class="flex flex-col gap-1.5 min-w-0">
+<div class="flex flex-wrap items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-full bg-primary-fixed text-primary font-label-sm text-label-sm font-semibold">JoSAA Simulated Allocation</span>
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-fixed text-secondary font-label-sm text-label-sm font-medium">Trial Rounds</span>
+<span class="inline-flex items-center gap-1 text-accent-amber font-label-sm text-label-sm font-semibold bg-accent-amber/10 px-2.5 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[14px]">schedule</span> Schedule: Dates Not Yet Announced
+</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary">Stage 02: Mock Seat Allotments (Mock 1 &amp; Mock 2)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-2xl leading-relaxed">
+System computes two mock allocations based on candidate preference order to illustrate realistic seat chances and guide timely choice reordering prior to lock cutoff.
+</p>
+<div class="flex flex-wrap items-center gap-3 mt-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1 bg-surface-subtle px-2.5 py-1 rounded-md"><span class="material-symbols-outlined text-secondary text-[16px]">tune</span> Preference Reordering Window</span>
+<span class="flex items-center gap-1 bg-surface-subtle px-2.5 py-1 rounded-md"><span class="material-symbols-outlined text-secondary text-[16px]">visibility</span> Simulated Mock Feedback</span>
+</div>
+</div>
+</div>
+<div class="flex md:flex-col items-center md:items-end justify-between w-full md:w-auto gap-space-sm shrink-0 pt-3 md:pt-0">
+<a class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-surface-subtle text-primary font-label-sm text-label-sm hover:bg-surface-container transition-colors border border-outline-variant/30" href="https://josaa.nic.in/" rel="noopener noreferrer" target="_blank">
+<span>View Choice Guidelines</span>
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Review JoSAA Guide</span>
+</div>
+</div>
+<!-- Stage 03: Final Choice Locking -->
+<div class="milestone-card bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm border border-outline-variant/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-space-lg" data-authority="josaa" data-stage="choice" data-title="final choice locking mandatory milestone choice freezing otp slip download">
+<div class="flex items-start gap-space-md min-w-0">
+<div class="w-14 h-14 rounded-xl bg-surface-container-high text-primary flex flex-col items-center justify-center shrink-0 font-bold">
+<span class="text-xs uppercase tracking-wider font-semibold opacity-80">Stage</span>
+<span class="text-xl leading-none">03</span>
+</div>
+<div class="flex flex-col gap-1.5 min-w-0">
+<div class="flex flex-wrap items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-full bg-primary-fixed text-primary font-label-sm text-label-sm font-semibold">Mandatory Milestone</span>
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-fixed text-secondary font-label-sm text-label-sm font-medium">Choice Freezing</span>
+<span class="inline-flex items-center gap-1 text-accent-amber font-label-sm text-label-sm font-semibold bg-accent-amber/10 px-2.5 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[14px]">schedule</span> Schedule: Dates Not Yet Announced
+</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary">Stage 03: Final Choice Locking</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-2xl leading-relaxed">
+Aspirants must confirm and lock choice lists with OTP verification. Unlocked choices automatically freeze at the deadline.
+</p>
+<div class="flex flex-wrap items-center gap-3 mt-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1 bg-surface-subtle px-2.5 py-1 rounded-md"><span class="material-symbols-outlined text-success-teal text-[16px]">lock</span> OTP Locking Required</span>
+<span class="flex items-center gap-1 bg-surface-subtle px-2.5 py-1 rounded-md"><span class="material-symbols-outlined text-success-teal text-[16px]">print</span> Locked Choice Slip Download</span>
+</div>
+</div>
+</div>
+<div class="flex md:flex-col items-center md:items-end justify-between w-full md:w-auto gap-space-sm shrink-0 pt-3 md:pt-0">
+<a class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-surface-subtle text-primary font-label-sm text-label-sm hover:bg-surface-container transition-colors border border-outline-variant/30" href="https://josaa.nic.in/" rel="noopener noreferrer" target="_blank">
+<span>Review Locking Rules</span>
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Check josaa.nic.in</span>
+</div>
+</div>
+<!-- Stage 04: JoSAA Seat Allotment Rounds (Rounds 1 to 5) -->
+<div class="milestone-card bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm border border-outline-variant/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-space-lg" data-authority="josaa" data-stage="allotment" data-title="josaa seat allotment rounds rounds 1 to 5 centralized allocation freeze float slide withdrawal">
+<div class="flex items-start gap-space-md min-w-0">
+<div class="w-14 h-14 rounded-xl bg-primary-fixed text-primary flex flex-col items-center justify-center shrink-0 font-bold">
+<span class="text-xs uppercase tracking-wider font-semibold opacity-80">Stage</span>
+<span class="text-xl leading-none">04</span>
+</div>
+<div class="flex flex-col gap-1.5 min-w-0">
+<div class="flex flex-wrap items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-full bg-primary-fixed text-primary font-label-sm text-label-sm font-semibold">Centralized Allocation</span>
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-fixed text-secondary font-label-sm text-label-sm font-medium">Rounds 1–5</span>
+<span class="inline-flex items-center gap-1 text-accent-amber font-label-sm text-label-sm font-semibold bg-accent-amber/10 px-2.5 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[14px]">schedule</span> Schedule: Dates Not Yet Announced
+</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary">Stage 04: JoSAA Seat Allotment Rounds (Rounds 1 to 5)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-2xl leading-relaxed">
+Merit-based seat allocation declared per round based on All India CRL and Category ranks. Candidates must exercise Freeze (accept &amp; end), Float (accept &amp; consider higher choices anywhere), or Slide (accept &amp; upgrade within allotted institute).
+</p>
+<div class="flex flex-wrap items-center gap-3 mt-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1 bg-surface-subtle px-2.5 py-1 rounded-md"><span class="material-symbols-outlined text-secondary text-[16px]">ac_unit</span> Freeze</span>
+<span class="flex items-center gap-1 bg-surface-subtle px-2.5 py-1 rounded-md"><span class="material-symbols-outlined text-secondary text-[16px]">waves</span> Float</span>
+<span class="flex items-center gap-1 bg-surface-subtle px-2.5 py-1 rounded-md"><span class="material-symbols-outlined text-secondary text-[16px]">swap_vert</span> Slide</span>
+<span class="flex items-center gap-1 bg-surface-subtle px-2.5 py-1 rounded-md"><span class="material-symbols-outlined text-secondary text-[16px]">cancel</span> Withdrawal Window</span>
+</div>
+</div>
+</div>
+<div class="flex md:flex-col items-center md:items-end justify-between w-full md:w-auto gap-space-sm shrink-0 pt-3 md:pt-0">
+<a class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-primary-container text-on-primary font-label-sm text-label-sm hover:bg-secondary transition-colors" href="https://josaa.nic.in/" rel="noopener noreferrer" target="_blank">
+<span>Allotment Procedures</span>
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Check josaa.nic.in</span>
+</div>
+</div>
+<!-- Stage 05: Online Reporting, Fee Payment & Document Scrutiny -->
+<div class="milestone-card bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm border border-outline-variant/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-space-lg" data-authority="josaa" data-stage="verification" data-title="online reporting fee payment document scrutiny obc-ncl ews sc st medical fitness saf">
+<div class="flex items-start gap-space-md min-w-0">
+<div class="w-14 h-14 rounded-xl bg-surface-container-high text-primary flex flex-col items-center justify-center shrink-0 font-bold">
+<span class="text-xs uppercase tracking-wider font-semibold opacity-80">Stage</span>
+<span class="text-xl leading-none">05</span>
+</div>
+<div class="flex flex-col gap-1.5 min-w-0">
+<div class="flex flex-wrap items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-full bg-surface-variant text-on-surface font-label-sm text-label-sm font-semibold">Mandatory Online Step</span>
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-fixed text-secondary font-label-sm text-label-sm font-medium">Document Verification</span>
+<span class="inline-flex items-center gap-1 text-accent-amber font-label-sm text-label-sm font-semibold bg-accent-amber/10 px-2.5 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[14px]">schedule</span> Schedule: Dates Not Yet Announced
+</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary">Stage 05: Online Reporting, Fee Payment &amp; Document Scrutiny</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-2xl leading-relaxed">
+Upload scanned original certificates for virtual scrutiny and pay Seat Acceptance Fee (SAF). Promptly reply to query notifications within the allotted window to prevent seat cancellation.
+</p>
+<div class="flex flex-wrap items-center gap-3 mt-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1 bg-surface-subtle px-2.5 py-1 rounded-md"><span class="material-symbols-outlined text-success-teal text-[16px]">task_alt</span> OBC-NCL / EWS / SC / ST Certificate</span>
+<span class="flex items-center gap-1 bg-surface-subtle px-2.5 py-1 rounded-md"><span class="material-symbols-outlined text-success-teal text-[16px]">task_alt</span> Medical Fitness Form</span>
+<span class="flex items-center gap-1 bg-surface-subtle px-2.5 py-1 rounded-md"><span class="material-symbols-outlined text-success-teal text-[16px]">task_alt</span> Class 10 DoB Proof</span>
+</div>
+</div>
+</div>
+<div class="flex md:flex-col items-center md:items-end justify-between w-full md:w-auto gap-space-sm shrink-0 pt-3 md:pt-0">
+<a class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-surface-subtle text-primary font-label-sm text-label-sm hover:bg-surface-container transition-colors border border-outline-variant/30" href="https://josaa.nic.in/" rel="noopener noreferrer" target="_blank">
+<span>Document Requirements</span>
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+<span class="font-label-sm text-label-sm text-on-surface-variant">josaa.nic.in guidelines</span>
+</div>
+</div>
+<!-- Stage 06: CSAB Special Round Registration & Choice Filling -->
+<div class="milestone-card bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm border border-outline-variant/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-space-lg" data-authority="csab" data-stage="csab-special registration choice" data-title="csab special round registration choice filling nit+ system vacancies participation fee">
+<div class="flex items-start gap-space-md min-w-0">
+<div class="w-14 h-14 rounded-xl bg-primary-fixed text-primary flex flex-col items-center justify-center shrink-0 font-bold">
+<span class="text-xs uppercase tracking-wider font-semibold opacity-80">Stage</span>
+<span class="text-xl leading-none">06</span>
+</div>
+<div class="flex flex-col gap-1.5 min-w-0">
+<div class="flex flex-wrap items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-full bg-primary-fixed text-primary font-label-sm text-label-sm font-semibold">CSAB Special Rounds</span>
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-fixed text-secondary font-label-sm text-label-sm font-medium">NIT+ System Vacancies</span>
+<span class="inline-flex items-center gap-1 text-accent-amber font-label-sm text-label-sm font-semibold bg-accent-amber/10 px-2.5 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[14px]">schedule</span> Schedule: Dates Not Yet Announced
+</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary">Stage 06: CSAB Special Round Registration &amp; Choice Filling</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-2xl leading-relaxed">
+Dedicated spot rounds conducted by CSAB to allocate remaining vacant seats across NITs, IIITs, and GFTIs (IIT admissions are closed after JoSAA). Fresh registration and choice submission required.
+</p>
+<div class="flex flex-wrap items-center gap-3 mt-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1 bg-surface-subtle px-2.5 py-1 rounded-md"><span class="material-symbols-outlined text-secondary text-[16px]">category</span> CSAB Special R1 &amp; R2</span>
+<span class="flex items-center gap-1 bg-surface-subtle px-2.5 py-1 rounded-md"><span class="material-symbols-outlined text-secondary text-[16px]">payments</span> Participation Fee Payment</span>
+<span class="flex items-center gap-1 bg-surface-subtle px-2.5 py-1 rounded-md"><span class="material-symbols-outlined text-secondary text-[16px]">edit_note</span> Fresh Preference Form</span>
+</div>
+</div>
+</div>
+<div class="flex md:flex-col items-center md:items-end justify-between w-full md:w-auto gap-space-sm shrink-0 pt-3 md:pt-0">
+<a class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-primary-container text-on-primary font-label-sm text-label-sm hover:bg-secondary transition-colors" href="https://csab.nic.in/" rel="noopener noreferrer" target="_blank">
+<span>Visit csab.nic.in</span>
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+<span class="font-label-sm text-label-sm text-on-surface-variant">csab.nic.in details</span>
+</div>
+</div>
+<!-- Stage 07: Final Institute Physical Reporting & Admission Completion -->
+<div class="milestone-card bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm border border-outline-variant/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-space-lg" data-authority="josaa csab" data-stage="verification csab-special" data-title="final institute physical reporting admission completion provisional allotment original hostel balance fee">
+<div class="flex items-start gap-space-md min-w-0">
+<div class="w-14 h-14 rounded-xl bg-primary-fixed text-primary flex flex-col items-center justify-center shrink-0 font-bold">
+<span class="text-xs uppercase tracking-wider font-semibold opacity-80">Stage</span>
+<span class="text-xl leading-none">07</span>
+</div>
+<div class="flex flex-col gap-1.5 min-w-0">
+<div class="flex flex-wrap items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-full bg-primary-fixed text-primary font-label-sm text-label-sm font-semibold">Institute On-Campus Reporting</span>
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-fixed text-secondary font-label-sm text-label-sm font-medium">Final Admission</span>
+<span class="inline-flex items-center gap-1 text-accent-amber font-label-sm text-label-sm font-semibold bg-accent-amber/10 px-2.5 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[14px]">schedule</span> Schedule: Dates Not Yet Announced
+</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary">Stage 07: Final Institute Physical Reporting &amp; Admission Completion</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-2xl leading-relaxed">
+Candidates report physically at the allotted IIT, NIT, IIIT, or GFTI campus with original documents for final enrollment, balance fee payment, and hostel allotment.
+</p>
+<div class="flex flex-wrap items-center gap-3 mt-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1 bg-surface-subtle px-2.5 py-1 rounded-md"><span class="material-symbols-outlined text-secondary text-[16px]">description</span> Provisional Allotment Letter</span>
+<span class="flex items-center gap-1 bg-surface-subtle px-2.5 py-1 rounded-md"><span class="material-symbols-outlined text-secondary text-[16px]">verified</span> Original Verification</span>
+<span class="flex items-center gap-1 bg-surface-subtle px-2.5 py-1 rounded-md"><span class="material-symbols-outlined text-secondary text-[16px]">apartment</span> Hostel &amp; Balance Fee</span>
+</div>
+</div>
+</div>
+<div class="flex md:flex-col items-center md:items-end justify-between w-full md:w-auto gap-space-sm shrink-0 pt-3 md:pt-0">
+<a class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-primary-container text-on-primary font-label-sm text-label-sm hover:bg-secondary transition-colors" href="https://csab.nic.in/" rel="noopener noreferrer" target="_blank">
+<span>CSAB / JoSAA Portals</span>
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Verify on csab.nic.in</span>
+</div>
+</div>
+</div>
+<!-- Empty State Filter Feedback -->
+<div class="hidden bg-surface-container-lowest rounded-2xl p-space-xl text-center flex flex-col items-center gap-space-sm border border-outline-variant/30" id="noCardsFallback">
+<span class="material-symbols-outlined text-outline text-[48px]">filter_alt_off</span>
+<h4 class="font-headline-sm text-headline-sm text-primary">No Matching Counselling Stages Found</h4>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">Adjust or clear your authority and stage filters to see standard JEE / JoSAA / CSAB admission sequence steps.</p>
+<button class="px-5 py-2 rounded-lg bg-primary text-on-primary font-label-sm text-label-sm" onclick="resetFilters()">
+Reset All Filters
+</button>
+</div>
+</section>
+<!-- Regulatory Data Integrity Callout -->
+<section class="max-w-[1280px] mx-auto px-margin w-full mb-space-xl">
+<div class="bg-surface-container-lowest border border-outline-variant/40 rounded-2xl p-space-lg flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-full bg-success-teal/15 text-success-teal flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">verified</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-primary font-bold">Official Schedule Notice</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+Official Schedule Notice: Official schedules, dates, and deadlines are published strictly by the Joint Seat Allocation Authority and CSAB on <a class="text-secondary font-semibold hover:underline" href="https://josaa.nic.in/" target="_blank">josaa.nic.in</a> and <a class="text-secondary font-semibold hover:underline" href="https://csab.nic.in/" target="_blank">csab.nic.in</a>. All dates for the upcoming academic cycle are currently marked as "Dates Not Yet Announced".
+</p>
+</div>
+</div>
+</div>
+</section>
+<script>
+let activeAuthority = 'all';
+let activeStage = 'all';
+
+function setAuthorityFilter(authority, el) {
+  activeAuthority = authority;
+  document.querySelectorAll('.authority-pill').forEach(btn => {
+    btn.classList.remove('bg-primary', 'text-on-primary');
+    btn.classList.add('bg-surface-subtle', 'text-on-surface-variant');
+  });
+  el.classList.remove('bg-surface-subtle', 'text-on-surface-variant');
+  el.classList.add('bg-primary', 'text-on-primary');
+  applyFilters();
+}
+
+function setStageFilter(stage, el) {
+  activeStage = stage;
+  document.querySelectorAll('.stage-pill').forEach(btn => {
+    btn.classList.remove('bg-secondary', 'text-on-secondary');
+    btn.classList.add('bg-surface-subtle', 'text-on-surface-variant');
+  });
+  el.classList.remove('bg-surface-subtle', 'text-on-surface-variant');
+  el.classList.add('bg-secondary', 'text-on-secondary');
+  applyFilters();
+}
+
+function applyFilters() {
+  const query = (document.getElementById('eventSearch').value || '').toLowerCase().trim();
+  const cards = document.querySelectorAll('.milestone-card');
+  let visibleCount = 0;
+
+  cards.forEach(card => {
+    const cardAuthorities = (card.getAttribute('data-authority') || '').toLowerCase();
+    const cardStages = (card.getAttribute('data-stage') || '').toLowerCase();
+    const cardTitle = (card.getAttribute('data-title') || '').toLowerCase();
+
+    const authMatch = activeAuthority === 'all' || cardAuthorities.includes(activeAuthority);
+    const stageMatch = activeStage === 'all' || cardStages.includes(activeStage);
+    const searchMatch = !query || cardTitle.includes(query);
+
+    if (authMatch && stageMatch && searchMatch) {
+      card.classList.remove('hidden');
+      visibleCount++;
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+
+  const fallback = document.getElementById('noCardsFallback');
+  if (visibleCount === 0) {
+    fallback.classList.remove('hidden');
+  } else {
+    fallback.classList.add('hidden');
+  }
+}
+
+function filterEvents() {
+  applyFilters();
+}
+
+function resetFilters() {
+  document.getElementById('eventSearch').value = '';
+  activeAuthority = 'all';
+  activeStage = 'all';
+
+  const firstAuth = document.querySelector('.authority-pill');
+  if (firstAuth) setAuthorityFilter('all', firstAuth);
+
+  const firstStage = document.querySelector('.stage-pill');
+  if (firstStage) setStageFilter('all', firstStage);
+
+  applyFilters();
+}
+</script>
+</div></main><footer class="w-full bg-surface-container-lowest shadow-[0_-1px_12px_rgba(50,32,120,0.03)] border-t border-outline-variant/30"><div class="max-w-[1280px] mx-auto px-margin pt-space-xl pb-space-lg"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-xl mb-space-xl"><div class="lg:col-span-2 flex flex-col items-start gap-space-md"><div class="flex items-center gap-space-sm"><img alt="Admission Saathi Logo" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx9dB2c1F6wqj27hKX12zkn_rugIPkQtQhtEIEGjDw0SQxu4AKPcScbVgdhdFWzVtCjbvSP59y3ow7mv4WpVjXQ0sPo3-Igx-Yylsfk0cqW5Mz5hyzTm0L8Bx_zxaI2kxvuHB-o4UdIDAro7OPd1TsjzVujgGC4q56VMVSK-TtBf2Zmbr-IqwV69-LJoeKzlOUxB1fv6lZZ74dZcA4-pWlmQlsJXrrUFxRpjlVgsg"/><span class="font-headline-sm text-headline-sm text-primary">Admission Saathi</span></div><p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm leading-relaxed">Empowering students and parents with structured admission intelligence, transparent counselling sequence roadmaps, and verified official portals.</p><div class="inline-flex items-center gap-space-xs px-3 py-1.5 rounded-full bg-surface-subtle border border-outline-variant/30"><span class="material-symbols-outlined text-success-teal text-[16px]">verified</span><span class="font-label-sm text-label-sm text-on-surface font-semibold">100% Verified Institutional Portals</span></div></div><div class="flex flex-col gap-space-sm"><span class="font-label-lg text-label-lg text-primary font-bold">Features</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="college-predictor" href="/college-predictor/">Predictor Engine</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="admission-assistant" href="/admission-assistant/">AI Assistant</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">College Comparison</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">Rank Analyzer</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-lg text-label-lg text-primary font-bold">Colleges</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">IITs Directory</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">NITs &amp; IIITs</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-lg text-label-lg text-primary font-bold">Official Portals</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="https://josaa.nic.in/" target="_blank">JoSAA Portal (josaa.nic.in)</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="https://csab.nic.in/" target="_blank">CSAB Portal (csab.nic.in)</a></div></div><div class="pt-space-md bg-surface-subtle rounded-xl p-space-md mb-space-lg border border-outline-variant/30"><p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed text-center"><strong class="text-on-surface font-semibold">Important Notice &amp; Disclaimer:</strong> Official schedules, dates, and deadlines are published strictly by the Joint Seat Allocation Authority and CSAB on josaa.nic.in and csab.nic.in. All dates for the upcoming academic cycle are currently marked as "Dates Not Yet Announced". Official dates and notifications must always be confirmed directly on the respective authority portals.</p></div><div class="flex flex-col sm:flex-row items-center justify-between gap-space-sm text-center pt-space-sm"><span class="font-label-sm text-label-sm text-on-surface-variant">© 2025 Admission Saathi. All rights reserved. Created for aspiring students nationwide.</span><span class="font-label-sm text-label-sm text-on-surface-variant">ISO 9001:2015 Educational Advisory Standards</span></div></div></footer><script id="felt-motion-js">
+(function(){
+  var h=document.querySelector('header.fixed');
+  if(h){var t=false;addEventListener('scroll',function(){if(t)return;t=true;requestAnimationFrame(function(){h.classList.toggle('fa-scrolled',scrollY>8);t=false;});},{passive:true});}
+  if(!document.documentElement.classList.contains('fa')||!('IntersectionObserver' in window))return;
+  var els=[].slice.call(document.querySelectorAll('main>section:not(:first-of-type)'));
+  document.querySelectorAll('main>section:not(:first-of-type) .grid').forEach(function(g){
+    [].slice.call(g.children).forEach(function(c,i){c.style.setProperty('--d',Math.min(i*80,320)+'ms');els.push(c);});
+  });
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(!e.isIntersecting)return;var el=e.target;el.classList.add('fa-in');io.unobserve(el);
+    setTimeout(function(){el.classList.remove('fa-r','fa-in');el.style.removeProperty('--d');},1200);
+  });},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(el){el.classList.add('fa-r');io.observe(el);});
+})();
+</script>
+</body></html>

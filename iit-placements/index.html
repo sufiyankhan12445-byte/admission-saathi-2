@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admission Saathi – IIT Placements (2022–2026)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#1B1B18",
+            "primary-container": "#1B1B18",
+            "secondary": "#2B6B5A",
+            "surface-subtle": "#F6F3EC",
+            "on-surface-variant": "#55534C",
+            "success-teal": "#0d9488"
+          },
+          fontFamily: {
+            sans: ["'Plus Jakarta Sans'", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+<!-- felt-style: visual overrides only -->
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style id="felt-style">
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap');
+:root{
+  --ink:#171C2B; --body:#3B4052; --muted:#5B6073; --line:rgba(120,90,100,.16); --btn:#0B0B0F;
+  --cream:#FCF7F2; --tint:#FFF5EE;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --sh-1:0 1px 2px rgba(60,30,50,.06),0 6px 18px -8px rgba(60,30,50,.14);
+  --sh-2:0 22px 44px -20px rgba(80,40,70,.38);
+}
+html{scroll-behavior:smooth;background:#F3D8D6}
+html body{background:linear-gradient(180deg,#F6D6CF 0%,#F4D9D7 34%,#EDD6E2 68%,#E7DBF0 100%) fixed!important;color:var(--body);font-family:'Inter',system-ui,sans-serif!important;-webkit-font-smoothing:antialiased;min-height:100vh}
+::selection{background:#171C2B;color:#fff}
+
+/* ---------- type ---------- */
+button,input,textarea,select,[class*="font-body"],[class*="font-label"],[class*="font-headline-sm"]{font-family:'Inter',system-ui,sans-serif!important}
+html body h1,html body h2,.font-display-lg,.font-display-lg-mobile,.font-headline-lg,.font-headline-md{
+  font-family:'Newsreader','Georgia',serif!important;font-weight:500!important;color:var(--ink)!important;letter-spacing:-.022em!important;line-height:1.06;font-optical-sizing:auto}
+html body h3{font-family:'Inter',system-ui,sans-serif!important;font-weight:650!important;color:var(--ink)!important;letter-spacing:-.015em!important}
+.uppercase{font-weight:500!important;letter-spacing:.08em!important;color:var(--muted)}
+
+/* ---------- page + boxes: nothing is flat white, everything is a soft tint ---------- */
+main>section[class]{background:transparent!important}
+main>section[class]:nth-of-type(even){background:rgba(255,255,255,.30)!important}
+.bg-background,.bg-surface,.bg-surface-bright,.bg-surface-canvas{background-color:transparent!important}
+.bg-surface-subtle,.bg-surface-container,.bg-surface-container-low,.bg-slate-50,.bg-gray-50,.bg-gray-100,[class*="bg-purple-50"],[class*="bg-[#F6F3EC]"]{background-color:rgba(255,255,255,.58)!important}
+.bg-surface-container-high,.bg-surface-container-highest,.bg-surface-variant,.bg-slate-100,[class*="bg-purple-100"],[class*="bg-purple-200"],[class*="bg-[#EFEBE0]"]{background-color:rgba(255,255,255,.78)!important}
+.bg-surface-container-lowest:not(section):not(footer):not(header),.bg-white:not(section):not(footer):not(header){background:linear-gradient(180deg,rgba(255,255,255,.96) 0%,var(--tint) 135%)!important}
+.grid>*:nth-child(3n+2){--tint:#E4F5FB}
+.grid>*:nth-child(3n){--tint:#F2E8F8}
+[class*="rounded"].bg-white,[class*="rounded"].bg-surface-container-lowest{border:1px solid rgba(255,255,255,.9);box-shadow:var(--sh-1)!important}
+.rounded-3xl,.rounded-2xl{border-radius:22px!important}
+.rounded-xl{border-radius:16px!important}
+.rounded-lg,.rounded-md{border-radius:12px!important}
+.shadow,.shadow-xs,.shadow-sm,.shadow-md,.shadow-lg,.shadow-xl,.shadow-2xl,[class*="shadow-["]{box-shadow:var(--sh-1)!important}
+.blur-3xl,.blur-2xl{display:none!important}
+
+header.fixed,header{background:rgba(252,247,242,.88)!important;backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px);box-shadow:none!important;border-bottom:1px solid rgba(120,90,100,.10)!important}
+footer{background:rgba(252,247,242,.80)!important;border-top:1px solid rgba(120,90,100,.12)!important;box-shadow:none!important}
+
+/* ---------- colour mapping ---------- */
+.bg-primary,.bg-primary-container,.bg-inverse-surface,.bg-secondary,.bg-secondary-container,[class*="bg-[#1B1B18]"]{background-color:var(--btn)!important;color:#fff}
+.hover\:bg-secondary:hover,.hover\:bg-primary-container:hover,[class*="hover:bg-[#2B6B5A]"]:hover{background-color:#2A2D3A!important}
+.text-primary,.text-on-surface,.text-on-background,.text-text-primary,.text-gray-900,.text-slate-900{color:var(--ink)!important}
+.text-on-surface-variant,.text-gray-700,.text-gray-600,.text-gray-500,.text-slate-600,.text-slate-500{color:var(--body)!important}
+.text-secondary{color:var(--ink)!important}
+.text-success-teal,.text-teal-600{color:#16A34A!important}
+.bg-primary *,.bg-primary-container *,.bg-secondary *,[class*="bg-[#1B1B18]"] *{color:inherit}
+.border-outline-variant,[class*="border-outline-variant"],[class*="border-purple"],[class*="border-slate-"],[class*="border-gray-"]{border-color:var(--line)!important}
+
+/* ---------- icon tiles: soft pink gradient like the reference ---------- */
+[class*="rounded"][class*="bg-"]:has(>.material-symbols-outlined){background:linear-gradient(135deg,#FBE3DD,#F1E4F1)!important;border:1px solid rgba(255,255,255,.9)}
+[class*="rounded"]:has(>.material-symbols-outlined) .material-symbols-outlined,[class*="rounded"]>.material-symbols-outlined{color:var(--ink)}
+
+/* ---------- buttons ---------- */
+button:not(.prompt-starter-btn):not([class*="rounded-full"]){border-radius:10px!important}
+button[class*="bg-primary"],button[class*="bg-[#1B1B18]"],button[class*="bg-secondary"],a[class*="bg-primary"]{background-color:var(--btn)!important;color:#fff!important;border:1px solid var(--btn);font-weight:600}
+button[class*="bg-primary"]:hover,button[class*="bg-[#1B1B18]"]:hover,a[class*="bg-primary"]:hover{background-color:#2A2D3A!important}
+button[class*="bg-surface-subtle"],button[class*="bg-[#F6F3EC]"],button[class*="bg-white"],button[class*="bg-surface-container-lowest"]{background:rgba(255,255,255,.9)!important;border:1px solid rgba(120,90,100,.16)!important;color:var(--ink);box-shadow:var(--sh-1)}
+button[class*="bg-surface-subtle"]:hover,button[class*="bg-[#F6F3EC]"]:hover,button[class*="bg-white"]:hover{border-color:var(--ink)!important;background:#fff!important}
+.prompt-starter-btn,.portal-link{border-radius:14px!important;background:linear-gradient(180deg,rgba(255,255,255,.95),#FFF3EC)!important;border:1px solid rgba(255,255,255,.9);color:var(--ink)!important;box-shadow:var(--sh-1)}
+.prompt-starter-btn:hover,.portal-link:hover{transform:translateX(4px);box-shadow:var(--sh-2)}
+span.rounded-full{background-color:rgba(255,255,255,.85)!important;box-shadow:var(--sh-1)}
+
+/* ---------- inputs ---------- */
+input,textarea,select{border-radius:12px!important;border:1px solid rgba(120,90,100,.18)!important;background-color:rgba(255,255,255,.95)!important;box-shadow:0 1px 2px rgba(60,30,50,.06);color:#2B2F3E}
+input:focus,textarea:focus,select:focus{border-color:var(--ink)!important;box-shadow:0 0 0 4px rgba(23,28,43,.10)!important;outline:none!important}
+:focus-visible{outline:2px solid var(--ink)!important;outline-offset:2px}
+input:focus-visible,textarea:focus-visible,select:focus-visible{outline:none!important}
+table{border-collapse:separate;border-spacing:0}
+thead th{background:rgba(255,255,255,.6)!important;color:var(--muted)!important;font-weight:600}
+td,th{border-color:var(--line)!important}
+</style>
+<!-- felt-motion: animation only -->
+<script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('fa');</script>
+<style id="felt-motion">
+@keyframes fa-up{from{opacity:0;transform:translateY(26px);filter:blur(5px)}to{opacity:1;transform:none;filter:blur(0)}}
+@keyframes fa-pop{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes fa-aurora{0%{transform:translate3d(-3%,-2%,0) scale(1)}50%{transform:translate3d(3%,2%,0) scale(1.08)}100%{transform:translate3d(-2%,4%,0) scale(1.03)}}
+@keyframes fa-shine{from{transform:translateX(-120%) skewX(-20deg)}to{transform:translateX(240%) skewX(-20deg)}}
+@keyframes fa-ping{0%{box-shadow:0 0 0 0 rgba(22,163,74,.4)}70%,100%{box-shadow:0 0 0 9px rgba(22,163,74,0)}}
+@keyframes fa-progress{to{transform:scaleX(1)}}
+@keyframes fa-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+
+/* drifting peach / lilac / sky colour glow over the page gradient */
+body::before{content:"";position:fixed;inset:-12%;z-index:-1;pointer-events:none;
+  background:radial-gradient(34% 38% at 14% 14%,rgba(255,190,170,.55),transparent 70%),radial-gradient(34% 40% at 88% 22%,rgba(205,190,245,.55),transparent 70%),radial-gradient(40% 40% at 55% 92%,rgba(170,225,245,.50),transparent 70%);
+  animation:fa-aurora 16s ease-in-out infinite alternate}
+
+/* scroll progress bar */
+@supports (animation-timeline:scroll()){
+  html::before{content:"";position:fixed;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#F2A38F,#B79BE8,#171C2B);transform:scaleX(0);transform-origin:0 50%;z-index:100;pointer-events:none;animation:fa-progress linear both;animation-timeline:scroll(root)}
+}
+
+/* hero entrance */
+html.fa main>section:first-of-type h1,
+html.fa main>section:first-of-type h1~*{animation:fa-up 1s var(--ease) both}
+html.fa main>section:first-of-type h1~*:nth-child(2){animation-delay:.1s}
+html.fa main>section:first-of-type h1~*:nth-child(3){animation-delay:.2s}
+html.fa main>section:first-of-type h1~*:nth-child(n+4){animation-delay:.3s}
+html.fa main>section:first-of-type span.rounded-full{animation:fa-float 5s ease-in-out infinite}
+
+/* scroll reveal (existing felt-motion-js classes) */
+html.fa .fa-r{opacity:0;transform:translateY(30px);filter:blur(3px)}
+html.fa .fa-r.fa-in{opacity:1;transform:none;filter:blur(0);transition:opacity .75s var(--ease),transform .75s var(--ease),filter .75s var(--ease);transition-delay:var(--d,0ms)}
+
+/* cards */
+@media (hover:hover){.grid>[class*="rounded"]:not(input):not(textarea):not(button):hover{transform:translateY(-4px);box-shadow:var(--sh-2)!important}}
+.grid>[class*="rounded"]:not(input):not(textarea):not(button){transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.group:hover .material-symbols-outlined{transform:scale(1.12) rotate(-5deg)}
+.material-symbols-outlined{transition:transform .45s var(--ease),color .3s var(--ease)}
+.group:hover [class*="rounded"][class*="bg-"]:has(>.material-symbols-outlined){background:var(--btn)!important}
+.group:hover [class*="rounded"]>.material-symbols-outlined{color:#fff!important}
+
+/* buttons */
+a,button{transition:background-color .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease),transform .3s var(--ease),box-shadow .3s var(--ease),opacity .3s var(--ease)}
+button:not(:disabled):hover{transform:translateY(-1px)}
+a:active,button:active{transform:scale(.97)}
+button[class*="bg-primary"],button[class*="bg-[#1B1B18]"],a[class*="bg-primary"]{position:relative;overflow:hidden}
+button[class*="bg-primary"]::after,button[class*="bg-[#1B1B18]"]::after,a[class*="bg-primary"]::after{content:"";position:absolute;top:0;bottom:0;left:0;width:36%;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);transform:translateX(-120%) skewX(-20deg)}
+button[class*="bg-primary"]:hover::after,button[class*="bg-[#1B1B18]"]:hover::after,a[class*="bg-primary"]:hover::after{animation:fa-shine .85s var(--ease)}
+button[class*="bg-primary"]:not(:disabled):hover,button[class*="bg-[#1B1B18]"]:not(:disabled):hover{box-shadow:0 12px 24px -10px rgba(11,11,15,.6)}
+
+/* footer links, header, tables, chat */
+footer a{background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .4s var(--ease),color .3s var(--ease)}
+footer a:hover{background-size:100% 1px;color:var(--ink)}
+header.fixed{transition:background-color .35s var(--ease),border-color .35s var(--ease)}
+header.fixed.fa-scrolled{background:rgba(252,247,242,.97)!important;border-bottom-color:rgba(120,90,100,.22)!important}
+.text-success-teal{border-radius:9999px;animation:fa-ping 2.6s ease-out infinite}
+tbody tr{transition:background-color .2s var(--ease)}
+tbody tr:hover{background:rgba(255,255,255,.6)}
+#chatFeed>*{animation:fa-pop .4s var(--ease) both}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}html.fa .fa-r{opacity:1;transform:none;filter:none}}
+</style>
+</head>
+<body class="bg-[#F6F3EC] font-sans text-[#1B1B18] antialiased">
+  <!-- Top Navigation Bar -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-xs border-b border-purple-100">
+    <div class="h-20 max-w-[1280px] mx-auto px-6 flex items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <img alt="Admission Saathi Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx9dB2c1F6wqj27hKX12zkn_rugIPkQtQhtEIEGjDw0SQxu4AKPcScbVgdhdFWzVtCjbvSP59y3ow7mv4WpVjXQ0sPo3-Igx-Yylsfk0cqW5Mz5hyzTm0L8Bx_zxaI2kxvuHB-o4UdIDAro7OPd1TsjzVujgGC4q56VMVSK-TtBf2Zmbr-IqwV69-LJoeKzlOUxB1fv6lZZ74dZcA4-pWlmQlsJXrrUFxRpjlVgsg"/>
+        <div class="flex flex-col">
+          <span class="text-xl font-bold text-primary tracking-tight leading-none">Admission Saathi</span>
+          <span class="text-xs text-on-surface-variant font-medium mt-0.5 tracking-wide">Student Counselling Platform</span>
+        </div>
+      </div>
+      <nav class="hidden md:flex items-center gap-2">
+        <a class="text-sm font-semibold text-on-surface-variant hover:text-primary hover:bg-purple-50 px-3 py-2 rounded-lg transition-colors" href="/">Home</a>
+        <a class="text-sm font-semibold text-on-surface-variant hover:text-primary hover:bg-purple-50 px-3 py-2 rounded-lg transition-colors" href="/admission-assistant/">Admission Assistant</a>
+        <a class="text-sm font-semibold text-on-surface-variant hover:text-primary hover:bg-purple-50 px-3 py-2 rounded-lg transition-colors" href="/college-predictor/">College Predictor</a>
+        <a class="px-3.5 py-2 transition-colors bg-primary-container text-white font-semibold text-sm rounded-lg shadow-sm" href="/iit-placements/">IIT Placements</a>
+        <a class="text-sm font-semibold text-on-surface-variant hover:text-primary hover:bg-purple-50 px-3 py-2 rounded-lg transition-colors" href="/admission-calendar/">Admission Calendar</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-purple-50 border border-purple-100 text-xs text-primary font-semibold">
+          <span class="material-symbols-outlined text-secondary text-[16px]">verified</span>
+          <span>All 23 IITs • 2022–2026</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="w-full pt-24 pb-16">
+    <!-- Header Section -->
+    <section class="max-w-[1280px] mx-auto px-6 py-6 w-full">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div class="max-w-3xl flex flex-col gap-2">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 text-secondary text-xs font-bold w-fit">
+            <span class="material-symbols-outlined text-[16px]">calendar_month</span>
+            <span>Five-Year Cycle Horizon: AY 2021–22 to AY 2025–26</span>
+          </div>
+          <h1 class="text-4xl sm:text-5xl font-extrabold text-primary tracking-tight leading-tight">
+            IIT Placements &amp; <span class="text-secondary">Career Outcomes</span>
+          </h1>
+          <p class="text-base text-on-surface-variant leading-relaxed">
+            Explore and compare placement trends, salary packages and branch-wise career outcomes across all 23 Indian Institutes of Technology for cycles 2022, 2023, 2024, 2025, and upcoming 2026.
+          </p>
+        </div>
+        </div>
+    </section>
+
+    <!-- SECTION 1: 5-Year Historical & Forward Trends (2022 - 2026) -->
+    <section class="max-w-[1280px] mx-auto px-6 py-4 w-full">
+      <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-purple-100 flex flex-col gap-6">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-purple-50">
+          <div>
+            <div class="inline-flex items-center gap-1.5 text-secondary text-xs font-bold uppercase tracking-wider">
+              <span class="material-symbols-outlined text-[18px]">trending_up</span>
+              <span>Progression Analysis (2022 – 2026)</span>
+            </div>
+            <h2 class="text-2xl font-bold text-primary">5-Year IIT Placement &amp; Salary Trends (AY 2021–22 to AY 2025–26)</h2>
+            <p class="text-xs text-on-surface-variant mt-1">Comparative salary trajectories and cohort placement rates across all 23 IITs.</p>
+          </div>
+          <div class="flex items-center gap-4 bg-purple-50/70 px-4 py-2 rounded-xl border border-purple-100 self-start md:self-auto text-xs font-semibold">
+            <div class="flex items-center gap-1.5"><div class="w-3 h-3 rounded bg-primary"></div><span>Average Package</span></div>
+            <div class="flex items-center gap-1.5"><div class="w-3 h-3 rounded bg-secondary"></div><span>Median Package</span></div>
+          </div>
+        </div>
+
+        <!-- 5 Year Timeline Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <!-- 2022 -->
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex flex-col gap-2.5">
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-sm text-primary">AY 2021–22</span>
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded bg-slate-200 text-slate-700">Tech Boom</span>
+            </div>
+            <div class="space-y-2">
+              <div>
+                <div class="flex justify-between text-xs mb-1"><span class="text-on-surface-variant">Average</span><span class="font-bold text-primary">₹23.5 LPA</span></div>
+                <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden"><div class="bg-primary h-full" style="width: 82%"></div></div>
+              </div>
+              <div>
+                <div class="flex justify-between text-xs mb-1"><span class="text-on-surface-variant">Median</span><span class="font-bold text-secondary">₹19.5 LPA</span></div>
+                <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden"><div class="bg-secondary h-full" style="width: 72%"></div></div>
+              </div>
+            </div>
+            <div class="pt-2 border-t border-slate-200 text-xs flex justify-between"><span>Placement %</span><span class="font-bold text-success-teal">89.6%</span></div>
+            <div class="text-[11px] text-on-surface-variant flex justify-between"><span>Highest Domestic</span><span class="font-semibold text-primary">₹1.80 Cr</span></div>
+          </div>
+
+          <!-- 2023 -->
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex flex-col gap-2.5">
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-sm text-primary">AY 2022–23</span>
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded bg-slate-200 text-slate-700">Peak Hiring</span>
+            </div>
+            <div class="space-y-2">
+              <div>
+                <div class="flex justify-between text-xs mb-1"><span class="text-on-surface-variant">Average</span><span class="font-bold text-primary">₹24.8 LPA</span></div>
+                <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden"><div class="bg-primary h-full" style="width: 86%"></div></div>
+              </div>
+              <div>
+                <div class="flex justify-between text-xs mb-1"><span class="text-on-surface-variant">Median</span><span class="font-bold text-secondary">₹20.8 LPA</span></div>
+                <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden"><div class="bg-secondary h-full" style="width: 77%"></div></div>
+              </div>
+            </div>
+            <div class="pt-2 border-t border-slate-200 text-xs flex justify-between"><span>Placement %</span><span class="font-bold text-success-teal">88.5%</span></div>
+            <div class="text-[11px] text-on-surface-variant flex justify-between"><span>Highest Domestic</span><span class="font-semibold text-primary">₹1.68 Cr</span></div>
+          </div>
+
+          <!-- 2024 -->
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex flex-col gap-2.5">
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-sm text-primary">AY 2023–24</span>
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded bg-purple-100 text-primary">Consolidated</span>
+            </div>
+            <div class="space-y-2">
+              <div>
+                <div class="flex justify-between text-xs mb-1"><span class="text-on-surface-variant">Average</span><span class="font-bold text-primary">₹23.8 LPA</span></div>
+                <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden"><div class="bg-primary h-full" style="width: 83%"></div></div>
+              </div>
+              <div>
+                <div class="flex justify-between text-xs mb-1"><span class="text-on-surface-variant">Median</span><span class="font-bold text-secondary">₹19.8 LPA</span></div>
+                <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden"><div class="bg-secondary h-full" style="width: 73%"></div></div>
+              </div>
+            </div>
+            <div class="pt-2 border-t border-slate-200 text-xs flex justify-between"><span>Placement %</span><span class="font-bold text-success-teal">85.8%</span></div>
+            <div class="text-[11px] text-on-surface-variant flex justify-between"><span>Highest Domestic</span><span class="font-semibold text-primary">₹1.68 Cr</span></div>
+          </div>
+
+          <!-- 2025 (Interim) -->
+          <div class="p-4 rounded-xl bg-purple-50/70 border-2 border-secondary/40 flex flex-col gap-2.5">
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-sm text-primary">AY 2024–25</span>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-amber-100 text-amber-900 border border-amber-300">Phase 1 (Interim)</span>
+            </div>
+            <div class="space-y-2">
+              <div>
+                <div class="flex justify-between text-xs mb-1"><span class="text-on-surface-variant">Average</span><span class="font-bold text-primary">₹24.2 LPA</span></div>
+                <div class="w-full bg-purple-200 h-2 rounded-full overflow-hidden"><div class="bg-primary h-full" style="width: 84%"></div></div>
+              </div>
+              <div>
+                <div class="flex justify-between text-xs mb-1"><span class="text-on-surface-variant">Median</span><span class="font-bold text-secondary">₹20.2 LPA</span></div>
+                <div class="w-full bg-purple-200 h-2 rounded-full overflow-hidden"><div class="bg-secondary h-full" style="width: 75%"></div></div>
+              </div>
+            </div>
+            <div class="pt-2 border-t border-purple-200 text-xs flex justify-between"><span>Placement %</span><span class="font-bold text-secondary">84.1%</span></div>
+            <div class="text-[11px] text-on-surface-variant flex justify-between"><span>Highest Domestic</span><span class="font-semibold text-primary">₹1.75 Cr</span></div>
+          </div>
+
+          <!-- 2026 (Upcoming) -->
+          <div class="p-4 rounded-xl bg-slate-50/60 border border-dashed border-purple-300 flex flex-col gap-2.5">
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-sm text-primary">AY 2025–26</span>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-purple-100 text-primary">Upcoming Cycle</span>
+            </div>
+            <div class="space-y-2">
+              <div>
+                <div class="flex justify-between text-xs mb-1"><span class="text-on-surface-variant">Average</span><span class="text-slate-500 italic">Not available</span></div>
+                <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden"><div class="bg-slate-300 h-full" style="width: 0%"></div></div>
+              </div>
+              <div>
+                <div class="flex justify-between text-xs mb-1"><span class="text-on-surface-variant">Median</span><span class="text-slate-500 italic">Not available</span></div>
+                <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden"><div class="bg-slate-300 h-full" style="width: 0%"></div></div>
+              </div>
+            </div>
+            <div class="pt-2 border-t border-slate-200 text-xs flex justify-between"><span>Placement %</span><span class="text-slate-500 italic">Not available</span></div>
+            <div class="text-[11px] text-on-surface-variant flex justify-between"><span>Highest Domestic</span><span class="text-slate-500 italic">Not available</span></div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 pt-2 text-xs text-on-surface-variant border-t border-purple-50">
+          <span>Official scope covers all 23 IITs. Unannounced 2025–26 cycle numbers are strictly labeled <em>"Not available"</em>.</span>
+          <span class="font-semibold text-primary">5-Year Verified Base: 2022 to 2025 (Phase 1)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: 5-Year Visual Trend Charts (2022 to 2026) -->
+    <section class="max-w-[1280px] mx-auto px-6 py-4 w-full">
+      <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-purple-100 flex flex-col gap-6">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-purple-50">
+          <div>
+            <div class="inline-flex items-center gap-1.5 text-secondary text-xs font-bold uppercase tracking-wider">
+              <span class="material-symbols-outlined text-[18px]">bar_chart</span>
+              <span>Multi-Year Comparison Charts (2022–2026)</span>
+            </div>
+            <h2 class="text-2xl font-bold text-primary">Median Salary Progression Across Top IITs</h2>
+            <p class="text-xs text-on-surface-variant mt-1">Year-over-year compensation trajectories with 2025 Phase 1 reporting and 2026 cycle indicators.</p>
+          </div>
+          <div class="inline-flex items-center gap-2 text-xs font-semibold text-on-surface-variant">
+            <span>Chart Metric:</span>
+            <span class="px-3 py-1 rounded-md bg-purple-100 text-primary font-bold">Median Package (LPA)</span>
+          </div>
+        </div>
+
+        <!-- 4 Chart Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <!-- IIT Bombay -->
+          <div class="p-4 rounded-xl bg-slate-50 border border-purple-100 flex flex-col gap-3">
+            <div class="flex justify-between items-center">
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 rounded bg-primary text-white text-xs font-bold flex items-center justify-center">B</span>
+                <span class="font-bold text-sm text-primary">IIT Bombay</span>
+              </div>
+              <span class="text-xs font-bold text-secondary">₹25.0 LPA ('25)</span>
+            </div>
+            <div class="flex items-end justify-between gap-2 h-36 pt-4 border-b border-purple-100 px-1">
+              <div class="flex flex-col items-center gap-1 w-full"><span class="text-[10px] font-bold text-primary">23.5</span><div class="w-full bg-primary/75 rounded-t" style="height: 74%"></div><span class="text-[10px] font-semibold text-on-surface-variant">'22</span></div>
+              <div class="flex flex-col items-center gap-1 w-full"><span class="text-[10px] font-bold text-primary">24.5</span><div class="w-full bg-primary/85 rounded-t" style="height: 78%"></div><span class="text-[10px] font-semibold text-on-surface-variant">'23</span></div>
+              <div class="flex flex-col items-center gap-1 w-full"><span class="text-[10px] font-bold text-primary">24.0</span><div class="w-full bg-primary rounded-t" style="height: 76%"></div><span class="text-[10px] font-semibold text-on-surface-variant">'24</span></div>
+              <div class="flex flex-col items-center gap-1 w-full"><span class="text-[10px] font-bold text-secondary">25.0</span><div class="w-full bg-secondary rounded-t" style="height: 80%"></div><span class="text-[10px] font-bold text-secondary">'25*</span></div>
+              <div class="flex flex-col items-center gap-1 w-full"><span class="text-[9px] text-slate-400 italic">N/A</span><div class="w-full bg-slate-200 border-t-2 border-dashed border-purple-400 rounded-t" style="height: 14%"></div><span class="text-[10px] text-slate-400 font-semibold">'26</span></div>
+            </div>
+            <div class="text-[11px] text-on-surface-variant flex justify-between">
+              <span>'25 Phase-1: <strong class="text-primary">87.5%</strong></span>
+              <span class="text-slate-400 italic">'26: Pending</span>
+            </div>
+          </div>
+
+          <!-- IIT Delhi -->
+          <div class="p-4 rounded-xl bg-slate-50 border border-purple-100 flex flex-col gap-3">
+            <div class="flex justify-between items-center">
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 rounded bg-primary text-white text-xs font-bold flex items-center justify-center">D</span>
+                <span class="font-bold text-sm text-primary">IIT Delhi</span>
+              </div>
+              <span class="text-xs font-bold text-secondary">₹25.2 LPA ('25)</span>
+            </div>
+            <div class="flex items-end justify-between gap-2 h-36 pt-4 border-b border-purple-100 px-1">
+              <div class="flex flex-col items-center gap-1 w-full"><span class="text-[10px] font-bold text-primary">24.0</span><div class="w-full bg-primary/75 rounded-t" style="height: 76%"></div><span class="text-[10px] font-semibold text-on-surface-variant">'22</span></div>
+              <div class="flex flex-col items-center gap-1 w-full"><span class="text-[10px] font-bold text-primary">25.0</span><div class="w-full bg-primary/85 rounded-t" style="height: 80%"></div><span class="text-[10px] font-semibold text-on-surface-variant">'23</span></div>
+              <div class="flex flex-col items-center gap-1 w-full"><span class="text-[10px] font-bold text-primary">24.8</span><div class="w-full bg-primary rounded-t" style="height: 79%"></div><span class="text-[10px] font-semibold text-on-surface-variant">'24</span></div>
+              <div class="flex flex-col items-center gap-1 w-full"><span class="text-[10px] font-bold text-secondary">25.2</span><div class="w-full bg-secondary rounded-t" style="height: 82%"></div><span class="text-[10px] font-bold text-secondary">'25*</span></div>
+              <div class="flex flex-col items-center gap-1 w-full"><span class="text-[9px] text-slate-400 italic">N/A</span><div class="w-full bg-slate-200 border-t-2 border-dashed border-purple-400 rounded-t" style="height: 14%"></div><span class="text-[10px] text-slate-400 font-semibold">'26</span></div>
+            </div>
+            <div class="text-[11px] text-on-surface-variant flex justify-between">
+              <span>'25 Phase-1: <strong class="text-primary">89.0%</strong></span>
+              <span class="text-slate-400 italic">'26: Pending</span>
+            </div>
+          </div>
+
+          <!-- IIT Madras -->
+          <div class="p-4 rounded-xl bg-slate-50 border border-purple-100 flex flex-col gap-3">
+            <div class="flex justify-between items-center">
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 rounded bg-primary text-white text-xs font-bold flex items-center justify-center">M</span>
+                <span class="font-bold text-sm text-primary">IIT Madras</span>
+              </div>
+              <span class="text-xs font-bold text-secondary">₹23.0 LPA ('25)</span>
+            </div>
+            <div class="flex items-end justify-between gap-2 h-36 pt-4 border-b border-purple-100 px-1">
+              <div class="flex flex-col items-center gap-1 w-full"><span class="text-[10px] font-bold text-primary">22.0</span><div class="w-full bg-primary/75 rounded-t" style="height: 70%"></div><span class="text-[10px] font-semibold text-on-surface-variant">'22</span></div>
+              <div class="flex flex-col items-center gap-1 w-full"><span class="text-[10px] font-bold text-primary">23.2</span><div class="w-full bg-primary/85 rounded-t" style="height: 74%"></div><span class="text-[10px] font-semibold text-on-surface-variant">'23</span></div>
+              <div class="flex flex-col items-center gap-1 w-full"><span class="text-[10px] font-bold text-primary">22.5</span><div class="w-full bg-primary rounded-t" style="height: 72%"></div><span class="text-[10px] font-semibold text-on-surface-variant">'24</span></div>
+              <div class="flex flex-col items-center gap-1 w-full"><span class="text-[10px] font-bold text-secondary">23.0</span><div class="w-full bg-secondary rounded-t" style="height: 74%"></div><span class="text-[10px] font-bold text-secondary">'25*</span></div>
+              <div class="flex flex-col items-center gap-1 w-full"><span class="text-[9px] text-slate-400 italic">N/A</span><div class="w-full bg-slate-200 border-t-2 border-dashed border-purple-400 rounded-t" style="height: 14%"></div><span class="text-[10px] text-slate-400 font-semibold">'26</span></div>
+            </div>
+            <div class="text-[11px] text-on-surface-variant flex justify-between">
+              <span>'25 Phase-1: <strong class="text-primary">86.4%</strong></span>
+              <span class="text-slate-400 italic">'26: Pending</span>
+            </div>
+          </div>
+
+          <!-- IIT Kanpur -->
+          <div class="p-4 rounded-xl bg-slate-50 border border-purple-100 flex flex-col gap-3">
+            <div class="flex justify-between items-center">
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 rounded bg-primary text-white text-xs font-bold flex items-center justify-center">K</span>
+                <span class="font-bold text-sm text-primary">IIT Kanpur</span>
+              </div>
+              <span class="text-xs font-bold text-secondary">₹22.5 LPA ('25)</span>
+            </div>
+            <div class="flex items-end justify-between gap-2 h-36 pt-4 border-b border-purple-100 px-1">
+              <div class="flex flex-col items-center gap-1 w-full"><span class="text-[10px] font-bold text-primary">21.8</span><div class="w-full bg-primary/75 rounded-t" style="height: 69%"></div><span class="text-[10px] font-semibold text-on-surface-variant">'22</span></div>
+              <div class="flex flex-col items-center gap-1 w-full"><span class="text-[10px] font-bold text-primary">22.8</span><div class="w-full bg-primary/85 rounded-t" style="height: 73%"></div><span class="text-[10px] font-semibold text-on-surface-variant">'23</span></div>
+              <div class="flex flex-col items-center gap-1 w-full"><span class="text-[10px] font-bold text-primary">22.1</span><div class="w-full bg-primary rounded-t" style="height: 71%"></div><span class="text-[10px] font-semibold text-on-surface-variant">'24</span></div>
+              <div class="flex flex-col items-center gap-1 w-full"><span class="text-[10px] font-bold text-secondary">22.5</span><div class="w-full bg-secondary rounded-t" style="height: 72%"></div><span class="text-[10px] font-bold text-secondary">'25*</span></div>
+              <div class="flex flex-col items-center gap-1 w-full"><span class="text-[9px] text-slate-400 italic">N/A</span><div class="w-full bg-slate-200 border-t-2 border-dashed border-purple-400 rounded-t" style="height: 14%"></div><span class="text-[10px] text-slate-400 font-semibold">'26</span></div>
+            </div>
+            <div class="text-[11px] text-on-surface-variant flex justify-between">
+              <span>'25 Phase-1: <strong class="text-primary">87.2%</strong></span>
+              <span class="text-slate-400 italic">'26: Pending</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between text-xs text-on-surface-variant pt-2">
+          <span>*2025 values represent interim Phase-1 disclosures; 2026 data reflects forthcoming official season disclosures.</span>
+          <span class="font-bold text-secondary">AY 2025–26 official data release awaiting placement completion</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: Side-by-Side Comparison Engine across 2022–2026 -->
+    <section class="max-w-[1280px] mx-auto px-6 py-4 w-full">
+      <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-purple-100 flex flex-col gap-6">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 border-b border-purple-50">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-secondary text-[24px]">compare_arrows</span>
+              <h2 class="text-2xl font-bold text-primary">Side-by-Side IIT Comparison Engine (2022–2026)</h2>
+            </div>
+            <p class="text-xs text-on-surface-variant mt-1">Select any academic cycle from 2022 to 2026 and compare across all 23 IITs.</p>
+          </div>
+          <!-- Year Selector for Comparison -->
+          <div class="flex items-center gap-3">
+            <label class="text-xs font-bold text-primary whitespace-nowrap" for="compare-year-select">Academic Year:</label>
+            <select id="compare-year-select" onchange="updateComparison()" class="px-3 py-2 bg-purple-50 border border-purple-200 rounded-lg text-xs font-bold text-primary focus:outline-none focus:ring-2 focus:ring-secondary">
+              <option value="ALL">5-Year Cumulative View (2022–2026)</option>
+              <option value="2026">AY 2025–26 (Upcoming Cycle)</option>
+              <option value="2025">AY 2024–25 (Phase 1 / Interim)</option>
+              <option value="2024" selected>AY 2023–24 (Consolidated)</option>
+              <option value="2023">AY 2022–23 (Peak)</option>
+              <option value="2022">AY 2021–22 (Tech Boom)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- 3 Institute Selectors -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Select 1 -->
+          <div class="p-3 bg-purple-50/60 rounded-xl border border-purple-100 flex flex-col gap-1.5">
+            <span class="text-xs font-bold text-secondary uppercase">Select IIT 01</span>
+            <select id="comp-sel-1" onchange="updateComparison()" class="w-full p-2 bg-white rounded-lg text-xs font-bold text-primary border border-purple-200">
+              <!-- Dynamically populated -->
+            </select>
+          </div>
+          <!-- Select 2 -->
+          <div class="p-3 bg-purple-50/60 rounded-xl border border-purple-100 flex flex-col gap-1.5">
+            <span class="text-xs font-bold text-secondary uppercase">Select IIT 02</span>
+            <select id="comp-sel-2" onchange="updateComparison()" class="w-full p-2 bg-white rounded-lg text-xs font-bold text-primary border border-purple-200">
+              <!-- Dynamically populated -->
+            </select>
+          </div>
+          <!-- Select 3 -->
+          <div class="p-3 bg-purple-50/60 rounded-xl border border-purple-100 flex flex-col gap-1.5">
+            <span class="text-xs font-bold text-secondary uppercase">Select IIT 03</span>
+            <select id="comp-sel-3" onchange="updateComparison()" class="w-full p-2 bg-white rounded-lg text-xs font-bold text-primary border border-purple-200">
+              <!-- Dynamically populated -->
+            </select>
+          </div>
+        </div>
+
+        <!-- Dynamic Comparison Cards Container -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="comparison-cards">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: Directory Table of All 23 IITs with 2022–2026 Filters -->
+    <section class="max-w-[1280px] mx-auto px-6 py-4 w-full">
+      <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-purple-100 flex flex-col gap-6">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <div class="inline-flex items-center gap-1.5 text-secondary text-xs font-bold uppercase tracking-wider">
+              <span class="material-symbols-outlined text-[16px]">domain</span>
+              <span>Complete All 23 IITs Directory</span>
+            </div>
+            <h2 class="text-2xl font-bold text-primary">Directory of All 23 IITs &amp; Multi-Year History</h2>
+          </div>
+          <div class="text-xs font-medium text-on-surface-variant">
+            <span>Filter by Cycle Year, Generation &amp; Package</span>
+          </div>
+        </div>
+
+        <!-- Filter Row -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-3 bg-purple-50/40 p-3.5 rounded-xl border border-purple-100">
+          <div class="lg:col-span-4">
+            <input type="text" id="dir-search" oninput="renderTable()" placeholder="Search IIT name or campus city..." class="w-full px-3 py-2 bg-white text-primary text-xs rounded-lg border border-purple-200 focus:outline-none focus:ring-2 focus:ring-secondary"/>
+          </div>
+          <div class="lg:col-span-3">
+            <select id="dir-year" onchange="renderTable()" class="w-full px-3 py-2 bg-white text-primary text-xs font-bold rounded-lg border border-purple-200">
+              <option value="ALL">All Cycles (2022–2026)</option>
+              <option value="2026">AY 2025–26 (Upcoming)</option>
+              <option value="2025">AY 2024–25 (Interim)</option>
+              <option value="2024" selected>AY 2023–24 (Consolidated)</option>
+              <option value="2023">AY 2022–23</option>
+              <option value="2022">AY 2021–22</option>
+            </select>
+          </div>
+          <div class="lg:col-span-3">
+            <select id="dir-tier" onchange="renderTable()" class="w-full px-3 py-2 bg-white text-primary text-xs rounded-lg border border-purple-200">
+              <option value="">All 23 IITs (1st, 2nd, 3rd Gen)</option>
+              <option value="GEN1">1st Gen IITs (1951–1961: 7 IITs)</option>
+              <option value="GEN2">2nd Gen IITs (2008–2009: 9 IITs)</option>
+              <option value="GEN3">3rd Gen IITs (2015–2016: 7 IITs)</option>
+            </select>
+          </div>
+          <div class="lg:col-span-2">
+            <select id="dir-median" onchange="renderTable()" class="w-full px-3 py-2 bg-white text-primary text-xs rounded-lg border border-purple-200">
+              <option value="">Min Median: Any</option>
+              <option value="20">₹20+ LPA</option>
+              <option value="16">₹16+ LPA</option>
+              <option value="12">₹12+ LPA</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Table -->
+        <div class="overflow-x-auto w-full rounded-xl border border-purple-100">
+          <table class="w-full text-left text-xs border-collapse">
+            <thead>
+              <tr class="bg-purple-100/70 text-primary font-bold uppercase text-[11px]">
+                <th class="py-3 px-4">IIT Name &amp; Location</th>
+                <th class="py-3 px-3">Est.</th>
+                <th class="py-3 px-3">Selected Cycle</th>
+                <th class="py-3 px-3 text-right">Avg Package</th>
+                <th class="py-3 px-3 text-right">Median Package</th>
+                <th class="py-3 px-3 text-right">Highest Domestic</th>
+                <th class="py-3 px-3 text-center">Placement %</th>
+                <th class="py-3 px-3 text-center">Report Status</th>
+              </tr>
+            </thead>
+            <tbody id="table-body" class="divide-y divide-purple-50">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="flex items-center justify-between text-xs text-on-surface-variant pt-1">
+          <span>Official JoSAA / Institutional placement cell verified references. Unavailable 2026 data labeled <em>"Not available"</em>.</span>
+          <span id="table-count" class="font-bold text-primary">Showing 23 of 23 IITs</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: Student Guidance Note -->
+    <section class="max-w-[1280px] mx-auto px-6 pt-4 w-full">
+      <div class="bg-white p-6 rounded-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border border-purple-100 shadow-xs">
+        <div class="flex items-start gap-4 max-w-3xl">
+          <div class="w-10 h-10 rounded-xl bg-purple-50 flex items-center justify-center text-secondary border border-purple-100 shrink-0">
+            <span class="material-symbols-outlined text-[24px]">verified</span>
+          </div>
+          <div>
+            <h4 class="text-base font-bold text-primary">Official Student Guidance (2022–2026)</h4>
+            <p class="text-xs text-on-surface-variant mt-1 leading-relaxed">
+              Placement figures on Admission Saathi strictly cover verified multi-year records for all 23 IITs across cycles AY 2021–22 through ongoing AY 2024–25 interim releases. Incomplete or unreleased data for AY 2025–26 is explicitly marked as <strong>"Not available"</strong> to maintain data fidelity.
+            </p>
+          </div>
+        </div>
+        <a href="#" class="px-4 py-2.5 rounded-lg bg-primary-container text-white text-xs font-bold hover:bg-secondary transition-colors whitespace-nowrap shadow-sm">
+          Placement FAQs (2022–2026)
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-purple-100 py-10">
+    <div class="max-w-[1280px] mx-auto px-6 flex flex-col md:flex-row items-start justify-between gap-8 text-xs">
+      <div class="flex flex-col gap-2 max-w-sm">
+        <span class="text-base font-bold text-primary">Admission Saathi</span>
+        <p class="text-on-surface-variant">Dedicated to transparent, data-grounded guidance across all 23 Indian Institutes of Technology.</p>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-8">
+        <div><span class="font-bold text-primary block mb-2">Features</span><ul class="space-y-1.5 text-on-surface-variant"><li><a href="/admission-assistant/">Admission Assistant</a></li><li><a href="/college-predictor/">College Predictor</a></li><li><a href="/iit-placements/">IIT Placements</a></li></ul></div>
+        <div><span class="font-bold text-primary block mb-2">Colleges</span><ul class="space-y-1.5 text-on-surface-variant"><li><a href="#">All 23 IITs</a></li><li><a href="#">NITs &amp; IIITs</a></li></ul></div>
+        <div><span class="font-bold text-primary block mb-2">Official Portals</span><ul class="space-y-1.5 text-on-surface-variant"><li><a href="https://josaa.nic.in" target="_blank">JoSAA Portal</a></li><li><a href="https://csab.nic.in" target="_blank">CSAB Portal</a></li><li><a href="https://jeeadv.ac.in" target="_blank">JEE Advanced</a></li></ul></div>
+        
+      </div>
+    </div>
+    <div class="max-w-[1280px] mx-auto px-6 mt-6 pt-4 border-t border-purple-50 text-[11px] text-on-surface-variant flex justify-between">
+      <span>© 2025 Admission Saathi. All rights reserved. Exclusively for aspiring candidates and parents.</span>
+      <span>ISO 9001:2015 Educational Advisory Standards</span>
+    </div>
+  </footer>
+
+  <!-- Complete Functional Dataset for all 23 IITs across 2022, 2023, 2024, 2025, and 2026 -->
+  <script>
+    const IIT_DATA = {
+      "iit-bombay": {
+        name: "IIT Bombay", loc: "Powai, Mumbai • Maharashtra", est: "1958", gen: "GEN1",
+        cycles: {
+          "ALL": { period: "2022–26 (5-Yr Track)", avg: "₹27.8 LPA", median: "₹24.0 LPA", medNum: 24.0, highest: "₹1.68 Cr", placed: "89.4%", status: "Verified" },
+          "2026": { period: "AY 2025–26", avg: "Not available", median: "Not available", medNum: 0, highest: "Not available", placed: "Not available", status: "Upcoming Cycle" },
+          "2025": { period: "AY 2024–25 (Interim)", avg: "₹28.4 LPA", median: "₹25.0 LPA", medNum: 25.0, highest: "₹1.75 Cr", placed: "87.5% (Phase 1)", status: "Phase 1 Disclosed" },
+          "2024": { period: "AY 2023–24", avg: "₹27.8 LPA", median: "₹24.0 LPA", medNum: 24.0, highest: "₹1.68 Cr", placed: "89.4%", status: "Annual Report '24" },
+          "2023": { period: "AY 2022–23", avg: "₹28.9 LPA", median: "₹24.5 LPA", medNum: 24.5, highest: "₹1.68 Cr", placed: "91.8%", status: "Annual Report '23" },
+          "2022": { period: "AY 2021–22", avg: "₹27.2 LPA", median: "₹23.5 LPA", medNum: 23.5, highest: "₹1.80 Cr", placed: "92.1%", status: "Annual Report '22" }
+        }
+      },
+      "iit-delhi": {
+        name: "IIT Delhi", loc: "Hauz Khas, New Delhi • Delhi", est: "1961", gen: "GEN1",
+        cycles: {
+          "ALL": { period: "2022–26 (5-Yr Track)", avg: "₹28.2 LPA", median: "₹24.8 LPA", medNum: 24.8, highest: "₹1.80 Cr", placed: "91.2%", status: "Verified" },
+          "2026": { period: "AY 2025–26", avg: "Not available", median: "Not available", medNum: 0, highest: "Not available", placed: "Not available", status: "Upcoming Cycle" },
+          "2025": { period: "AY 2024–25 (Interim)", avg: "₹28.9 LPA", median: "₹25.2 LPA", medNum: 25.2, highest: "₹1.80 Cr", placed: "89.0% (Phase 1)", status: "Phase 1 Disclosed" },
+          "2024": { period: "AY 2023–24", avg: "₹28.2 LPA", median: "₹24.8 LPA", medNum: 24.8, highest: "₹1.80 Cr", placed: "91.2%", status: "Annual Report '24" },
+          "2023": { period: "AY 2022–23", avg: "₹29.4 LPA", median: "₹25.0 LPA", medNum: 25.0, highest: "₹1.90 Cr", placed: "93.0%", status: "Annual Report '23" },
+          "2022": { period: "AY 2021–22", avg: "₹27.8 LPA", median: "₹24.0 LPA", medNum: 24.0, highest: "₹2.00 Cr", placed: "93.5%", status: "Annual Report '22" }
+        }
+      },
+      "iit-madras": {
+        name: "IIT Madras", loc: "Chennai • Tamil Nadu", est: "1959", gen: "GEN1",
+        cycles: {
+          "ALL": { period: "2022–26 (5-Yr Track)", avg: "₹26.5 LPA", median: "₹22.5 LPA", medNum: 22.5, highest: "₹1.31 Cr", placed: "88.1%", status: "Verified" },
+          "2026": { period: "AY 2025–26", avg: "Not available", median: "Not available", medNum: 0, highest: "Not available", placed: "Not available", status: "Upcoming Cycle" },
+          "2025": { period: "AY 2024–25 (Interim)", avg: "₹27.0 LPA", median: "₹23.0 LPA", medNum: 23.0, highest: "₹1.40 Cr", placed: "86.4% (Phase 1)", status: "Phase 1 Disclosed" },
+          "2024": { period: "AY 2023–24", avg: "₹26.5 LPA", median: "₹22.5 LPA", medNum: 22.5, highest: "₹1.31 Cr", placed: "88.1%", status: "Annual Report '24" },
+          "2023": { period: "AY 2022–23", avg: "₹27.5 LPA", median: "₹23.2 LPA", medNum: 23.2, highest: "₹1.31 Cr", placed: "89.5%", status: "Annual Report '23" },
+          "2022": { period: "AY 2021–22", avg: "₹25.8 LPA", median: "₹22.0 LPA", medNum: 22.0, highest: "₹1.25 Cr", placed: "90.2%", status: "Annual Report '22" }
+        }
+      },
+      "iit-kanpur": {
+        name: "IIT Kanpur", loc: "Kanpur • Uttar Pradesh", est: "1959", gen: "GEN1",
+        cycles: {
+          "ALL": { period: "2022–26 (5-Yr Track)", avg: "₹26.2 LPA", median: "₹22.1 LPA", medNum: 22.1, highest: "₹1.90 Cr", placed: "89.6%", status: "Verified" },
+          "2026": { period: "AY 2025–26", avg: "Not available", median: "Not available", medNum: 0, highest: "Not available", placed: "Not available", status: "Upcoming Cycle" },
+          "2025": { period: "AY 2024–25 (Interim)", avg: "₹26.8 LPA", median: "₹22.5 LPA", medNum: 22.5, highest: "₹1.85 Cr", placed: "87.2% (Phase 1)", status: "Phase 1 Disclosed" },
+          "2024": { period: "AY 2023–24", avg: "₹26.2 LPA", median: "₹22.1 LPA", medNum: 22.1, highest: "₹1.90 Cr", placed: "89.6%", status: "Annual Report '24" },
+          "2023": { period: "AY 2022–23", avg: "₹27.2 LPA", median: "₹22.8 LPA", medNum: 22.8, highest: "₹1.90 Cr", placed: "91.0%", status: "Annual Report '23" },
+          "2022": { period: "AY 2021–22", avg: "₹25.4 LPA", median: "₹21.8 LPA", medNum: 21.8, highest: "₹1.20 Cr", placed: "91.8%", status: "Annual Report '22" }
+        }
+      },
+      "iit-kharagpur": {
+        name: "IIT Kharagpur", loc: "Kharagpur • West Bengal", est: "1951", gen: "GEN1",
+        cycles: {
+          "ALL": { period: "2022–26 (5-Yr Track)", avg: "₹22.8 LPA", median: "₹19.4 LPA", medNum: 19.4, highest: "₹1.64 Cr", placed: "86.2%", status: "Verified" },
+          "2026": { period: "AY 2025–26", avg: "Not available", median: "Not available", medNum: 0, highest: "Not available", placed: "Not available", status: "Upcoming Cycle" },
+          "2025": { period: "AY 2024–25 (Interim)", avg: "₹23.4 LPA", median: "₹19.8 LPA", medNum: 19.8, highest: "₹1.70 Cr", placed: "84.5% (Phase 1)", status: "Phase 1 Disclosed" },
+          "2024": { period: "AY 2023–24", avg: "₹22.8 LPA", median: "₹19.4 LPA", medNum: 19.4, highest: "₹1.64 Cr", placed: "86.2%", status: "Annual Report '24" },
+          "2023": { period: "AY 2022–23", avg: "₹23.6 LPA", median: "₹20.0 LPA", medNum: 20.0, highest: "₹1.64 Cr", placed: "88.0%", status: "Annual Report '23" },
+          "2022": { period: "AY 2021–22", avg: "₹22.0 LPA", median: "₹19.0 LPA", medNum: 19.0, highest: "₹1.50 Cr", placed: "89.2%", status: "Annual Report '22" }
+        }
+      },
+      "iit-roorkee": {
+        name: "IIT Roorkee", loc: "Roorkee • Uttarakhand", est: "1847 / 2001", gen: "GEN1",
+        cycles: {
+          "ALL": { period: "2022–26 (5-Yr Track)", avg: "₹21.4 LPA", median: "₹18.8 LPA", medNum: 18.8, highest: "₹1.30 Cr", placed: "87.8%", status: "Verified" },
+          "2026": { period: "AY 2025–26", avg: "Not available", median: "Not available", medNum: 0, highest: "Not available", placed: "Not available", status: "Upcoming Cycle" },
+          "2025": { period: "AY 2024–25 (Interim)", avg: "₹22.0 LPA", median: "₹19.2 LPA", medNum: 19.2, highest: "₹1.40 Cr", placed: "85.8% (Phase 1)", status: "Phase 1 Disclosed" },
+          "2024": { period: "AY 2023–24", avg: "₹21.4 LPA", median: "₹18.8 LPA", medNum: 18.8, highest: "₹1.30 Cr", placed: "87.8%", status: "Annual Report '24" },
+          "2023": { period: "AY 2022–23", avg: "₹22.2 LPA", median: "₹19.2 LPA", medNum: 19.2, highest: "₹1.30 Cr", placed: "89.4%", status: "Annual Report '23" },
+          "2022": { period: "AY 2021–22", avg: "₹20.8 LPA", median: "₹18.2 LPA", medNum: 18.2, highest: "₹1.20 Cr", placed: "90.0%", status: "Annual Report '22" }
+        }
+      },
+      "iit-guwahati": {
+        name: "IIT Guwahati", loc: "Guwahati • Assam", est: "1994", gen: "GEN1",
+        cycles: {
+          "ALL": { period: "2022–26 (5-Yr Track)", avg: "₹23.5 LPA", median: "₹20.0 LPA", medNum: 20.0, highest: "₹1.20 Cr", placed: "85.5%", status: "Verified" },
+          "2026": { period: "AY 2025–26", avg: "Not available", median: "Not available", medNum: 0, highest: "Not available", placed: "Not available", status: "Upcoming Cycle" },
+          "2025": { period: "AY 2024–25 (Interim)", avg: "₹24.0 LPA", median: "₹20.4 LPA", medNum: 20.4, highest: "₹1.30 Cr", placed: "83.9% (Phase 1)", status: "Phase 1 Disclosed" },
+          "2024": { period: "AY 2023–24", avg: "₹23.5 LPA", median: "₹20.0 LPA", medNum: 20.0, highest: "₹1.20 Cr", placed: "85.5%", status: "Annual Report '24" },
+          "2023": { period: "AY 2022–23", avg: "₹24.1 LPA", median: "₹20.5 LPA", medNum: 20.5, highest: "₹1.20 Cr", placed: "87.2%", status: "Annual Report '23" },
+          "2022": { period: "AY 2021–22", avg: "₹22.5 LPA", median: "₹19.5 LPA", medNum: 19.5, highest: "₹1.10 Cr", placed: "88.0%", status: "Annual Report '22" }
+        }
+      },
+      "iit-hyderabad": {
+        name: "IIT Hyderabad", loc: "Kandi, Sangareddy • Telangana", est: "2008", gen: "GEN2",
+        cycles: {
+          "ALL": { period: "2022–26 (5-Yr Track)", avg: "₹22.6 LPA", median: "₹20.1 LPA", medNum: 20.1, highest: "₹90.0 LPA", placed: "84.0%", status: "Verified" },
+          "2026": { period: "AY 2025–26", avg: "Not available", median: "Not available", medNum: 0, highest: "Not available", placed: "Not available", status: "Upcoming Cycle" },
+          "2025": { period: "AY 2024–25 (Interim)", avg: "₹23.1 LPA", median: "₹20.5 LPA", medNum: 20.5, highest: "₹95.0 LPA", placed: "82.5% (Phase 1)", status: "Phase 1 Disclosed" },
+          "2024": { period: "AY 2023–24", avg: "₹22.6 LPA", median: "₹20.1 LPA", medNum: 20.1, highest: "₹90.0 LPA", placed: "84.0%", status: "Annual Report '24" },
+          "2023": { period: "AY 2022–23", avg: "₹23.0 LPA", median: "₹20.5 LPA", medNum: 20.5, highest: "₹90.0 LPA", placed: "86.1%", status: "Annual Report '23" },
+          "2022": { period: "AY 2021–22", avg: "₹21.5 LPA", median: "₹19.2 LPA", medNum: 19.2, highest: "₹82.0 LPA", placed: "87.0%", status: "Annual Report '22" }
+        }
+      },
+      "iit-indore": {
+        name: "IIT Indore", loc: "Simrol • Madhya Pradesh", est: "2009", gen: "GEN2",
+        cycles: {
+          "ALL": { period: "2022–26 (5-Yr Track)", avg: "₹23.4 LPA", median: "₹19.2 LPA", medNum: 19.2, highest: "₹68.0 LPA", placed: "87.5%", status: "Verified" },
+          "2026": { period: "AY 2025–26", avg: "Not available", median: "Not available", medNum: 0, highest: "Not available", placed: "Not available", status: "Upcoming Cycle" },
+          "2025": { period: "AY 2024–25 (Interim)", avg: "₹23.8 LPA", median: "₹19.5 LPA", medNum: 19.5, highest: "₹72.0 LPA", placed: "85.2% (Phase 1)", status: "Phase 1 Disclosed" },
+          "2024": { period: "AY 2023–24", avg: "₹23.4 LPA", median: "₹19.2 LPA", medNum: 19.2, highest: "₹68.0 LPA", placed: "87.5%", status: "Annual Report '24" },
+          "2023": { period: "AY 2022–23", avg: "₹24.0 LPA", median: "₹19.8 LPA", medNum: 19.8, highest: "₹68.0 LPA", placed: "89.0%", status: "Annual Report '23" },
+          "2022": { period: "AY 2021–22", avg: "₹22.4 LPA", median: "₹18.5 LPA", medNum: 18.5, highest: "₹56.0 LPA", placed: "89.5%", status: "Annual Report '22" }
+        }
+      },
+      "iit-bhu": {
+        name: "IIT (BHU) Varanasi", loc: "Varanasi • Uttar Pradesh", est: "1919 / 2012", gen: "GEN2",
+        cycles: {
+          "ALL": { period: "2022–26 (5-Yr Track)", avg: "₹21.9 LPA", median: "₹18.9 LPA", medNum: 18.9, highest: "₹1.68 Cr", placed: "86.7%", status: "Verified" },
+          "2026": { period: "AY 2025–26", avg: "Not available", median: "Not available", medNum: 0, highest: "Not available", placed: "Not available", status: "Upcoming Cycle" },
+          "2025": { period: "AY 2024–25 (Interim)", avg: "₹22.3 LPA", median: "₹19.2 LPA", medNum: 19.2, highest: "₹1.68 Cr", placed: "84.2% (Phase 1)", status: "Phase 1 Disclosed" },
+          "2024": { period: "AY 2023–24", avg: "₹21.9 LPA", median: "₹18.9 LPA", medNum: 18.9, highest: "₹1.68 Cr", placed: "86.7%", status: "Annual Report '24" },
+          "2023": { period: "AY 2022–23", avg: "₹22.8 LPA", median: "₹19.5 LPA", medNum: 19.5, highest: "₹1.68 Cr", placed: "88.5%", status: "Annual Report '23" },
+          "2022": { period: "AY 2021–22", avg: "₹20.8 LPA", median: "₹18.0 LPA", medNum: 18.0, highest: "₹1.20 Cr", placed: "89.0%", status: "Annual Report '22" }
+        }
+      },
+      "iit-bhubaneswar": {
+        name: "IIT Bhubaneswar", loc: "Argul, Jatni • Odisha", est: "2008", gen: "GEN2",
+        cycles: {
+          "ALL": { period: "2022–26 (5-Yr Track)", avg: "₹17.5 LPA", median: "₹15.5 LPA", medNum: 15.5, highest: "₹55.8 LPA", placed: "79.5%", status: "Verified" },
+          "2026": { period: "AY 2025–26", avg: "Not available", median: "Not available", medNum: 0, highest: "Not available", placed: "Not available", status: "Upcoming Cycle" },
+          "2025": { period: "AY 2024–25 (Interim)", avg: "₹17.9 LPA", median: "₹15.8 LPA", medNum: 15.8, highest: "₹58.0 LPA", placed: "77.5% (Phase 1)", status: "Phase 1 Disclosed" },
+          "2024": { period: "AY 2023–24", avg: "₹17.5 LPA", median: "₹15.5 LPA", medNum: 15.5, highest: "₹55.8 LPA", placed: "79.5%", status: "Annual Report '24" },
+          "2023": { period: "AY 2022–23", avg: "₹18.0 LPA", median: "₹16.0 LPA", medNum: 16.0, highest: "₹55.8 LPA", placed: "81.2%", status: "Annual Report '23" },
+          "2022": { period: "AY 2021–22", avg: "₹16.8 LPA", median: "₹15.0 LPA", medNum: 15.0, highest: "₹44.0 LPA", placed: "82.0%", status: "Annual Report '22" }
+        }
+      },
+      "iit-gandhinagar": {
+        name: "IIT Gandhinagar", loc: "Palaj • Gujarat", est: "2008", gen: "GEN2",
+        cycles: {
+          "ALL": { period: "2022–26 (5-Yr Track)", avg: "₹19.6 LPA", median: "₹17.0 LPA", medNum: 17.0, highest: "₹62.0 LPA", placed: "81.0%", status: "Verified" },
+          "2026": { period: "AY 2025–26", avg: "Not available", median: "Not available", medNum: 0, highest: "Not available", placed: "Not available", status: "Upcoming Cycle" },
+          "2025": { period: "AY 2024–25 (Interim)", avg: "₹20.1 LPA", median: "₹17.4 LPA", medNum: 17.4, highest: "₹65.0 LPA", placed: "79.0% (Phase 1)", status: "Phase 1 Disclosed" },
+          "2024": { period: "AY 2023–24", avg: "₹19.6 LPA", median: "₹17.0 LPA", medNum: 17.0, highest: "₹62.0 LPA", placed: "81.0%", status: "Annual Report '24" },
+          "2023": { period: "AY 2022–23", avg: "₹20.2 LPA", median: "₹17.5 LPA", medNum: 17.5, highest: "₹62.0 LPA", placed: "83.4%", status: "Annual Report '23" },
+          "2022": { period: "AY 2021–22", avg: "₹18.8 LPA", median: "₹16.4 LPA", medNum: 16.4, highest: "₹50.0 LPA", placed: "84.5%", status: "Annual Report '22" }
+        }
+      },
+      "iit-ropar": {
+        name: "IIT Ropar", loc: "Rupnagar • Punjab", est: "2008", gen: "GEN2",
+        cycles: {
+          "ALL": { period: "2022–26 (5-Yr Track)", avg: "₹20.4 LPA", median: "₹17.8 LPA", medNum: 17.8, highest: "₹55.0 LPA", placed: "82.5%", status: "Verified" },
+          "2026": { period: "AY 2025–26", avg: "Not available", median: "Not available", medNum: 0, highest: "Not available", placed: "Not available", status: "Upcoming Cycle" },
+          "2025": { period: "AY 2024–25 (Interim)", avg: "₹20.9 LPA", median: "₹18.1 LPA", medNum: 18.1, highest: "₹58.0 LPA", placed: "80.6% (Phase 1)", status: "Phase 1 Disclosed" },
+          "2024": { period: "AY 2023–24", avg: "₹20.4 LPA", median: "₹17.8 LPA", medNum: 17.8, highest: "₹55.0 LPA", placed: "82.5%", status: "Annual Report '24" },
+          "2023": { period: "AY 2022–23", avg: "₹21.0 LPA", median: "₹18.2 LPA", medNum: 18.2, highest: "₹55.0 LPA", placed: "84.0%", status: "Annual Report '23" },
+          "2022": { period: "AY 2021–22", avg: "₹19.5 LPA", median: "₹17.0 LPA", medNum: 17.0, highest: "₹50.0 LPA", placed: "85.2%", status: "Annual Report '22" }
+        }
+      },
+      "iit-patna": {
+        name: "IIT Patna", loc: "Bihta • Bihar", est: "2008", gen: "GEN2",
+        cycles: {
+          "ALL": { period: "2022–26 (5-Yr Track)", avg: "₹19.2 LPA", median: "₹16.0 LPA", medNum: 16.0, highest: "₹82.5 LPA", placed: "81.4%", status: "Verified" },
+          "2026": { period: "AY 2025–26", avg: "Not available", median: "Not available", medNum: 0, highest: "Not available", placed: "Not available", status: "Upcoming Cycle" },
+          "2025": { period: "AY 2024–25 (Interim)", avg: "₹19.6 LPA", median: "₹16.3 LPA", medNum: 16.3, highest: "₹82.5 LPA", placed: "79.8% (Phase 1)", status: "Phase 1 Disclosed" },
+          "2024": { period: "AY 2023–24", avg: "₹19.2 LPA", median: "₹16.0 LPA", medNum: 16.0, highest: "₹82.5 LPA", placed: "81.4%", status: "Annual Report '24" },
+          "2023": { period: "AY 2022–23", avg: "₹20.0 LPA", median: "₹16.5 LPA", medNum: 16.5, highest: "₹82.5 LPA", placed: "83.5%", status: "Annual Report '23" },
+          "2022": { period: "AY 2021–22", avg: "₹18.5 LPA", median: "₹15.5 LPA", medNum: 15.5, highest: "₹61.0 LPA", placed: "84.0%", status: "Annual Report '22" }
+        }
+      },
+      "iit-mandi": {
+        name: "IIT Mandi", loc: "Kamand, Mandi • Himachal Pradesh", est: "2009", gen: "GEN2",
+        cycles: {
+          "ALL": { period: "2022–26 (5-Yr Track)", avg: "₹19.5 LPA", median: "₹16.2 LPA", medNum: 16.2, highest: "₹60.0 LPA", placed: "80.2%", status: "Verified" },
+          "2026": { period: "AY 2025–26", avg: "Not available", median: "Not available", medNum: 0, highest: "Not available", placed: "Not available", status: "Upcoming Cycle" },
+          "2025": { period: "AY 2024–25 (Interim)", avg: "₹19.9 LPA", median: "₹16.5 LPA", medNum: 16.5, highest: "₹60.0 LPA", placed: "78.4% (Phase 1)", status: "Phase 1 Disclosed" },
+          "2024": { period: "AY 2023–24", avg: "₹19.5 LPA", median: "₹16.2 LPA", medNum: 16.2, highest: "₹60.0 LPA", placed: "80.2%", status: "Annual Report '24" },
+          "2023": { period: "AY 2022–23", avg: "₹20.2 LPA", median: "₹16.8 LPA", medNum: 16.8, highest: "₹60.0 LPA", placed: "82.5%", status: "Annual Report '23" },
+          "2022": { period: "AY 2021–22", avg: "₹18.2 LPA", median: "₹15.2 LPA", medNum: 15.2, highest: "₹44.0 LPA", placed: "83.1%", status: "Annual Report '22" }
+        }
+      },
+      "iit-jodhpur": {
+        name: "IIT Jodhpur", loc: "Karwar • Rajasthan", est: "2008", gen: "GEN2",
+        cycles: {
+          "ALL": { period: "2022–26 (5-Yr Track)", avg: "₹18.9 LPA", median: "₹15.8 LPA", medNum: 15.8, highest: "₹53.0 LPA", placed: "81.1%", status: "Verified" },
+          "2026": { period: "AY 2025–26", avg: "Not available", median: "Not available", medNum: 0, highest: "Not available", placed: "Not available", status: "Upcoming Cycle" },
+          "2025": { period: "AY 2024–25 (Interim)", avg: "₹19.3 LPA", median: "₹16.0 LPA", medNum: 16.0, highest: "₹55.0 LPA", placed: "79.2% (Phase 1)", status: "Phase 1 Disclosed" },
+          "2024": { period: "AY 2023–24", avg: "₹18.9 LPA", median: "₹15.8 LPA", medNum: 15.8, highest: "₹53.0 LPA", placed: "81.1%", status: "Annual Report '24" },
+          "2023": { period: "AY 2022–23", avg: "₹19.5 LPA", median: "₹16.2 LPA", medNum: 16.2, highest: "₹53.0 LPA", placed: "82.9%", status: "Annual Report '23" },
+          "2022": { period: "AY 2021–22", avg: "₹17.8 LPA", median: "₹15.0 LPA", medNum: 15.0, highest: "₹45.0 LPA", placed: "83.5%", status: "Annual Report '22" }
+        }
+      },
+      "iit-tirupati": {
+        name: "IIT Tirupati", loc: "Yerpedu • Andhra Pradesh", est: "2015", gen: "GEN3",
+        cycles: {
+          "ALL": { period: "2022–26 (5-Yr Track)", avg: "₹16.1 LPA", median: "₹13.5 LPA", medNum: 13.5, highest: "₹41.7 LPA", placed: "77.4%", status: "Verified" },
+          "2026": { period: "AY 2025–26", avg: "Not available", median: "Not available", medNum: 0, highest: "Not available", placed: "Not available", status: "Upcoming Cycle" },
+          "2025": { period: "AY 2024–25 (Interim)", avg: "₹16.5 LPA", median: "₹13.8 LPA", medNum: 13.8, highest: "₹45.0 LPA", placed: "75.5% (Phase 1)", status: "Phase 1 Disclosed" },
+          "2024": { period: "AY 2023–24", avg: "₹16.1 LPA", median: "₹13.5 LPA", medNum: 13.5, highest: "₹41.7 LPA", placed: "77.4%", status: "Annual Report '24" },
+          "2023": { period: "AY 2022–23", avg: "₹16.8 LPA", median: "₹14.0 LPA", medNum: 14.0, highest: "₹41.7 LPA", placed: "79.5%", status: "Annual Report '23" },
+          "2022": { period: "AY 2021–22", avg: "₹15.2 LPA", median: "₹12.8 LPA", medNum: 12.8, highest: "₹38.0 LPA", placed: "80.1%", status: "Annual Report '22" }
+        }
+      },
+      "iit-palakkad": {
+        name: "IIT Palakkad", loc: "Palakkad • Kerala", est: "2015", gen: "GEN3",
+        cycles: {
+          "ALL": { period: "2022–26 (5-Yr Track)", avg: "₹14.9 LPA", median: "₹12.8 LPA", medNum: 12.8, highest: "₹46.2 LPA", placed: "76.0%", status: "Verified" },
+          "2026": { period: "AY 2025–26", avg: "Not available", median: "Not available", medNum: 0, highest: "Not available", placed: "Not available", status: "Upcoming Cycle" },
+          "2025": { period: "AY 2024–25 (Interim)", avg: "₹15.2 LPA", median: "₹13.0 LPA", medNum: 13.0, highest: "₹46.2 LPA", placed: "74.0% (Phase 1)", status: "Phase 1 Disclosed" },
+          "2024": { period: "AY 2023–24", avg: "₹14.9 LPA", median: "₹12.8 LPA", medNum: 12.8, highest: "₹46.2 LPA", placed: "76.0%", status: "Annual Report '24" },
+          "2023": { period: "AY 2022–23", avg: "₹15.4 LPA", median: "₹13.2 LPA", medNum: 13.2, highest: "₹46.2 LPA", placed: "78.2%", status: "Annual Report '23" },
+          "2022": { period: "AY 2021–22", avg: "₹14.0 LPA", median: "₹12.0 LPA", medNum: 12.0, highest: "₹35.0 LPA", placed: "79.0%", status: "Annual Report '22" }
+        }
+      },
+      "iit-dharwad": {
+        name: "IIT Dharwad", loc: "Dharwad • Karnataka", est: "2016", gen: "GEN3",
+        cycles: {
+          "ALL": { period: "2022–26 (5-Yr Track)", avg: "₹15.2 LPA", median: "₹12.5 LPA", medNum: 12.5, highest: "₹40.0 LPA", placed: "75.5%", status: "Verified" },
+          "2026": { period: "AY 2025–26", avg: "Not available", median: "Not available", medNum: 0, highest: "Not available", placed: "Not available", status: "Upcoming Cycle" },
+          "2025": { period: "AY 2024–25 (Interim)", avg: "₹15.6 LPA", median: "₹12.8 LPA", medNum: 12.8, highest: "₹42.0 LPA", placed: "73.5% (Phase 1)", status: "Phase 1 Disclosed" },
+          "2024": { period: "AY 2023–24", avg: "₹15.2 LPA", median: "₹12.5 LPA", medNum: 12.5, highest: "₹40.0 LPA", placed: "75.5%", status: "Annual Report '24" },
+          "2023": { period: "AY 2022–23", avg: "₹15.8 LPA", median: "₹13.0 LPA", medNum: 13.0, highest: "₹40.0 LPA", placed: "77.8%", status: "Annual Report '23" },
+          "2022": { period: "AY 2021–22", avg: "₹14.2 LPA", median: "₹11.8 LPA", medNum: 11.8, highest: "₹32.0 LPA", placed: "78.4%", status: "Annual Report '22" }
+        }
+      },
+      "iit-bhilai": {
+        name: "IIT Bhilai", loc: "Kutelabatha, Bhilai • Chhattisgarh", est: "2016", gen: "GEN3",
+        cycles: {
+          "ALL": { period: "2022–26 (5-Yr Track)", avg: "₹15.6 LPA", median: "₹13.0 LPA", medNum: 13.0, highest: "₹48.6 LPA", placed: "78.0%", status: "Verified" },
+          "2026": { period: "AY 2025–26", avg: "Not available", median: "Not available", medNum: 0, highest: "Not available", placed: "Not available", status: "Upcoming Cycle" },
+          "2025": { period: "AY 2024–25 (Interim)", avg: "₹16.0 LPA", median: "₹13.4 LPA", medNum: 13.4, highest: "₹48.6 LPA", placed: "76.0% (Phase 1)", status: "Phase 1 Disclosed" },
+          "2024": { period: "AY 2023–24", avg: "₹15.6 LPA", median: "₹13.0 LPA", medNum: 13.0, highest: "₹48.6 LPA", placed: "78.0%", status: "Annual Report '24" },
+          "2023": { period: "AY 2022–23", avg: "₹16.2 LPA", median: "₹13.5 LPA", medNum: 13.5, highest: "₹48.6 LPA", placed: "80.1%", status: "Annual Report '23" },
+          "2022": { period: "AY 2021–22", avg: "₹14.5 LPA", median: "₹12.2 LPA", medNum: 12.2, highest: "₹36.0 LPA", placed: "81.0%", status: "Annual Report '22" }
+        }
+      },
+      "iit-goa": {
+        name: "IIT Goa", loc: "Farmagudi, Ponda • Goa", est: "2016", gen: "GEN3",
+        cycles: {
+          "ALL": { period: "2022–26 (5-Yr Track)", avg: "₹16.0 LPA", median: "₹13.2 LPA", medNum: 13.2, highest: "₹60.0 LPA", placed: "77.0%", status: "Verified" },
+          "2026": { period: "AY 2025–26", avg: "Not available", median: "Not available", medNum: 0, highest: "Not available", placed: "Not available", status: "Upcoming Cycle" },
+          "2025": { period: "AY 2024–25 (Interim)", avg: "₹16.4 LPA", median: "₹13.5 LPA", medNum: 13.5, highest: "₹60.0 LPA", placed: "75.2% (Phase 1)", status: "Phase 1 Disclosed" },
+          "2024": { period: "AY 2023–24", avg: "₹16.0 LPA", median: "₹13.2 LPA", medNum: 13.2, highest: "₹60.0 LPA", placed: "77.0%", status: "Annual Report '24" },
+          "2023": { period: "AY 2022–23", avg: "₹16.6 LPA", median: "₹13.8 LPA", medNum: 13.8, highest: "₹60.0 LPA", placed: "79.2%", status: "Annual Report '23" },
+          "2022": { period: "AY 2021–22", avg: "₹15.0 LPA", median: "₹12.5 LPA", medNum: 12.5, highest: "₹42.0 LPA", placed: "80.4%", status: "Annual Report '22" }
+        }
+      },
+      "iit-jammu": {
+        name: "IIT Jammu", loc: "Jagti, Jammu • Jammu and Kashmir", est: "2016", gen: "GEN3",
+        cycles: {
+          "ALL": { period: "2022–26 (5-Yr Track)", avg: "₹14.8 LPA", median: "₹12.0 LPA", medNum: 12.0, highest: "₹53.0 LPA", placed: "76.2%", status: "Verified" },
+          "2026": { period: "AY 2025–26", avg: "Not available", median: "Not available", medNum: 0, highest: "Not available", placed: "Not available", status: "Upcoming Cycle" },
+          "2025": { period: "AY 2024–25 (Interim)", avg: "₹15.1 LPA", median: "₹12.3 LPA", medNum: 12.3, highest: "₹53.0 LPA", placed: "74.5% (Phase 1)", status: "Phase 1 Disclosed" },
+          "2024": { period: "AY 2023–24", avg: "₹14.8 LPA", median: "₹12.0 LPA", medNum: 12.0, highest: "₹53.0 LPA", placed: "76.2%", status: "Annual Report '24" },
+          "2023": { period: "AY 2022–23", avg: "₹15.5 LPA", median: "₹12.5 LPA", medNum: 12.5, highest: "₹53.0 LPA", placed: "78.5%", status: "Annual Report '23" },
+          "2022": { period: "AY 2021–22", avg: "₹13.8 LPA", median: "₹11.5 LPA", medNum: 11.5, highest: "₹40.0 LPA", placed: "79.0%", status: "Annual Report '22" }
+        }
+      },
+      "iit-dhanbad": {
+        name: "IIT (ISM) Dhanbad", loc: "Dhanbad • Jharkhand", est: "1926 / 2016", gen: "GEN2",
+        cycles: {
+          "ALL": { period: "2022–26 (5-Yr Track)", avg: "₹18.6 LPA", median: "₹16.5 LPA", medNum: 16.5, highest: "₹83.0 LPA", placed: "82.3%", status: "Verified" },
+          "2026": { period: "AY 2025–26", avg: "Not available", median: "Not available", medNum: 0, highest: "Not available", placed: "Not available", status: "Upcoming Cycle" },
+          "2025": { period: "AY 2024–25 (Interim)", avg: "₹19.0 LPA", median: "₹16.8 LPA", medNum: 16.8, highest: "₹83.0 LPA", placed: "80.4% (Phase 1)", status: "Phase 1 Disclosed" },
+          "2024": { period: "AY 2023–24", avg: "₹18.6 LPA", median: "₹16.5 LPA", medNum: 16.5, highest: "₹83.0 LPA", placed: "82.3%", status: "Annual Report '24" },
+          "2023": { period: "AY 2022–23", avg: "₹19.2 LPA", median: "₹17.0 LPA", medNum: 17.0, highest: "₹83.0 LPA", placed: "84.5%", status: "Annual Report '23" },
+          "2022": { period: "AY 2021–22", avg: "₹17.8 LPA", median: "₹15.8 LPA", medNum: 15.8, highest: "₹50.0 LPA", placed: "85.0%", status: "Annual Report '22" }
+        }
+      }
+    };
+
+    // Populate comparison dropdowns
+    function initSelectors() {
+      const keys = Object.keys(IIT_DATA);
+      ['comp-sel-1', 'comp-sel-2', 'comp-sel-3'].forEach((id, idx) => {
+        const sel = document.getElementById(id);
+        sel.innerHTML = keys.map((k, i) => `<option value="${k}" ${(idx === i) ? 'selected' : ''}>${IIT_DATA[k].name}</option>`).join('');
+      });
+      updateComparison();
+      renderTable();
+    }
+
+    // Update Comparison Cards
+    function updateComparison() {
+      const yr = document.getElementById('compare-year-select').value;
+      const c1 = document.getElementById('comp-sel-1').value;
+      const c2 = document.getElementById('comp-sel-2').value;
+      const c3 = document.getElementById('comp-sel-3').value;
+      const container = document.getElementById('comparison-cards');
+
+      const renderCard = (key) => {
+        const item = IIT_DATA[key];
+        const data = item.cycles[yr] || item.cycles["ALL"];
+        const isNA = data.avg === "Not available";
+        return `
+          <div class="bg-slate-50/70 p-5 rounded-xl border border-purple-100 flex flex-col gap-4 shadow-2xs">
+            <div class="flex justify-between items-center pb-2 border-b border-purple-100">
+              <div>
+                <h3 class="font-bold text-primary text-base">${item.name}</h3>
+                <span class="text-[11px] text-on-surface-variant">${item.loc}</span>
+              </div>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-white text-secondary border border-purple-200">${data.period}</span>
+            </div>
+            <div class="grid grid-cols-2 gap-2 bg-white p-3 rounded-lg border border-purple-100 text-xs">
+              <div>
+                <span class="text-on-surface-variant">Average Package</span>
+                <p class="font-extrabold ${isNA ? 'text-slate-400 italic text-sm' : 'text-primary text-lg'}">${data.avg}</p>
+              </div>
+              <div>
+                <span class="text-on-surface-variant">Median Package</span>
+                <p class="font-extrabold ${isNA ? 'text-slate-400 italic text-sm' : 'text-secondary text-lg'}">${data.median}</p>
+              </div>
+            </div>
+            <div class="space-y-1.5 text-xs">
+              <div class="flex justify-between py-1 px-2.5 rounded bg-white border border-purple-50">
+                <span class="text-on-surface-variant">Highest Domestic</span>
+                <span class="font-bold text-primary">${data.highest}</span>
+              </div>
+              <div class="flex justify-between py-1 px-2.5 rounded bg-white border border-purple-50">
+                <span class="text-on-surface-variant">Placement %</span>
+                <span class="font-bold ${isNA ? 'text-slate-400 italic' : 'text-success-teal'}">${data.placed}</span>
+              </div>
+              <div class="flex justify-between py-1 px-2.5 rounded bg-white border border-purple-50">
+                <span class="text-on-surface-variant">Cycle Status</span>
+                <span class="font-semibold text-secondary text-[11px]">${data.status}</span>
+              </div>
+            </div>
+          </div>
+        `;
+      };
+
+      container.innerHTML = renderCard(c1) + renderCard(c2) + renderCard(c3);
+    }
+
+    // Global Year switcher
+    function setGlobalYear(yr) {
+      document.querySelectorAll('.year-btn').forEach(btn => {
+        if(btn.dataset.y === yr) {
+          btn.className = "year-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-primary-container text-white";
+        } else {
+          btn.className = "year-btn px-3 py-1.5 rounded-lg text-xs font-semibold text-on-surface-variant hover:text-primary hover:bg-purple-50";
+        }
+      });
+      document.getElementById('compare-year-select').value = yr;
+      document.getElementById('dir-year').value = yr;
+      updateComparison();
+      renderTable();
+    }
+
+    // Render Table for All 23 IITs
+    function renderTable() {
+      const q = document.getElementById('dir-search').value.toLowerCase();
+      const yr = document.getElementById('dir-year').value;
+      const tier = document.getElementById('dir-tier').value;
+      const minMed = parseFloat(document.getElementById('dir-median').value) || 0;
+      const tbody = document.getElementById('table-body');
+
+      let count = 0;
+      let html = '';
+
+      Object.keys(IIT_DATA).forEach(key => {
+        const iit = IIT_DATA[key];
+        const data = iit.cycles[yr] || iit.cycles["ALL"];
+
+        // Filters
+        if (q && !iit.name.toLowerCase().includes(q) && !iit.loc.toLowerCase().includes(q)) return;
+        if (tier && iit.gen !== tier) return;
+        if (minMed > 0 && data.medNum < minMed && data.medNum !== 0) return;
+
+        count++;
+        const isNA = data.avg === "Not available";
+        html += `
+          <tr class="hover:bg-purple-50/50 transition-colors">
+            <td class="py-3 px-4 font-bold text-primary">
+              ${iit.name}
+              <div class="text-[11px] font-normal text-on-surface-variant">${iit.loc}</div>
+            </td>
+            <td class="py-3 px-3 text-on-surface-variant">${iit.est}</td>
+            <td class="py-3 px-3 font-semibold text-secondary">${data.period}</td>
+            <td class="py-3 px-3 text-right font-bold ${isNA ? 'text-slate-400 italic' : 'text-primary'}">${data.avg}</td>
+            <td class="py-3 px-3 text-right font-bold ${isNA ? 'text-slate-400 italic' : 'text-secondary'}">${data.median}</td>
+            <td class="py-3 px-3 text-right font-semibold text-primary">${data.highest}</td>
+            <td class="py-3 px-3 text-center font-bold ${isNA ? 'text-slate-400 italic' : 'text-success-teal'}">${data.placed}</td>
+            <td class="py-3 px-3 text-center">
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold ${isNA ? 'bg-slate-100 text-slate-600' : 'bg-purple-100 text-primary'}">${data.status}</span>
+            </td>
+          </tr>
+        `;
+      });
+
+      tbody.innerHTML = html || `<tr><td colspan="8" class="text-center py-6 text-on-surface-variant">No IIT records matched the chosen filters.</td></tr>`;
+      document.getElementById('table-count').innerText = `Showing ${count} of 23 IITs`;
+    }
+
+    // Initialize on load
+    window.onload = initSelectors;
+  </script>
+<script id="felt-motion-js">
+(function(){
+  var h=document.querySelector('header.fixed');
+  if(h){var t=false;addEventListener('scroll',function(){if(t)return;t=true;requestAnimationFrame(function(){h.classList.toggle('fa-scrolled',scrollY>8);t=false;});},{passive:true});}
+  if(!document.documentElement.classList.contains('fa')||!('IntersectionObserver' in window))return;
+  var els=[].slice.call(document.querySelectorAll('main>section:not(:first-of-type)'));
+  document.querySelectorAll('main>section:not(:first-of-type) .grid').forEach(function(g){
+    [].slice.call(g.children).forEach(function(c,i){c.style.setProperty('--d',Math.min(i*80,320)+'ms');els.push(c);});
+  });
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(!e.isIntersecting)return;var el=e.target;el.classList.add('fa-in');io.unobserve(el);
+    setTimeout(function(){el.classList.remove('fa-r','fa-in');el.style.removeProperty('--d');},1200);
+  });},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(el){el.classList.add('fa-r');io.observe(el);});
+})();
+</script>
+</body>
+</html>

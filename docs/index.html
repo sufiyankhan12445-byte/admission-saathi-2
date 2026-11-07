@@ -1,0 +1,1223 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admission Saathi | Student Counselling Assistant</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: #F6F3EC;
+  color: #1B1B18;
+}
+:root {
+  --primary: #1B1B18;
+  --primary-container: #1B1B18;
+  --secondary: #2B6B5A;
+  --surface: #F6F3EC;
+  --subtle: #F6F3EC;
+  --border: #DDD8CB;
+}
+button, select, textarea { font-family: inherit; }
+button:disabled { opacity: .6; cursor: not-allowed; }
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400;
+}
+.chat-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #DDD8CB transparent;
+}
+.chat-scroll::-webkit-scrollbar { width: 5px; }
+.chat-scroll::-webkit-scrollbar-thumb {
+  background: #DDD8CB;
+  border-radius: 10px;
+}
+.response-text { overflow-wrap: anywhere; }
+@media(max-width:640px) {
+  .page-container { padding-left: 12px; padding-right: 12px; }
+  header .desktop-nav { display:none; }
+}
+</style>
+<!-- felt-style: visual overrides only -->
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style id="felt-style">
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap');
+:root{
+  --ink:#171C2B; --body:#3B4052; --muted:#5B6073; --line:rgba(120,90,100,.16); --btn:#0B0B0F;
+  --cream:#FCF7F2; --tint:#FFF5EE;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --sh-1:0 1px 2px rgba(60,30,50,.06),0 6px 18px -8px rgba(60,30,50,.14);
+  --sh-2:0 22px 44px -20px rgba(80,40,70,.38);
+}
+html{scroll-behavior:smooth;background:#F3D8D6}
+html body{background:linear-gradient(180deg,#F6D6CF 0%,#F4D9D7 34%,#EDD6E2 68%,#E7DBF0 100%) fixed!important;color:var(--body);font-family:'Inter',system-ui,sans-serif!important;-webkit-font-smoothing:antialiased;min-height:100vh}
+::selection{background:#171C2B;color:#fff}
+
+/* ---------- type ---------- */
+button,input,textarea,select,[class*="font-body"],[class*="font-label"],[class*="font-headline-sm"]{font-family:'Inter',system-ui,sans-serif!important}
+html body h1,html body h2,.font-display-lg,.font-display-lg-mobile,.font-headline-lg,.font-headline-md{
+  font-family:'Newsreader','Georgia',serif!important;font-weight:500!important;color:var(--ink)!important;letter-spacing:-.022em!important;line-height:1.06;font-optical-sizing:auto}
+html body h3{font-family:'Inter',system-ui,sans-serif!important;font-weight:650!important;color:var(--ink)!important;letter-spacing:-.015em!important}
+.uppercase{font-weight:500!important;letter-spacing:.08em!important;color:var(--muted)}
+
+/* ---------- page + boxes: nothing is flat white, everything is a soft tint ---------- */
+main>section[class]{background:transparent!important}
+main>section[class]:nth-of-type(even){background:rgba(255,255,255,.30)!important}
+.bg-background,.bg-surface,.bg-surface-bright,.bg-surface-canvas{background-color:transparent!important}
+.bg-surface-subtle,.bg-surface-container,.bg-surface-container-low,.bg-slate-50,.bg-gray-50,.bg-gray-100,[class*="bg-purple-50"],[class*="bg-[#F6F3EC]"]{background-color:rgba(255,255,255,.58)!important}
+.bg-surface-container-high,.bg-surface-container-highest,.bg-surface-variant,.bg-slate-100,[class*="bg-purple-100"],[class*="bg-purple-200"],[class*="bg-[#EFEBE0]"]{background-color:rgba(255,255,255,.78)!important}
+.bg-surface-container-lowest:not(section):not(footer):not(header),.bg-white:not(section):not(footer):not(header){background:linear-gradient(180deg,rgba(255,255,255,.96) 0%,var(--tint) 135%)!important}
+.grid>*:nth-child(3n+2){--tint:#E4F5FB}
+.grid>*:nth-child(3n){--tint:#F2E8F8}
+[class*="rounded"].bg-white,[class*="rounded"].bg-surface-container-lowest{border:1px solid rgba(255,255,255,.9);box-shadow:var(--sh-1)!important}
+.rounded-3xl,.rounded-2xl{border-radius:22px!important}
+.rounded-xl{border-radius:16px!important}
+.rounded-lg,.rounded-md{border-radius:12px!important}
+.shadow,.shadow-xs,.shadow-sm,.shadow-md,.shadow-lg,.shadow-xl,.shadow-2xl,[class*="shadow-["]{box-shadow:var(--sh-1)!important}
+.blur-3xl,.blur-2xl{display:none!important}
+
+header.fixed,header{background:rgba(252,247,242,.88)!important;backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px);box-shadow:none!important;border-bottom:1px solid rgba(120,90,100,.10)!important}
+footer{background:rgba(252,247,242,.80)!important;border-top:1px solid rgba(120,90,100,.12)!important;box-shadow:none!important}
+
+/* ---------- colour mapping ---------- */
+.bg-primary,.bg-primary-container,.bg-inverse-surface,.bg-secondary,.bg-secondary-container,[class*="bg-[#1B1B18]"]{background-color:var(--btn)!important;color:#fff}
+.hover\:bg-secondary:hover,.hover\:bg-primary-container:hover,[class*="hover:bg-[#2B6B5A]"]:hover{background-color:#2A2D3A!important}
+.text-primary,.text-on-surface,.text-on-background,.text-text-primary,.text-gray-900,.text-slate-900{color:var(--ink)!important}
+.text-on-surface-variant,.text-gray-700,.text-gray-600,.text-gray-500,.text-slate-600,.text-slate-500{color:var(--body)!important}
+.text-secondary{color:var(--ink)!important}
+.text-success-teal,.text-teal-600{color:#16A34A!important}
+.bg-primary *,.bg-primary-container *,.bg-secondary *,[class*="bg-[#1B1B18]"] *{color:inherit}
+.border-outline-variant,[class*="border-outline-variant"],[class*="border-purple"],[class*="border-slate-"],[class*="border-gray-"]{border-color:var(--line)!important}
+
+/* ---------- icon tiles: soft pink gradient like the reference ---------- */
+[class*="rounded"][class*="bg-"]:has(>.material-symbols-outlined){background:linear-gradient(135deg,#FBE3DD,#F1E4F1)!important;border:1px solid rgba(255,255,255,.9)}
+[class*="rounded"]:has(>.material-symbols-outlined) .material-symbols-outlined,[class*="rounded"]>.material-symbols-outlined{color:var(--ink)}
+
+/* ---------- buttons ---------- */
+button:not(.prompt-starter-btn):not([class*="rounded-full"]){border-radius:10px!important}
+button[class*="bg-primary"],button[class*="bg-[#1B1B18]"],button[class*="bg-secondary"],a[class*="bg-primary"]{background-color:var(--btn)!important;color:#fff!important;border:1px solid var(--btn);font-weight:600}
+button[class*="bg-primary"]:hover,button[class*="bg-[#1B1B18]"]:hover,a[class*="bg-primary"]:hover{background-color:#2A2D3A!important}
+button[class*="bg-surface-subtle"],button[class*="bg-[#F6F3EC]"],button[class*="bg-white"],button[class*="bg-surface-container-lowest"]{background:rgba(255,255,255,.9)!important;border:1px solid rgba(120,90,100,.16)!important;color:var(--ink);box-shadow:var(--sh-1)}
+button[class*="bg-surface-subtle"]:hover,button[class*="bg-[#F6F3EC]"]:hover,button[class*="bg-white"]:hover{border-color:var(--ink)!important;background:#fff!important}
+.prompt-starter-btn,.portal-link{border-radius:14px!important;background:linear-gradient(180deg,rgba(255,255,255,.95),#FFF3EC)!important;border:1px solid rgba(255,255,255,.9);color:var(--ink)!important;box-shadow:var(--sh-1)}
+.prompt-starter-btn:hover,.portal-link:hover{transform:translateX(4px);box-shadow:var(--sh-2)}
+span.rounded-full{background-color:rgba(255,255,255,.85)!important;box-shadow:var(--sh-1)}
+
+/* ---------- inputs ---------- */
+input,textarea,select{border-radius:12px!important;border:1px solid rgba(120,90,100,.18)!important;background-color:rgba(255,255,255,.95)!important;box-shadow:0 1px 2px rgba(60,30,50,.06);color:#2B2F3E}
+input:focus,textarea:focus,select:focus{border-color:var(--ink)!important;box-shadow:0 0 0 4px rgba(23,28,43,.10)!important;outline:none!important}
+:focus-visible{outline:2px solid var(--ink)!important;outline-offset:2px}
+input:focus-visible,textarea:focus-visible,select:focus-visible{outline:none!important}
+table{border-collapse:separate;border-spacing:0}
+thead th{background:rgba(255,255,255,.6)!important;color:var(--muted)!important;font-weight:600}
+td,th{border-color:var(--line)!important}
+</style>
+<!-- felt-motion: animation only -->
+<script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('fa');</script>
+<style id="felt-motion">
+@keyframes fa-up{from{opacity:0;transform:translateY(26px);filter:blur(5px)}to{opacity:1;transform:none;filter:blur(0)}}
+@keyframes fa-pop{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes fa-aurora{0%{transform:translate3d(-3%,-2%,0) scale(1)}50%{transform:translate3d(3%,2%,0) scale(1.08)}100%{transform:translate3d(-2%,4%,0) scale(1.03)}}
+@keyframes fa-shine{from{transform:translateX(-120%) skewX(-20deg)}to{transform:translateX(240%) skewX(-20deg)}}
+@keyframes fa-ping{0%{box-shadow:0 0 0 0 rgba(22,163,74,.4)}70%,100%{box-shadow:0 0 0 9px rgba(22,163,74,0)}}
+@keyframes fa-progress{to{transform:scaleX(1)}}
+@keyframes fa-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+
+/* drifting peach / lilac / sky colour glow over the page gradient */
+body::before{content:"";position:fixed;inset:-12%;z-index:-1;pointer-events:none;
+  background:radial-gradient(34% 38% at 14% 14%,rgba(255,190,170,.55),transparent 70%),radial-gradient(34% 40% at 88% 22%,rgba(205,190,245,.55),transparent 70%),radial-gradient(40% 40% at 55% 92%,rgba(170,225,245,.50),transparent 70%);
+  animation:fa-aurora 16s ease-in-out infinite alternate}
+
+/* scroll progress bar */
+@supports (animation-timeline:scroll()){
+  html::before{content:"";position:fixed;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#F2A38F,#B79BE8,#171C2B);transform:scaleX(0);transform-origin:0 50%;z-index:100;pointer-events:none;animation:fa-progress linear both;animation-timeline:scroll(root)}
+}
+
+/* hero entrance */
+html.fa main>section:first-of-type h1,
+html.fa main>section:first-of-type h1~*{animation:fa-up 1s var(--ease) both}
+html.fa main>section:first-of-type h1~*:nth-child(2){animation-delay:.1s}
+html.fa main>section:first-of-type h1~*:nth-child(3){animation-delay:.2s}
+html.fa main>section:first-of-type h1~*:nth-child(n+4){animation-delay:.3s}
+html.fa main>section:first-of-type span.rounded-full{animation:fa-float 5s ease-in-out infinite}
+
+/* scroll reveal (existing felt-motion-js classes) */
+html.fa .fa-r{opacity:0;transform:translateY(30px);filter:blur(3px)}
+html.fa .fa-r.fa-in{opacity:1;transform:none;filter:blur(0);transition:opacity .75s var(--ease),transform .75s var(--ease),filter .75s var(--ease);transition-delay:var(--d,0ms)}
+
+/* cards */
+.grid>[class*="rounded"]:not(input):not(textarea):not(button){transition:box-shadow .3s var(--ease)}
+.group:hover .material-symbols-outlined{transform:scale(1.12) rotate(-5deg)}
+.material-symbols-outlined{transition:transform .45s var(--ease),color .3s var(--ease)}
+.group:hover [class*="rounded"][class*="bg-"]:has(>.material-symbols-outlined){background:var(--btn)!important}
+.group:hover [class*="rounded"]>.material-symbols-outlined{color:#fff!important}
+
+/* buttons */
+a,button{transition:background-color .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease),transform .3s var(--ease),box-shadow .3s var(--ease),opacity .3s var(--ease)}
+button:not(:disabled):hover{transform:translateY(-1px)}
+a:active,button:active{transform:scale(.97)}
+button[class*="bg-primary"],button[class*="bg-[#1B1B18]"],a[class*="bg-primary"]{position:relative;overflow:hidden}
+button[class*="bg-primary"]::after,button[class*="bg-[#1B1B18]"]::after,a[class*="bg-primary"]::after{content:"";position:absolute;top:0;bottom:0;left:0;width:36%;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);transform:translateX(-120%) skewX(-20deg)}
+button[class*="bg-primary"]:hover::after,button[class*="bg-[#1B1B18]"]:hover::after,a[class*="bg-primary"]:hover::after{animation:fa-shine .85s var(--ease)}
+button[class*="bg-primary"]:not(:disabled):hover,button[class*="bg-[#1B1B18]"]:not(:disabled):hover{box-shadow:0 12px 24px -10px rgba(11,11,15,.6)}
+
+/* footer links, header, tables, chat */
+footer a{background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .4s var(--ease),color .3s var(--ease)}
+footer a:hover{background-size:100% 1px;color:var(--ink)}
+header.fixed{transition:background-color .35s var(--ease),border-color .35s var(--ease)}
+header.fixed.fa-scrolled{background:rgba(252,247,242,.97)!important;border-bottom-color:rgba(120,90,100,.22)!important}
+.text-success-teal{border-radius:9999px;animation:fa-ping 2.6s ease-out infinite}
+tbody tr{transition:background-color .2s var(--ease)}
+tbody tr:hover{background:rgba(255,255,255,.6)}
+#chatFeed>*{animation:fa-pop .4s var(--ease) both}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}html.fa .fa-r{opacity:1;transform:none;filter:none}}
+</style>
+</head>
+
+<body class="antialiased">
+
+<!-- TOP HEADER -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
+  <div class="h-20 max-w-[1280px] mx-auto px-6 flex items-center justify-between gap-4">
+
+    <div class="flex items-center gap-3">
+      <div class="w-11 h-11 rounded-xl bg-[#1B1B18] text-white flex items-center justify-center">
+        <span class="material-symbols-outlined text-2xl">school</span>
+      </div>
+      <div class="flex flex-col">
+        <span class="text-xl font-bold text-[#1B1B18] tracking-tight">Admission Saathi</span>
+        <span class="text-xs text-gray-500">Student Counselling Platform</span>
+      </div>
+    </div>
+
+    <nav class="desktop-nav hidden md:flex items-center gap-2">
+      <a href="/" class="px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-100">Home</a>
+      <a href="/admission-assistant/" class="px-3 py-2 rounded-lg text-sm bg-[#1B1B18] text-white">Admission Assistant</a>
+      <a href="/college-predictor/" class="px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-100">College Predictor</a>
+      <a href="/iit-placements/" class="px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-100">IIT Placements</a>
+      <a href="/admission-calendar/" class="px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-100">Admission Calendar</a>
+    </nav>
+
+  </div>
+</header>
+
+<main class="pt-20 min-h-screen flex flex-col">
+
+<!-- ASSISTANT HEADER -->
+<section class="bg-[#EFEBE0] border-b border-gray-200 px-6 py-5">
+  <div class="max-w-[1280px] mx-auto flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+
+    <div class="flex items-center gap-3">
+      <div class="w-11 h-11 rounded-xl bg-[#1B1B18] text-white flex items-center justify-center">
+        <span class="material-symbols-outlined text-2xl">smart_toy</span>
+      </div>
+
+      <div>
+        <div class="flex items-center gap-2">
+          <h1 class="text-xl font-bold text-[#1B1B18]">Admission Saathi</h1>
+        </div>
+        <p class="text-xs text-gray-600 mt-1">AI JEE & JoSAA Counselling Assistant</p>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap items-center gap-2">
+
+      <div class="flex items-center gap-2 px-3 h-10 rounded-lg bg-white border border-gray-200">
+        <span class="material-symbols-outlined text-[#2B6B5A]">translate</span>
+        <select id="languageSelect" class="text-sm font-semibold text-[#1B1B18] bg-transparent outline-none max-w-[180px]">
+          <optgroup label="Native Languages">
+            <option value="en-IN" data-prisma-language="en-IN" data-prisma-mode="transcribe">English</option>
+            <option value="hi-IN" data-prisma-language="hi-IN" data-prisma-mode="transcribe">Hindi (हिंदी)</option>
+            <option value="bn-IN" data-prisma-language="bn-IN" data-prisma-mode="transcribe">Bengali (বাংলা)</option>
+            <option value="mr-IN" data-prisma-language="mr-IN" data-prisma-mode="transcribe">Marathi (मराठी)</option>
+            <option value="ta-IN" data-prisma-language="ta-IN" data-prisma-mode="transcribe">Tamil (தமிழ்)</option>
+            <option value="te-IN" data-prisma-language="te-IN" data-prisma-mode="transcribe">Telugu (తెలుగు)</option>
+            <option value="gu-IN" data-prisma-language="gu-IN" data-prisma-mode="transcribe">Gujarati (ગુજરાતી)</option>
+            <option value="kn-IN" data-prisma-language="kn-IN" data-prisma-mode="transcribe">Kannada (ಕನ್ನಡ)</option>
+            <option value="ml-IN" data-prisma-language="ml-IN" data-prisma-mode="transcribe">Malayalam (മലയാളം)</option>
+            <option value="pa-IN" data-prisma-language="pa-IN" data-prisma-mode="transcribe">Punjabi (ਪੰਜਾਬੀ)</option>
+          </optgroup>
+          <optgroup label="Mixed Languages">
+            <option value="hi-IN-codemix" data-prisma-language="hi-IN" data-prisma-mode="codemix">Hinglish</option>
+            <option value="bn-IN-codemix" data-prisma-language="bn-IN" data-prisma-mode="codemix">Benglish</option>
+            <option value="ta-IN-codemix" data-prisma-language="ta-IN" data-prisma-mode="codemix">Tanglish</option>
+            <option value="te-IN-codemix" data-prisma-language="te-IN" data-prisma-mode="codemix">Tenglish</option>
+            <option value="mr-IN-codemix" data-prisma-language="mr-IN" data-prisma-mode="codemix">Marathinglish</option>
+            <option value="gu-IN-codemix" data-prisma-language="gu-IN" data-prisma-mode="codemix">Gujlish</option>
+            <option value="kn-IN-codemix" data-prisma-language="kn-IN" data-prisma-mode="codemix">Kanglish</option>
+            <option value="ml-IN-codemix" data-prisma-language="ml-IN" data-prisma-mode="codemix">Manglish</option>
+            <option value="pa-IN-codemix" data-prisma-language="pa-IN" data-prisma-mode="codemix">Punglish</option>
+          </optgroup>
+        </select>
+      </div>
+
+      <button id="audioToggleBtn" class="h-10 px-3 rounded-lg bg-white border border-gray-200 flex items-center gap-2 text-sm">
+        <span id="speakerIcon" class="material-symbols-outlined text-[#2B6B5A]">volume_up</span>
+        <span id="audioStateLabel">Audio On</span>
+      </button>
+
+      <button id="newChatBtn" class="h-10 px-4 rounded-lg bg-[#1B1B18] text-white flex items-center gap-2 text-sm font-semibold hover:bg-[#2B6B5A]">
+        <span class="material-symbols-outlined">add_comment</span>
+        New Chat
+      </button>
+
+    </div>
+  </div>
+</section>
+
+<!-- MAIN WORKSPACE -->
+<div class="page-container max-w-[1280px] w-full mx-auto px-6 py-6 flex-1">
+
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="lg:col-span-4 flex flex-col gap-5">
+
+      <div class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm">
+
+        <div class="flex items-center justify-between border-b pb-3">
+          <span class="text-sm font-bold text-[#1B1B18] uppercase flex items-center gap-2">
+            <span class="material-symbols-outlined text-[#2B6B5A]">help_outline</span>
+            Suggested Topics & FAQs
+          </span>
+          <span class="text-xs text-gray-500">Click to ask</span>
+        </div>
+
+        <p class="text-xs text-gray-500 my-3">Tap any question to get immediate counselling guidance:</p>
+
+        <div class="space-y-4">
+
+          <div class="border-b pb-3">
+            <p class="text-xs font-bold text-[#1B1B18] uppercase mb-2">JEE & JoSAA Counselling</p>
+
+            <div class="space-y-2">
+              <button class="prompt-starter-btn" data-prompt="How does JoSAA counselling work?">How does JoSAA counselling work?</button>
+              <button class="prompt-starter-btn" data-prompt="What are the JoSAA counselling rounds?">What are the JoSAA counselling rounds?</button>
+              <button class="prompt-starter-btn" data-prompt="How does choice filling work?">How does choice filling work?</button>
+              <button class="prompt-starter-btn" data-prompt="What is the difference between Freeze, Float and Slide?">What is the difference between Freeze, Float and Slide?</button>
+              <button class="prompt-starter-btn" data-prompt="How does seat allotment work?">How does seat allotment work?</button>
+            </div>
+          </div>
+
+          <div class="border-b pb-3">
+            <p class="text-xs font-bold text-[#1B1B18] uppercase mb-2">Category & Reservation Rules</p>
+
+            <div class="space-y-2">
+              <button class="prompt-starter-btn" data-prompt="What are the reservation rules for General, OBC-NCL, SC, ST and EWS?">What are the reservation rules for General, OBC-NCL, SC, ST and EWS?</button>
+              <button class="prompt-starter-btn" data-prompt="What is the OBC-NCL certificate requirement for JoSAA?">What is the OBC-NCL certificate requirement for JoSAA?</button>
+              <button class="prompt-starter-btn" data-prompt="What documents are required for category verification?">What documents are required for category verification?</button>
+              <button class="prompt-starter-btn" data-prompt="What are the certificate validity requirements?">What are the certificate validity requirements?</button>
+            </div>
+          </div>
+
+          <div>
+            <p class="text-xs font-bold text-[#1B1B18] uppercase mb-2">Required Document Checklist</p>
+
+            <div class="space-y-2">
+              <button class="prompt-starter-btn" data-prompt="What documents are required for JoSAA registration?">What documents are required for JoSAA registration?</button>
+              <button class="prompt-starter-btn" data-prompt="What documents are needed for document verification?">What documents are needed for document verification?</button>
+              <button class="prompt-starter-btn" data-prompt="What is the required format for category certificates?">What is the required format for category certificates?</button>
+              <button class="prompt-starter-btn" data-prompt="What should I do if a required certificate is unavailable?">What should I do if a required certificate is unavailable?</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- OFFICIAL PORTALS -->
+      <div class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm">
+        <h3 class="text-sm font-bold text-[#1B1B18] uppercase border-b pb-3 flex items-center gap-2">
+          <span class="material-symbols-outlined text-[#2B6B5A]">public</span>
+          Official Authority Portals
+        </h3>
+
+        <p class="text-xs text-gray-500 my-3">Direct portals for official brochures, registrations and seat matrices:</p>
+
+        <div class="space-y-2">
+          <a href="https://josaa.nic.in" target="_blank" rel="noopener noreferrer" class="portal-link">
+            <span><b>JoSAA Official Portal</b><small>josaa.nic.in</small></span>
+            <span class="material-symbols-outlined">open_in_new</span>
+          </a>
+
+          <a href="https://csab.nic.in" target="_blank" rel="noopener noreferrer" class="portal-link">
+            <span><b>CSAB Official Portal</b><small>csab.nic.in</small></span>
+            <span class="material-symbols-outlined">open_in_new</span>
+          </a>
+
+          <a href="https://jeemain.nta.nic.in" target="_blank" rel="noopener noreferrer" class="portal-link">
+            <span><b>JEE Main Official Portal</b><small>jeemain.nta.nic.in</small></span>
+            <span class="material-symbols-outlined">open_in_new</span>
+          </a>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- CHAT SECTION -->
+    <section class="lg:col-span-8 bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden flex flex-col min-h-[720px]">
+
+      <!-- CHAT HEADER -->
+      <div class="p-4 border-b border-gray-200 flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-[#1B1B18] text-white flex items-center justify-center">
+          <span class="material-symbols-outlined">smart_toy</span>
+        </div>
+        <div>
+          <h2 class="font-bold text-[#1B1B18]">Admission Saathi AI</h2>
+          <p class="text-xs text-gray-500">Your admission and document assistant</p>
+        </div>
+      </div>
+
+      <!-- CHAT FEED -->
+      <div id="chatFeed" class="chat-scroll flex-1 p-5 space-y-5 overflow-y-auto min-h-[400px] max-h-[650px]">
+
+        <!-- WELCOME MESSAGE -->
+        <div class="flex items-start gap-3 welcome-message">
+          <div class="w-9 h-9 rounded-full bg-[#1B1B18] text-white flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined">smart_toy</span>
+          </div>
+
+          <div class="max-w-[92%]">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-bold text-[#1B1B18]">Admission Saathi AI</span>
+              <span class="text-xs text-gray-500">Assistant</span>
+            </div>
+
+            <div class="bg-[#F6F3EC] p-4 rounded-2xl rounded-tl-sm border border-gray-100">
+              <p id="welcomeText" class="text-sm leading-7">
+                Welcome to Admission Saathi! I am your AI assistant for JEE Main, JEE Advanced and JoSAA / CSAB counselling. I can help you understand opening and closing ranks, category and reservation rules, Freeze/Float/Slide options, and document verification.
+              </p>
+              <p id="welcomeHint" class="text-sm text-gray-500 mt-3">
+                You can ask a question, choose a topic from the left, or upload your JEE scorecard or category certificate.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- INPUT CONSOLE -->
+      <div class="bg-[#F6F3EC] border-t border-gray-200 p-4 flex flex-col gap-3">
+
+        <!-- ATTACHMENT PREVIEW -->
+        <div id="attachedFilePill" class="hidden items-center justify-between px-3 py-2 rounded-xl bg-white border border-gray-200 text-[#1B1B18]">
+          <div class="flex items-center gap-2 truncate">
+            <span id="attachmentTypeIcon" class="material-symbols-outlined text-[#2B6B5A]">description</span>
+            <span id="attachmentName" class="text-xs font-semibold truncate">File attached</span>
+          </div>
+          <button type="button" id="removeAttachmentBtn" title="Remove attachment">
+            <span class="material-symbols-outlined text-red-500">close</span>
+          </button>
+        </div>
+
+        <!-- TEXT INPUT -->
+        <div class="bg-white rounded-xl border border-gray-200 p-3 shadow-sm">
+          <textarea
+            id="counsellingQueryInput"
+            class="w-full resize-none outline-none text-sm p-2 min-h-[65px]"
+            placeholder="Ask any question about JEE ranks, JoSAA rounds, choice filling, or reservation rules..."
+            rows="2"></textarea>
+
+          <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-gray-100">
+
+            <div class="flex flex-wrap items-center gap-2">
+
+              <!-- PDF UPLOAD -->
+              <label class="cursor-pointer h-9 px-3 rounded-lg bg-[#F6F3EC] hover:bg-[#EFEBE0] flex items-center gap-2 text-xs font-semibold text-gray-700 border border-gray-200">
+                <span class="material-symbols-outlined text-[#2B6B5A]">picture_as_pdf</span>
+                Upload PDF
+                <input id="pdfUploadInput" type="file" accept=".pdf,application/pdf" class="hidden">
+              </label>
+
+              <!-- IMAGE UPLOAD -->
+              <label class="cursor-pointer h-9 px-3 rounded-lg bg-[#F6F3EC] hover:bg-[#EFEBE0] flex items-center gap-2 text-xs font-semibold text-gray-700 border border-gray-200">
+                <span class="material-symbols-outlined text-[#2B6B5A]">image</span>
+                Upload Image
+                <input id="imageUploadInput" type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" class="hidden">
+              </label>
+
+              <!-- VOICE RECORDING -->
+              <button type="button" id="voiceMicBtn" class="h-9 px-3 rounded-lg bg-[#F6F3EC] hover:bg-[#EFEBE0] flex items-center gap-2 text-xs font-semibold text-gray-700 border border-gray-200">
+                <span id="micIcon" class="material-symbols-outlined text-[#2B6B5A]">mic</span>
+                <span id="micStatusText">Voice Input</span>
+              </button>
+
+            </div>
+
+            <!-- SEND -->
+            <button type="button" id="sendMessageBtn" class="h-9 px-5 rounded-lg bg-[#1B1B18] hover:bg-[#2B6B5A] text-white text-sm font-semibold flex items-center gap-2">
+              <span>Send Question</span>
+              <span class="material-symbols-outlined text-base">send</span>
+            </button>
+
+          </div>
+        </div>
+
+        <p class="text-[11px] text-gray-500 text-center">
+          Guidance is based on official published JoSAA & CSAB business rules and opening-closing rank matrices. Always confirm details on official portals.
+        </p>
+
+      </div>
+    </section>
+
+  </div>
+</div>
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-white border-t border-gray-200">
+  <div class="max-w-[1280px] mx-auto px-6 py-10">
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-8">
+
+      <div>
+        <div class="flex items-center gap-2 mb-3">
+          <div class="w-9 h-9 rounded-lg bg-[#1B1B18] text-white flex items-center justify-center">
+            <span class="material-symbols-outlined">school</span>
+          </div>
+          <span class="font-bold text-[#1B1B18]">Admission Saathi</span>
+        </div>
+        <p class="text-xs text-gray-500 leading-6">
+          Empowering students and parents with data-driven admission guidance, cutoff reference and verified counselling pathways across premier institutions.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-sm text-[#1B1B18] mb-3">Features</h4>
+        <div class="space-y-2 text-xs text-gray-500">
+          <p>Predictor Engine</p>
+          <p>AI Assistant</p>
+          <p>College Comparison</p>
+          <p>Rank Analyzer</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="bg-[#F6F3EC] border border-gray-200 rounded-xl p-4 mb-6">
+      <p class="text-xs text-gray-600 text-center leading-6">
+        <b class="text-gray-800">Important Disclaimer:</b>
+        All guidance provided is strictly informational and based on official published counselling brochures and business rules from respective authorities (JoSAA, CSAB and NTA JEE). Students and parents are strongly advised to verify seat allocations, cutoff ranks and eligibility rules on the respective official authority portals.
+      </p>
+    </div>
+
+    <div class="flex flex-col sm:flex-row justify-between gap-2 text-center text-xs text-gray-500">
+      <span>© 2025 Admission Saathi. All rights reserved. Made for aspiring students nationwide.</span>
+      <span>Public Educational Counselling Platform</span>
+    </div>
+
+  </div>
+</footer>
+
+<style>
+.prompt-starter-btn {
+  display:block;
+  width:100%;
+  text-align:left;
+  padding:9px 10px;
+  border-radius:8px;
+  background:#F6F3EC;
+  color:#1B1B18;
+  font-size:12px;
+  font-weight:600;
+  line-height:1.5;
+  transition:.2s;
+}
+.prompt-starter-btn:hover {
+  background:#EFEBE0;
+}
+.portal-link {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:11px;
+  border-radius:10px;
+  background:#F6F3EC;
+  color:#1B1B18;
+  font-size:12px;
+}
+.portal-link:hover { background:#EFEBE0; }
+.portal-link small {
+  display:block;
+  color:#6b7280;
+  margin-top:3px;
+}
+</style>
+
+<script>
+(function () {
+  "use strict";
+
+  // n8n production webhook URL
+  const N8N_WEBHOOK_URL =
+    "https://sickoguy.app.n8n.cloud/webhook/1ee7b2ef-84fe-4f5d-9630-01233c78343c";
+
+  const chatFeed = document.getElementById("chatFeed");
+  const queryInput = document.getElementById("counsellingQueryInput");
+  const sendBtn = document.getElementById("sendMessageBtn");
+  const languageSelect = document.getElementById("languageSelect");
+
+  const pdfInput = document.getElementById("pdfUploadInput");
+  const imageInput = document.getElementById("imageUploadInput");
+
+  const attachedFilePill = document.getElementById("attachedFilePill");
+  const attachmentName = document.getElementById("attachmentName");
+  const attachmentTypeIcon = document.getElementById("attachmentTypeIcon");
+  const removeAttachmentBtn = document.getElementById("removeAttachmentBtn");
+
+  const micBtn = document.getElementById("voiceMicBtn");
+  const micIcon = document.getElementById("micIcon");
+  const micStatus = document.getElementById("micStatusText");
+
+  const audioToggleBtn = document.getElementById("audioToggleBtn");
+  const speakerIcon = document.getElementById("speakerIcon");
+  const audioStateLabel = document.getElementById("audioStateLabel");
+  const newChatBtn = document.getElementById("newChatBtn");
+
+  let selectedAttachment = null;
+  let recordedAudio = null;
+  let mediaRecorder = null;
+  let mediaStream = null;
+  let audioChunks = [];
+  let activeAudio = null;
+  let activeReadButton = null;
+  let audioEnabled = true;
+  let isRecording = false;
+  let isSending = false;
+
+  function scrollToLatest() {
+    chatFeed.scrollTop = chatFeed.scrollHeight;
+  }
+
+  function escapeHtml(value) {
+    return String(value).replace(/[&<>"']/g, function (char) {
+      return {
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      }[char];
+    });
+  }
+
+  function getSelectedLanguage() {
+    const option = languageSelect.selectedOptions[0];
+
+    return {
+      language: languageSelect.value || "en-IN",
+      languageCode: option.dataset.prismaLanguage || "en-IN",
+      languageMode: option.dataset.prismaMode || "transcribe"
+    };
+  }
+
+  // USER MESSAGE
+  function addUserMessage(message) {
+    const row = document.createElement("div");
+    row.className = "flex items-start gap-3 justify-end";
+
+    row.innerHTML = `
+      <div class="flex flex-col gap-1 max-w-[90%] items-end">
+        <div class="flex items-center gap-2">
+          <span class="text-xs text-gray-500">Student</span>
+          <span class="text-xs font-bold text-[#1B1B18]">You</span>
+        </div>
+        <div class="bg-[#1B1B18] text-white p-4 rounded-2xl rounded-tr-sm shadow-sm">
+          <p class="text-sm whitespace-pre-wrap break-words"></p>
+        </div>
+      </div>
+      <div class="w-9 h-9 rounded-full bg-[#E4DFD2] text-[#1B1B18] flex items-center justify-center shrink-0">
+        <span class="material-symbols-outlined">person</span>
+      </div>
+    `;
+
+    row.querySelector("p").textContent = message;
+    chatFeed.appendChild(row);
+    scrollToLatest();
+  }
+
+  // ASSISTANT MESSAGE + COPY + GNANI TIMBRE AUDIO
+  
+function addAssistantMessage(text, audioBase64, audioMimeType) {
+  const row = document.createElement("div");
+
+  row.className = "flex items-start gap-space-sm";
+
+  row.innerHTML = `
+    <div class="w-9 h-9 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0 shadow-xs mt-0.5">
+      <span class="material-symbols-outlined text-[20px]">smart_toy</span>
+    </div>
+
+    <div class="flex flex-col gap-2 max-w-[95%] sm:max-w-[92%]">
+      <div class="flex items-center gap-2">
+        <span class="font-label-md text-label-md font-bold text-primary">
+          Admission Saathi AI
+        </span>
+        <span class="font-label-sm text-label-sm text-on-surface-variant">
+          Assistant
+        </span>
+      </div>
+
+      <div class="bg-surface-subtle p-space-md rounded-2xl rounded-tl-sm text-on-surface border border-outline-variant/20 shadow-xs">
+        <p class="font-body-md text-body-md whitespace-pre-wrap break-words response-text"></p>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-2">
+        <button type="button"
+          class="response-read-btn inline-flex items-center gap-2 px-3 py-2 rounded-full bg-primary text-on-primary text-sm font-semibold">
+          <span class="material-symbols-outlined text-[18px]">volume_up</span>
+          <span>Read aloud</span>
+        </button>
+
+        <button type="button"
+          class="response-copy-btn inline-flex items-center gap-2 px-3 py-2 rounded-full bg-surface-subtle border border-outline-variant/40 text-primary text-sm font-semibold">
+          <span class="material-symbols-outlined text-[18px]">content_copy</span>
+          <span>Copy</span>
+        </button>
+      </div>
+    </div>
+  `;
+
+  row.querySelector(".response-text").textContent = text;
+
+  const readButton = row.querySelector(".response-read-btn");
+  const copyButton = row.querySelector(".response-copy-btn");
+
+  // READ ALOUD: GNANI TIMBRE AUDIO ONLY
+  readButton.addEventListener("click", async function () {
+
+    // If this response is already playing, STOP it.
+    if (activeAudio && activeReadButton === readButton) {
+      activeAudio.pause();
+      activeAudio.currentTime = 0;
+      activeAudio = null;
+      activeReadButton = null;
+
+      readButton.querySelector("span:last-child").textContent = "Read aloud";
+      readButton.querySelector(".material-symbols-outlined").textContent = "volume_up";
+      return;
+    }
+
+    // Stop any previously playing response.
+    if (activeAudio) {
+      activeAudio.pause();
+      activeAudio.currentTime = 0;
+
+      if (activeReadButton) {
+        activeReadButton.querySelector("span:last-child").textContent = "Read aloud";
+        activeReadButton.querySelector(".material-symbols-outlined").textContent = "volume_up";
+      }
+
+      activeAudio = null;
+      activeReadButton = null;
+    }
+
+    if (!audioBase64) {
+      alert("Audio is not available. Please check the Gnani Timbre output in n8n.");
+      return;
+    }
+
+    try {
+      const audio = new Audio(
+        `data:${audioMimeType || "audio/wav"};base64,${audioBase64}`
+      );
+
+      activeAudio = audio;
+      activeReadButton = readButton;
+
+      readButton.querySelector("span:last-child").textContent = "Stop";
+      readButton.querySelector(".material-symbols-outlined").textContent = "stop";
+
+      audio.onended = function () {
+        if (activeAudio === audio) {
+          activeAudio = null;
+          activeReadButton = null;
+          readButton.querySelector("span:last-child").textContent = "Read aloud";
+          readButton.querySelector(".material-symbols-outlined").textContent = "volume_up";
+        }
+      };
+
+      audio.onerror = function () {
+        if (activeAudio === audio) {
+          activeAudio = null;
+          activeReadButton = null;
+        }
+
+        readButton.querySelector("span:last-child").textContent = "Read aloud";
+        readButton.querySelector(".material-symbols-outlined").textContent = "volume_up";
+
+        alert("Could not play the Gnani Timbre audio.");
+      };
+
+      await audio.play();
+
+    } catch (error) {
+      console.error("Audio playback error:", error);
+
+      activeAudio = null;
+      activeReadButton = null;
+
+      readButton.querySelector("span:last-child").textContent = "Read aloud";
+      readButton.querySelector(".material-symbols-outlined").textContent = "volume_up";
+
+      alert("Unable to play the audio.");
+    }
+  });
+
+  // COPY RESPONSE
+  copyButton.addEventListener("click", async function () {
+    try {
+      await navigator.clipboard.writeText(text);
+
+      const label = copyButton.querySelector("span:last-child");
+      label.textContent = "Copied!";
+
+      setTimeout(function () {
+        label.textContent = "Copy";
+      }, 1500);
+
+    } catch (error) {
+      alert("Unable to copy. Please copy the text manually.");
+    }
+  });
+
+  chatFeed.appendChild(row);
+  scrollToLatest();
+}
+
+
+  // LOADING INDICATOR
+  function showLoading() {
+    const row = document.createElement("div");
+    row.id = "assistantLoading";
+    row.className = "flex items-center gap-3 text-sm text-gray-500";
+
+    row.innerHTML = `
+      <div class="w-9 h-9 rounded-full bg-[#1B1B18] text-white flex items-center justify-center">
+        <span class="material-symbols-outlined">smart_toy</span>
+      </div>
+      <div class="bg-[#F6F3EC] rounded-xl px-4 py-3">
+        Admission Saathi is preparing your response...
+      </div>
+    `;
+
+    chatFeed.appendChild(row);
+    scrollToLatest();
+  }
+
+  function removeLoading() {
+    document.getElementById("assistantLoading")?.remove();
+  }
+
+  // FILE UPLOADS
+  function setAttachment(file, isPdf) {
+    selectedAttachment = file;
+    attachmentName.textContent = file.name;
+    attachmentTypeIcon.textContent = isPdf ? "picture_as_pdf" : "image";
+    attachedFilePill.classList.remove("hidden");
+    attachedFilePill.classList.add("flex");
+  }
+
+  pdfInput.addEventListener("change", function (event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    if (file.type !== "application/pdf") {
+      alert("Please select a valid PDF file.");
+      pdfInput.value = "";
+      return;
+    }
+
+    setAttachment(file, true);
+  });
+
+  imageInput.addEventListener("change", function (event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    if (!["image/jpeg", "image/png", "image/webp"].includes(file.type)) {
+      alert("Please select a JPG, JPEG, PNG or WEBP image.");
+      imageInput.value = "";
+      return;
+    }
+
+    setAttachment(file, false);
+  });
+
+  removeAttachmentBtn.addEventListener("click", function () {
+    selectedAttachment = null;
+    pdfInput.value = "";
+    imageInput.value = "";
+    attachedFilePill.classList.add("hidden");
+    attachedFilePill.classList.remove("flex");
+  });
+
+  // RECORDING TO WAV
+  function encodeWav(audioBuffer) {
+    const samples = audioBuffer.getChannelData(0);
+    const sampleRate = audioBuffer.sampleRate;
+    const buffer = new ArrayBuffer(44 + samples.length * 2);
+    const view = new DataView(buffer);
+
+    function writeString(offset, value) {
+      for (let i = 0; i < value.length; i++) {
+        view.setUint8(offset + i, value.charCodeAt(i));
+      }
+    }
+
+    writeString(0, "RIFF");
+    view.setUint32(4, 36 + samples.length * 2, true);
+    writeString(8, "WAVE");
+    writeString(12, "fmt ");
+    view.setUint32(16, 16, true);
+    view.setUint16(20, 1, true);
+    view.setUint16(22, 1, true);
+    view.setUint32(24, sampleRate, true);
+    view.setUint32(28, sampleRate * 2, true);
+    view.setUint16(32, 2, true);
+    view.setUint16(34, 16, true);
+    writeString(36, "data");
+    view.setUint32(40, samples.length * 2, true);
+
+    let offset = 44;
+    for (let i = 0; i < samples.length; i++) {
+      const sample = Math.max(-1, Math.min(1, samples[i]));
+      view.setInt16(offset, sample < 0 ? sample * 0x8000 : sample * 0x7FFF, true);
+      offset += 2;
+    }
+
+    return new Blob([buffer], { type: "audio/wav" });
+  }
+
+  async function convertToWav(blob) {
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    const context = new AudioContextClass();
+
+    try {
+      const data = await blob.arrayBuffer();
+      const decoded = await context.decodeAudioData(data);
+
+      const offline = new OfflineAudioContext(1, decoded.length, decoded.sampleRate);
+      const source = offline.createBufferSource();
+      source.buffer = decoded;
+      source.connect(offline.destination);
+      source.start(0);
+
+      const monoBuffer = await offline.startRendering();
+      return encodeWav(monoBuffer);
+    } finally {
+      await context.close();
+    }
+  }
+
+  async function stopRecording() {
+    if (!mediaRecorder || mediaRecorder.state === "inactive") return;
+
+    return new Promise(resolve => {
+      mediaRecorder.addEventListener("stop", async function () {
+        try {
+          const blob = new Blob(audioChunks, {
+            type: mediaRecorder.mimeType || "audio/webm"
+          });
+
+          recordedAudio = await convertToWav(blob);
+          micStatus.textContent = "Recording ready";
+
+        } catch (error) {
+          console.error(error);
+          recordedAudio = null;
+          alert("Could not convert the recording to WAV. Please try again.");
+
+        } finally {
+          mediaStream?.getTracks().forEach(track => track.stop());
+          mediaStream = null;
+          isRecording = false;
+          micIcon.classList.remove("animate-pulse", "text-red-500");
+          micBtn.classList.remove("bg-red-50");
+          if (!recordedAudio) micStatus.textContent = "Voice Input";
+          resolve();
+        }
+      }, { once: true });
+
+      mediaRecorder.stop();
+    });
+  }
+
+  micBtn.addEventListener("click", async function () {
+    if (isRecording) {
+      await stopRecording();
+      return;
+    }
+
+    try {
+      if (!navigator.mediaDevices?.getUserMedia || !window.MediaRecorder) {
+        alert("Microphone recording requires a supported browser and HTTPS.");
+        return;
+      }
+
+      mediaStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      audioChunks = [];
+      recordedAudio = null;
+
+      const options = MediaRecorder.isTypeSupported("audio/webm;codecs=opus")
+        ? { mimeType: "audio/webm;codecs=opus" }
+        : {};
+
+      mediaRecorder = new MediaRecorder(mediaStream, options);
+
+      mediaRecorder.ondataavailable = event => {
+        if (event.data && event.data.size > 0) audioChunks.push(event.data);
+      };
+
+      mediaRecorder.start();
+      isRecording = true;
+
+      micIcon.classList.add("animate-pulse", "text-red-500");
+      micBtn.classList.add("bg-red-50");
+      micStatus.textContent = "Recording... Click to stop";
+
+    } catch (error) {
+      console.error(error);
+      alert("Could not access your microphone. Please allow microphone permission.");
+    }
+  });
+
+  // READ N8N RESPONSE
+  function getResponsePayload(data) {
+    if (Array.isArray(data)) data = data[0] || {};
+
+    if (data?.body && typeof data.body === "object") {
+      data = data.body;
+    }
+
+    const answer =
+      data?.text ||
+      data?.answer ||
+      data?.response ||
+      data?.output ||
+      data?.message ||
+      data?.content ||
+      "";
+
+    return {
+      text: typeof answer === "string" ? answer : JSON.stringify(answer),
+      audioBase64: data?.audioBase64 || data?.audio_base64 || null,
+      audioMimeType: data?.audioMimeType || data?.audio_mime_type || "audio/wav"
+    };
+  }
+
+  // SEND TO N8N WEBHOOK
+  async function sendQuery() {
+    if (isSending) return;
+
+    const message = queryInput.value.trim();
+
+    if (isRecording) {
+      alert("Please stop the recording before sending.");
+      return;
+    }
+
+    if (!message && !selectedAttachment && !recordedAudio) return;
+
+    isSending = true;
+    sendBtn.disabled = true;
+
+    const lang = getSelectedLanguage();
+
+    let displayMessage = message;
+    if (selectedAttachment) {
+      displayMessage += (displayMessage ? "\n" : "") + "Attached file: " + selectedAttachment.name;
+    }
+    if (recordedAudio) {
+      displayMessage += (displayMessage ? "\n" : "") + "Voice recording attached.";
+    }
+
+    addUserMessage(displayMessage || "Voice message");
+    queryInput.value = "";
+    showLoading();
+
+    try {
+      const formData = new FormData();
+
+      formData.append("message", message);
+      formData.append("language", lang.language);
+      formData.append("language_code", lang.languageCode);
+      formData.append("language_mode", lang.languageMode);
+      formData.append("source", "admission-saathi-web");
+
+      if (selectedAttachment) {
+        formData.append("file", selectedAttachment, selectedAttachment.name);
+      }
+
+      if (recordedAudio) {
+        formData.append("audio", recordedAudio, "recording.wav");
+      }
+
+      const response = await fetch(N8N_WEBHOOK_URL, {
+        method: "POST",
+        body: formData
+      });
+
+      const raw = await response.text();
+
+      if (!response.ok) {
+        throw new Error("Webhook error " + response.status + ": " + raw.slice(0, 300));
+      }
+
+      let data;
+      try {
+        data = JSON.parse(raw);
+      } catch {
+        throw new Error("The webhook did not return valid JSON.");
+      }
+
+      const result = getResponsePayload(data);
+
+      if (!result.text && !result.audioBase64) {
+        throw new Error("No answer was returned by the n8n workflow.");
+      }
+
+      addAssistantMessage(
+        result.text || "Audio response received.",
+        result.audioBase64,
+        result.audioMimeType
+      );
+
+      selectedAttachment = null;
+      recordedAudio = null;
+      pdfInput.value = "";
+      imageInput.value = "";
+      attachedFilePill.classList.add("hidden");
+      attachedFilePill.classList.remove("flex");
+      micStatus.textContent = "Voice Input";
+
+    } catch (error) {
+      console.error("Webhook error:", error);
+
+      addAssistantMessage(
+        "Sorry, I could not connect to the Admission Saathi workflow.\n\n" +
+        error.message +
+        "\n\nPlease check that the production workflow is active and that the webhook response is configured correctly."
+      );
+
+    } finally {
+      removeLoading();
+      isSending = false;
+      sendBtn.disabled = false;
+      scrollToLatest();
+    }
+  }
+
+  sendBtn.addEventListener("click", sendQuery);
+
+  queryInput.addEventListener("keydown", function (event) {
+    if (event.key === "Enter" && !event.shiftKey) {
+      event.preventDefault();
+      sendQuery();
+    }
+  });
+
+  // SUGGESTED QUESTIONS
+  document.querySelectorAll(".prompt-starter-btn").forEach(button => {
+    button.addEventListener("click", function () {
+      queryInput.value = button.dataset.prompt || "";
+      sendQuery();
+    });
+  });
+
+  // AUDIO ON/OFF
+audioToggleBtn.addEventListener("click", function () {
+  audioEnabled = !audioEnabled;
+
+  if (audioEnabled) {
+    speakerIcon.textContent = "volume_up";
+    audioStateLabel.textContent = "Audio On";
+  } else {
+    speakerIcon.textContent = "volume_off";
+    audioStateLabel.textContent = "Audio Muted";
+
+    if (activeAudio) {
+      activeAudio.pause();
+      activeAudio.currentTime = 0;
+      activeAudio = null;
+    }
+
+    if (activeReadButton) {
+      activeReadButton.querySelector("span:last-child").textContent = "Read aloud";
+      activeReadButton.querySelector(".material-symbols-outlined").textContent = "volume_up";
+      activeReadButton = null;
+    }
+  }
+});
+  // NEW CHAT
+  newChatBtn.addEventListener("click", async function () {
+    if (activeAudio) {
+      activeAudio.pause();
+      activeAudio = null;
+    }
+
+    if (isRecording) {
+      await stopRecording();
+    }
+
+    chatFeed.innerHTML = `
+      <div class="flex items-start gap-3 welcome-message">
+        <div class="w-9 h-9 rounded-full bg-[#1B1B18] text-white flex items-center justify-center shrink-0">
+          <span class="material-symbols-outlined">smart_toy</span>
+        </div>
+        <div class="max-w-[92%]">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-sm font-bold text-[#1B1B18]">Admission Saathi AI</span>
+            <span class="text-xs text-gray-500">Assistant</span>
+          </div>
+          <div class="bg-[#F6F3EC] p-4 rounded-2xl rounded-tl-sm border border-gray-100">
+            <p class="text-sm leading-7">Welcome to Admission Saathi! I am your AI assistant for JEE Main, JEE Advanced and JoSAA / CSAB counselling. I can help you understand opening and closing ranks, category and reservation rules, Freeze/Float/Slide options, and document verification.</p>
+            <p class="text-sm text-gray-500 mt-3">You can ask a question, choose a topic from the left, or upload your JEE scorecard or category certificate.</p>
+          </div>
+        </div>
+      </div>
+    `;
+
+    queryInput.value = "";
+    selectedAttachment = null;
+    recordedAudio = null;
+    pdfInput.value = "";
+    imageInput.value = "";
+    attachedFilePill.classList.add("hidden");
+    attachedFilePill.classList.remove("flex");
+    micStatus.textContent = "Voice Input";
+    scrollToLatest();
+  });
+
+})();
+</script>
+
+<script id="felt-motion-js">
+(function(){
+  var h=document.querySelector('header.fixed');
+  if(h){var t=false;addEventListener('scroll',function(){if(t)return;t=true;requestAnimationFrame(function(){h.classList.toggle('fa-scrolled',scrollY>8);t=false;});},{passive:true});}
+  if(!document.documentElement.classList.contains('fa')||!('IntersectionObserver' in window))return;
+  var els=[].slice.call(document.querySelectorAll('main>section:not(:first-of-type)'));
+  document.querySelectorAll('main>section:not(:first-of-type) .grid').forEach(function(g){
+    [].slice.call(g.children).forEach(function(c,i){c.style.setProperty('--d',Math.min(i*80,320)+'ms');els.push(c);});
+  });
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(!e.isIntersecting)return;var el=e.target;el.classList.add('fa-in');io.unobserve(el);
+    setTimeout(function(){el.classList.remove('fa-r','fa-in');el.style.removeProperty('--d');},1200);
+  });},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(el){el.classList.add('fa-r');io.observe(el);});
+})();
+</script>
+</body>
+</html>
